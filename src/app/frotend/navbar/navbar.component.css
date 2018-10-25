@@ -1,0 +1,17 @@
+.logo-navbar{
+    max-height:42px;
+}
+.bg-white{
+    background-color: white;
+}
+nav{
+    height: 10vh!important;
+}
+.iniciar-sesion{
+    background-color: transparent;
+    border: 2px solid #019af0;
+    padding: 5px;
+    color: black!important;
+    margin-left: 15px;
+    cursor: pointer;
+}
