@@ -60,9 +60,15 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { ClienteService } from './services/cliente.service';
+import { UsuarioService } from './services/usuario.service';
 import { NewPlataformaComponent } from './frontend/new-plataforma/new-plataforma.component';
 import { BackendStandardComponent } from './backend/backend-standard/backend-standard.component';
 import { ValidateComponent } from './frontend/validate/validate.component';
+import { InicioComponent } from './backend/inicio/inicio.component';
+import { LoginComponent } from './backend/login/login.component';
+import { SidenavComponent } from './backend/sidenav/sidenav.component';
+import { ClientesComponent } from './clientes/clientes.component';
+import { NotificacionesComponent } from './backend/notificaciones/notificaciones.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +78,12 @@ import { ValidateComponent } from './frontend/validate/validate.component';
     FooterComponent,
     NewPlataformaComponent,
     BackendStandardComponent,
-    ValidateComponent
+    ValidateComponent,
+    InicioComponent,
+    LoginComponent,
+    SidenavComponent,
+    ClientesComponent,
+    NotificacionesComponent
   ],
   imports: [
     AppRoutingModule,
@@ -119,7 +130,7 @@ import { ValidateComponent } from './frontend/validate/validate.component';
     FormsModule,
     BrowserModule,
   ],
-  providers: [ClienteService
+  providers: [ClienteService, UsuarioService
   ],
   bootstrap: [AppComponent]
 })

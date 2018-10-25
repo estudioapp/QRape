@@ -32,13 +32,13 @@ export class NewPlataformaComponent implements OnInit {
     this.clientService.SearchRegistForEmail(localStorage.getItem("cliente-chango"),this.listClients)
     .subscribe(data => {
       if(this.redesSociales.whatsapp === undefined){
-        this.redesSociales.whatsapp = ""
+        this.redesSociales.whatsapp = "No disponible"
       }
       if(this.redesSociales.instagram === undefined){
-        this.redesSociales.instagram = "";
+        this.redesSociales.instagram = "No disponible";
       }
       if(this.redesSociales.facebook === undefined){
-        this.redesSociales.facebook = "";
+        this.redesSociales.facebook = "No disponible";
       }
       this.clientService.updateClient(this.redesSociales,data.web, data.$key);
       location.href="http://tienda.changofree.com/"+data.$key;

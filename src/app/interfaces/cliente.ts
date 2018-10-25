@@ -5,6 +5,7 @@ export interface Cliente {
     name?:string;
     email?:string;
     password?:string;
+    creacion?:string;
     marca?:string;
     web?:  WebCliente;    
     hasta?:string;

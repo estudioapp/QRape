@@ -76,6 +76,7 @@ export class PlataformasComponent implements OnInit {
       let aux = (diaActual + 15) - diasDeEsteMes;
       this.clientObject.hasta = aux.toString()+"/"+(f.getMonth()+1) + "/" + (f.getFullYear());
     }
+    this.clientObject.creacion = (f.getDay())+"/"+(f.getMonth()) + "/" + (f.getFullYear());
   }
 
   openSnackBar(Message : string, Action : string) {
