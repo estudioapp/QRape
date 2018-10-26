@@ -13,10 +13,20 @@ export class UsuarioService {
   listClient: AngularFireList<Cliente>;
   listUsuario: AngularFireList<any>;
   listNotificacion: AngularFireList<any>;
+  listVentas: AngularFireList<any>;
+  listSoporte: AngularFireList<any>;
 
 
   usuarioList(){
     return this.listUsuario = this.fireBase.list('usuario');
+  }
+
+  soporteList(){
+    return this.listSoporte = this.fireBase.list('soporte', ref => ref.orderByChild('leido'));
+  }
+
+  soporteListMensajes(key){
+    return this.listSoporte = this.fireBase.list('soporte/'+key+"/mensaje");
   }
 
   clientList(){
@@ -26,6 +36,11 @@ export class UsuarioService {
   notificationList(){
     return this.listNotificacion = this.fireBase.list('notificacion');
   }
+
+  pedidoList(){
+    return this.listVentas = this.fireBase.list('pedido');
+  }
+
   updateNotificacion(mensaje){
     this.listNotificacion.push({
       mensaje:mensaje
@@ -38,6 +53,13 @@ export class UsuarioService {
   updateFecha(object : Cliente){
     this.listClient.update(object.$key, {
       hasta:object.hasta  
+    });
+  }
+
+  inserNewSoporte(mensaje){
+    this.listSoporte.push({
+      mensaje: mensaje,
+      quien: "chango"
     });
   }
 }

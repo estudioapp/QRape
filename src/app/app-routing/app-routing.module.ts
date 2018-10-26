@@ -10,20 +10,29 @@ import { SidenavComponent } from '../backend/sidenav/sidenav.component';
 import { InicioComponent } from '../backend/inicio/inicio.component';
 import { ClientesComponent } from '../clientes/clientes.component';
 import { NotificacionesComponent } from '../backend/notificaciones/notificaciones.component';
+import { VentasComponent } from '../backend/ventas/ventas.component';
+import { SoporteComponent } from '../backend/soporte/soporte.component';
+import { MensajesComponent } from '../backend/soporte/mensajes/mensajes.component';
+import { UsuarioOnlineComponent } from '../frontend/usuario-online/usuario-online.component';
+import { TerminosComponent } from '../terminos/terminos.component';
 
 const routes: Routes = [
-  { path: '',  pathMatch: 'full', redirectTo: 'home'},
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: PlataformasComponent  },
   { path: 'creando-tienda', component: NewPlataformaComponent},
   { path: 'cliente-backend',component: BackendStandardComponent},
   { path: 'login', component: ValidateComponent},
   { path: 'backend/login', component: LoginComponent},
+  { path: 'terminos', component: TerminosComponent},
   { path: 'backend', component: SidenavComponent,
   children: [
       { path: '', redirectTo: 'inicio', pathMatch: 'full'},
       { path: 'inicio', component: InicioComponent },
       { path: 'clientes', component: ClientesComponent },
-      { path: 'notificaciones', component: NotificacionesComponent },      
+      { path: 'notificaciones', component: NotificacionesComponent },
+      { path: 'ventas', component: VentasComponent },     
+      { path: 'soporte', component: SoporteComponent },
+      { path: 'soporte/mensajes/:key', component: MensajesComponent },      
   ]},
 ];
 

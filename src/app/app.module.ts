@@ -69,6 +69,11 @@ import { LoginComponent } from './backend/login/login.component';
 import { SidenavComponent } from './backend/sidenav/sidenav.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { NotificacionesComponent } from './backend/notificaciones/notificaciones.component';
+import { VentasComponent } from './backend/ventas/ventas.component';
+import { SoporteComponent } from './backend/soporte/soporte.component';
+import { MensajesComponent } from './backend/soporte/mensajes/mensajes.component';
+import { UsuarioOnlineComponent } from './frontend/usuario-online/usuario-online.component';
+import { TerminosComponent } from './terminos/terminos.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +88,12 @@ import { NotificacionesComponent } from './backend/notificaciones/notificaciones
     LoginComponent,
     SidenavComponent,
     ClientesComponent,
-    NotificacionesComponent
+    NotificacionesComponent,
+    VentasComponent,
+    SoporteComponent,
+    MensajesComponent,
+    UsuarioOnlineComponent,
+    TerminosComponent
   ],
   imports: [
     AppRoutingModule,

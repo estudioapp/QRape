@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 <header class="bg-head">
+    <div class="rombo"></div>
   <div class="container text-white pt-5">
     <div class="row pt-1">
       <div class="col-12 col-md-6 col-xs-12">
@@ -22,17 +23,19 @@
                 <input matInput type="text" placeholder="Nombre de tu marca" name="marca" [(ngModel)]="clientObject.marca">
             </mat-form-field>
             <mat-form-field class="max-width">
-                <input matInput type="text" placeholder="Contraseña para tu web" name="password" [(ngModel)]="clientObject.password">
+                <input matInput type="password" placeholder="Contraseña para tu web" name="password" [(ngModel)]="clientObject.password">
             </mat-form-field>
             </form>
-            <button mat-raised-button class="max-width btn-crear-tienda" color="primary" (click)="ValidateForm()">Crear tienda gratis ya!</button>
+            <small class="mb-2 text-info">
+            Al registrarte estas aceptando nuestros <a routerLink="/terminos">terminos y condiciones</a>
+            </small>
+            <button mat-raised-button class="max-width btn-crear-tienda mt-4" color="primary" (click)="ValidateForm()">Crear tienda gratis ya!</button>
 
           </div>
     </div>
   </div>
 </header>
 <section class="bg-white pt-5">
-  <div class="rombo"></div>
   <div class="container" style="z-index: 3; position: relative">
     <h4><b>Digitaliza tus productos y potencia tus ventas sin limitaciones</b></h4>
     <p>Te ofrecemos la facilidad de crear un ecommerce profesional en cuestion de segundos y con planes economicos.<br>
@@ -86,7 +89,7 @@
                   <div class="content">
                       <div class="main">
                           <h3 class="name">Administra tu Ecommerce</h3>
-                          <p class="profession">Revisá los pedidos pendientes, el trafico de la web y mira cual es tu producto mas destacado</p>
+                          <p class="profession">Revisá los pedidos pendientes, el trafico de la web y administra tus anuncions</p>
                       </div>
                       <div class="footer">
                           <i class="fa fa-mail-forward"></i> Saber más
@@ -100,7 +103,7 @@
                   <div class="content">
                       <div class="main">
                           <h4 class="text-center">Analisis y desarrollo</h4>
-                          <p class="text-center">Te ofrecemos la herramienta magnifica de saber cuantas visitas recibe tu web, cual es tu producto más destacado y muchas cosas más. </p>
+                          <p class="text-center">Te ofrecemos la herramienta magnifica de saber cuantas visitas recibe tu web, admnistrar tus productos y anuncios. </p>
       
                       
                       </div>
@@ -134,7 +137,7 @@
                   </div>
                   <div class="content">
                       <div class="main">
-                          <h4 class="text-center">Mirá las estasdisticas y empezá a disfrutar las ventas cerradas </h4>
+                          <h4 class="text-center">Mirá las estadisticas y empezá a disfrutar las ventas cerradas </h4>
                           <p class="text-center">¡A trabajar!</p>
       
       
@@ -186,30 +189,28 @@
     <div class="container py-2">
         <div class="row">
             <div class="col-12">
-                <h2>Contactanos</h2>
-                <h5>Si tenes alguna duda o si queres consultar algun presupuesto completa el siguiente formulario</h5>
+                <h2><b>Preguntas frecuentes</b></h2>
             </div>
         </div>
         <div class="row pt-3">
-            <div class="col-12 max-width">    
-            <mat-form-field class="max-width">
-                <input matInput  placeholder="Tu nombre y apellido">
-            </mat-form-field>          
+                <div class="col-12 max-width">    
+                    <h4>¿Qué es ChangoFree? ¿Por qué es una herramienta fundamental para mi negocio?</h4>
+                    <p><b>ChangoFree</b> es una aplicación web desarrollada con tecnología de alto nivel. Es un creador de <b>carritos de compras</b> para facilitar las <b>ventas</b> y automatizar los procesos de las mismas. Con ChangoFree podes ofrecer <b>seguiridad y garantia</b> a tus clientes y darle la satisfaccion de realizar una compra desde el sillon de su casa.</p>
+                </div>
+                <div class="col-12 max-width mt-3">    
+                    <h4>¿ChangoFree es solo un carrito de compras?</h4>
+                    <p><b>ChangoFree NO</b> es solo un carrito de compra. La plataforma te proporciona herramientas de estadisticas de <b>visitas a tu web</b>, administrar pedidos realizados y revisar las <b>ventas concretadas</b>. Tambien te ofrecemos variedad de plantillas para que elijas la que mas te guste.
+                </div>
+            <div class="col-12 max-width mt-3">    
+                <h4>¿ChangoFree cobra comisión por cada venta que hago?</h4>
+                <p>ChangoFree cobra $0.50 pesos argentinos por cada venta, ese dinero esta enfocado al mantenimiento de la base de datos y hosting mensual.</p>
             </div>
-            <div class="col-12 max-width">    
-                <mat-form-field class="max-width">
-                    <input matInput  placeholder="Tu email">
-                </mat-form-field>          
-            </div>
-            <div class="col-12 max-width">
-            <mat-form-field class="max-width">
-                <textarea matInput placeholder="Tu mensaje"></textarea>
-            </mat-form-field>          
+            <div class="col-12 max-width mt-5 text-center">    
+                    <h2><b>ChangoFree es la solución digital que estas buscando, crea tu tienda ahora y marca una diferencia</b> </h2>
+            <button mat-raised-button style="width:250px; font-size:20px" class="btn-crear-tienda mt-4" color="primary" data-toggle="modal" data-target="#registroModal">Crear tienda gratis ya!</button>
+              
+                </div>
         </div>
-        <div class="col-12">
-            <button mat-raised-button style="background-color:#009fff;" class="text-white">Enviar consulta</button>
-        </div>
-    </div>
     </div>
 </section>
 <app-footer></app-footer>
@@ -235,7 +236,7 @@
                                 <input matInput type="text" placeholder="Nombre de tu marca" name="marca" [(ngModel)]="clientObject.marca">
                             </mat-form-field>
                             <mat-form-field class="max-width">
-                                <input matInput type="text" placeholder="Contraseña para tu web" name="password" [(ngModel)]="clientObject.password">
+                                <input matInput type="password" placeholder="Contraseña para tu web" name="password" [(ngModel)]="clientObject.password">
                             </mat-form-field>
                             </form>
                 

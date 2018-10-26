@@ -20,19 +20,15 @@
                 <mat-icon>mail_outline</mat-icon> <a>Notifiaciones</a> 
               </mat-list-item>
           
-          <mat-list-item (click)="goSection()" (click)="snav.toggle()">
+          <mat-list-item routerLink="/backend/ventas" >
           <mat-icon>assignment</mat-icon> <a>Ventas</a>
         </mat-list-item>
-        <mat-list-item (click)="goCategoria()" (click)="snav.toggle()">
+        <mat-list-item  routerLink="/backend/soporte" (click)="snav.toggle()">
             <mat-icon>list_alt</mat-icon> <a>Soporte</a>
           </mat-list-item>
-          <mat-divider></mat-divider>
+          <mat-divider></mat-divider>         
           <mat-list-item>
-            <a>Hola {{userOnline}}</a>
-          </mat-list-item>
-         
-          <mat-list-item>
-            <button mat-raised-button color="warn" (click)="handleExitSession()"> Cerrar sessión </button>
+            <button mat-raised-button color="warn"> Cerrar sessión </button>
           </mat-list-item>
       </mat-list>
       </mat-nav-list>

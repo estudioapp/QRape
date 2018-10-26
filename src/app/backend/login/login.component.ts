@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   Usuario : string;
   Contrasena : string;
   listUser : any[];
+  hide;
+  
   constructor(
     private userService : UsuarioService,
     private router : Router

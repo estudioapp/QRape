@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit {
         localStorage.setItem("cliente-chango",element.email);
         let cname = localStorage.getItem("cliente-chango");
         document.cookie = "login="+cname+";path=/;domain=changofree.com;";
-        location.href="http://tienda.changofree.com/home/"+element.$key;
+        location.href="http://tienda.changofree.com/"+element.$key;
       }
     });
     console.log(aux);

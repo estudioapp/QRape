@@ -22,6 +22,7 @@ export class PlataformasComponent implements OnInit {
   }
 
   ngOnInit() {
+    localStorage.clear();
     this.clientObject = {};
     this.clientObject.hasta = "";
     this.listClients = [];
@@ -40,19 +41,19 @@ export class PlataformasComponent implements OnInit {
   ValidateForm(){
     this.validacionHasta();
     let aux = true;
-    console.log(this.listClients);
-    if(this.clientObject.email === undefined){
-      this.openSnackBar("Ingrese un email valido por favor", "Ok");
-    }else if(this.clientObject.email.length < 5 ){
-      this.openSnackBar("Ingrese un email valido por favor", "Ok");
-    }else{
+    let validacion = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    aux = validacion.test(this.clientObject.email) ? true : false;
+    if(aux){
       this.listClients.forEach(element => {
         if(this.clientObject.email === element.email){
-          this.openSnackBar("Este email ya esta registrado. ¿Olvidaste tu contraseña? Ponte en contacto con nosotros." , "Ok, entendido!");
-          aux = false;
-        }
-      });
+            this.openSnackBar("Este email ya esta registrado. ¿Olvidaste tu contraseña? Ponte en contacto con nosotros." , "Ok, entendido!");
+            aux = false;
+          }
+        });
+    }else{
+      this.openSnackBar("Ingresaste un email invalido...","ok");
     }
+    
     if(aux){
       if(this.clientObject.marca !== undefined && this.clientObject.name !== undefined && this.clientObject.password !== undefined){
         this.clientService.insertClient(this.clientObject);
@@ -63,7 +64,7 @@ export class PlataformasComponent implements OnInit {
       }
     } 
 
-  }
+  } 
 
   validacionHasta(){
     let f = new Date();        
