@@ -5,19 +5,27 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Cliente } from '../interfaces/cliente';
 import { WebCliente } from '../interfaces/web-cliente';
 import { of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
 
-  constructor( private fireBase: AngularFireDatabase ) { }
+  constructor( 
+    private fireBase: AngularFireDatabase,
+    private http : HttpClient
+  ) { }
 
   listClient: AngularFireList<Cliente>;
 
 
   clientsWithSnap(){
     return this.listClient = this.fireBase.list('cliente');
+  }
+  
+  sendEmail(titulo, mensaje, email){
+    return this.http.get("/assets/php/send-mail.php?titulo="+titulo+"&mensaje="+mensaje+"&email="+email);
   }
 
   getListClients() {

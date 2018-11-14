@@ -49,6 +49,10 @@ export class PlataformasComponent implements OnInit {
             this.openSnackBar("Este email ya esta registrado. ¿Olvidaste tu contraseña? Ponte en contacto con nosotros." , "Ok, entendido!");
             aux = false;
           }
+          if(this.clientObject.email === element.marca){
+            this.openSnackBar("Esta marca ya existe en nuestra base de datos...  ." , "Ok, entendido!");            
+            aux = false;
+          }
         });
     }else{
       this.openSnackBar("Ingresaste un email invalido...","ok");
@@ -58,6 +62,11 @@ export class PlataformasComponent implements OnInit {
       if(this.clientObject.marca !== undefined && this.clientObject.name !== undefined && this.clientObject.password !== undefined){
         this.clientService.insertClient(this.clientObject);
         localStorage.setItem("cliente-chango",this.clientObject.email);
+        this.clientService.sendEmail(
+          "Gracias por registrarte - Equipo de ChangoFree",
+          "<h1>Hola " + this.clientObject.name + "</h1>, <br> <p>Muchas gracias por haberte registrado en nuestra plataforma. Te recordamos que estamos a tu disposición por cualquier consula o inconveniente. Saludos! </p> ",
+          this.clientObject.email
+        );
         this.router.navigateByUrl("creando-tienda");
       }else{
         this.openSnackBar("Por favor revisá que el formulario haya sido completado correctamente.",'Ok, Gracias!');

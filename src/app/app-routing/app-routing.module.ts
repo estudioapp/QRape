@@ -15,6 +15,7 @@ import { SoporteComponent } from '../backend/soporte/soporte.component';
 import { MensajesComponent } from '../backend/soporte/mensajes/mensajes.component';
 import { UsuarioOnlineComponent } from '../frontend/usuario-online/usuario-online.component';
 import { TerminosComponent } from '../terminos/terminos.component';
+import { PruebaComponent } from '../prueba/prueba.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'login', component: ValidateComponent},
   { path: 'backend/login', component: LoginComponent},
   { path: 'terminos', component: TerminosComponent},
+  { path: 'piria', component: PruebaComponent},
   { path: 'backend', component: SidenavComponent,
   children: [
       { path: '', redirectTo: 'inicio', pathMatch: 'full'},

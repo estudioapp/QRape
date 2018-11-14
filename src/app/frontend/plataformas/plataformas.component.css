@@ -19,6 +19,7 @@
     .inrombo{
         display: none!important;
     }
+    
 }
 
 *{
@@ -29,6 +30,7 @@
     position: absolute;
     width: 100px;
     height: 1550px;
+    border-radius: 0% 0% 0% 65%;
     border: 3px solid #fff;
     background: #ffffff;
     -webkit-transform: rotate(45deg);
@@ -36,16 +38,67 @@
     left: 46%;
     top: -29%;
 }
+.inrombo-two{
+    position: absolute;
+    width: 100px;
+    height: 1550px;
+    border-radius: 0% 0% 0% 58%;
+    border: 3px solid #2f91fb;
+    background: #2f91fb;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(-86deg);
+    left: 37%;
+    z-index: 0;
+    top: 158%;
+}
 .inrombo{
     position: absolute;
     width: 100px;
     height: 1550px;
+    border-radius: 0% 47% 0% 0%;
     border: 3px solid #2f91fb;
-    background: #2f91fb;
+    background: #2f91fb; 
     -webkit-transform: rotate(45deg);
-    transform: rotate(-88deg);
+    transform: rotate(-87deg);
     left: 46%;
-    top: 84%;
+    top: 87%;
+}
+.btn-crear-tienda-foot{
+    color: #43494f;
+    border: 1px solid black;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #dee2e6;
+    font-size:20px;
+}
+.t-sha{
+    text-shadow: 1px 1px 1px #0c0c0c;
+}
+.circulo {
+    width: 100px;
+    position: absolute;
+    height: 100px;
+    top: 337%;
+    left: 90%;
+    border-radius: 50%;
+    background: #009af0;
+}
+.text-foot{
+    background: #009af09c;
+    border-radius: 10px;
+    color: white!important;
+    padding: 20px;
+    box-shadow: 1px 1px 11px 1px grey;
+}
+.pos{
+    position: relative;
+    margin: auto;
+    left: 31%;
+    top: 31%;
+    color: white;
+    font-size: 40px;
+    font-family: 'Material Icons'!important;
+    cursor:default!important;
 }
 .bg-blue{
     min-height: 20vh;
@@ -57,7 +110,7 @@
 }
 .bg-head{
     height: 90vh;
-    background-color: #e6f4fdd1;
+    background-image: linear-gradient(to right, #b1e3ff , #f1f6fa);
 }
 .lp{
     background-color: white!important;
@@ -79,10 +132,13 @@
 }
 .btn-crear-tienda{
     color:white;
+    font-weight: bold;
+    text-transform: uppercase;
     background: #029af0;
 }
 
 .title{
+    font-size: 54px!important;
     color:#2d2828!important;
 }
 
@@ -411,8 +467,51 @@ body {
     .venta-height{
         display: none;
     }
-    .rombo, .inrombo{
+    .rombo{
         display:none!important;
+        display: none!important;
+
+    }
+    .inrombo-two{
+        position: absolute;
+        width: 18%;
+        height: 65%;
+        border-radius: 0% 0% 0% 58%;
+        border: 3px solid #2f91fb;
+        background: #2f91fb;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(-86deg);
+        left: 21%;
+        z-index: 0;
+        top: 384%;
+        display: none!important;
+
+    }
+    .circulo{
+    width: 80px;
+    position: absolute;
+    height: 80px;
+    top: 466%;
+    left: 72%;
+    border-radius: 50%;
+    background: #009af0;
+        display: none!important;
+}
+    .pos{
+    left: 26%;
+    top: 29%;
+    }
+    .inrombo{
+        position: absolute;
+        width: 30%;
+        height: 50%;
+        border-radius: 0% 47% 0% 0%;
+        border: 3px solid #2f91fb;
+        background: #2f91fb;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(-87deg);
+        left: 31%;
+        top: 314%;
     }
     .descripcion{
         text-align: center!important;

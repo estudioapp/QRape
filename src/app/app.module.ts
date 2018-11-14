@@ -74,6 +74,8 @@ import { SoporteComponent } from './backend/soporte/soporte.component';
 import { MensajesComponent } from './backend/soporte/mensajes/mensajes.component';
 import { UsuarioOnlineComponent } from './frontend/usuario-online/usuario-online.component';
 import { TerminosComponent } from './terminos/terminos.component';
+import { PruebaComponent } from './prueba/prueba.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -93,7 +95,8 @@ import { TerminosComponent } from './terminos/terminos.component';
     SoporteComponent,
     MensajesComponent,
     UsuarioOnlineComponent,
-    TerminosComponent
+    TerminosComponent,
+    PruebaComponent
   ],
   imports: [
     AppRoutingModule,
@@ -139,6 +142,7 @@ import { TerminosComponent } from './terminos/terminos.component';
     MatFormFieldModule,
     FormsModule,
     BrowserModule,
+    HttpClientModule
   ],
   providers: [ClienteService, UsuarioService
   ],
