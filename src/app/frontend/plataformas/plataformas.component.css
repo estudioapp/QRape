@@ -16,7 +16,7 @@
     .rombo{
         display: none!important;
     }
-    .inrombo{
+    .inrombo, .inrombo-two{
         display: none!important;
     }
     
@@ -506,6 +506,7 @@ body {
         width: 30%;
         height: 50%;
         border-radius: 0% 47% 0% 0%;
+        display:none!important;
         border: 3px solid #2f91fb;
         background: #2f91fb;
         -webkit-transform: rotate(45deg);

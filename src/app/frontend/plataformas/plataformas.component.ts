@@ -62,11 +62,11 @@ export class PlataformasComponent implements OnInit {
       if(this.clientObject.marca !== undefined && this.clientObject.name !== undefined && this.clientObject.password !== undefined){
         this.clientService.insertClient(this.clientObject);
         localStorage.setItem("cliente-chango",this.clientObject.email);
-        this.clientService.sendEmail(
+        console.log(this.clientService.sendEmail(
           "Gracias por registrarte - Equipo de ChangoFree",
           "<h1>Hola " + this.clientObject.name + "</h1>, <br> <p>Muchas gracias por haberte registrado en nuestra plataforma. Te recordamos que estamos a tu disposición por cualquier consula o inconveniente. Saludos! </p> ",
           this.clientObject.email
-        );
+        ));
         this.router.navigateByUrl("creando-tienda");
       }else{
         this.openSnackBar("Por favor revisá que el formulario haya sido completado correctamente.",'Ok, Gracias!');

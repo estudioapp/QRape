@@ -25,7 +25,7 @@ export class ClienteService {
   }
   
   sendEmail(titulo, mensaje, email){
-    return this.http.get("/assets/php/send-mail.php?titulo="+titulo+"&mensaje="+mensaje+"&email="+email);
+    return this.http.get("https://changofree.com/assets/php/send-mail.php?titulo="+titulo+"&mensaje="+mensaje+"&email="+email);
   }
 
   getListClients() {
