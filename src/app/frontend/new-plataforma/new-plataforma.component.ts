@@ -13,10 +13,16 @@ export class NewPlataformaComponent implements OnInit {
   
   redesSociales : WebCliente;
   listClients : Cliente[];
+  boolW;
+  boolF;
+  boolI;
 
   constructor( private clientService : ClienteService, private router: Router
     ) {
     this.redesSociales = {};
+      this.boolF = false;
+      this.boolI = false;
+      this.boolW = false;
   }
 
   ngOnInit() {
@@ -26,6 +32,7 @@ export class NewPlataformaComponent implements OnInit {
     
     this.listClients = this.clientService.getListClients();
   }
+
   
   SendInfo(){
     
@@ -36,12 +43,18 @@ export class NewPlataformaComponent implements OnInit {
       }
       if(this.redesSociales.instagram === undefined){
         this.redesSociales.instagram = "No disponible";
+      }else if(this.redesSociales.instagram.indexOf("www.") === -1){
+        this.boolI = true;
       }
       if(this.redesSociales.facebook === undefined){
         this.redesSociales.facebook = "No disponible";
+      }else if(this.redesSociales.facebook.indexOf("www.") === -1){
+        this.boolF = true;
       }
-      this.clientService.updateClient(this.redesSociales,data.web, data.$key);
-      location.href="http://tienda.changofree.com/"+data.$key;
+      if(!this.boolF && !this.boolI && !this.boolW){
+        this.clientService.updateClient(this.redesSociales,data.web, data.$key);
+        location.href="http://tienda.changofree.com/"+data.$key;
+      }
     });
   }
 }

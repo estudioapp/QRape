@@ -1,253 +1,243 @@
-<app-navbar></app-navbar>
-<header class="bg-head">
-    <div class="rombo"></div>
-  <div class="container text-white pt-5">
-    <div class="row pt-1">
-      <div class="col-12 col-md-6 col-xs-12">
-          <h1><b class="title">¡Creá tu tienda online!</b></h1>
-          <!-- <h4 class="descripcion">Chango Free es una plataforma adaptable a cualquier dispositivo para facilitar y agilizar las ventas de tu negocio. </h4> -->
-          <h4 class="descripcion">Registrate ahora y disfrutá 15 diás gratis de tu carrito de compras. Gracias a ChangoFree vas a realizar ventas por internet y administrar todos tus productos.</h4>
-        <div class="text-center">
-          <img class="venta-height" src="assets/venta.png" alt="ventas">
-        </div>
-        </div>
-          <div class="col-md-5 offset-md-1 col-xs-12 lp col-12">
-            <h1 class="text-center"> Vender por internet nunca fue tan fácil</h1>
-            <form>
-            <mat-form-field class="max-width">
-                <input matInput type="email" placeholder="Email" name="email" [(ngModel)]="clientObject.email">
-            </mat-form-field>
-            <mat-form-field class="max-width">
-                <input matInput type="text" placeholder="Tu nombre" name="name" [(ngModel)]="clientObject.name">
-            </mat-form-field>
-            <mat-form-field class="max-width">
-                <input matInput type="text" placeholder="Nombre de tu marca" name="marca" [(ngModel)]="clientObject.marca">
-            </mat-form-field>
-            <mat-form-field class="max-width">
-                <input matInput type="password" placeholder="Contraseña para tu web" name="password" [(ngModel)]="clientObject.password">
-            </mat-form-field>
-            </form>
-            <small class="mb-2 text-info">
-            Al registrarte estas aceptando nuestros <a routerLink="/terminos">términos y condiciones</a>
-            </small>
-            <button mat-raised-button class="max-width btn-crear-tienda mt-4" color="primary" (click)="ValidateForm()">¡Crear tienda gratis ya!</button>
-
-          </div>
-    </div>
-  </div>
-</header>
-<section class="bg-white pt-5">
-  <div class="container" style="z-index: 3; position: relative">
-    <h4><b>Digitalizá tus productos y potencia tus ventas sin limitaciones</b></h4>
-    <p>Te ofrecemos la facilidad de crear un ecommerce profesional en cuestión de segundos y con planes económicos.<br>
-    También trabajamos en asesoria en Marketing, redes sociales, Addwords, Mercadolibre, entre otros.</p>
-<div class="row mt-5">
-  <div class="col-md-4">
-    <div class="card-container">
-        <div class="card">
-            <div class="front">
-                <div class="cover">
-                    <img src="assets/tienda.png" alt="tienda"/>
-                </div>
-               
-                <div class="content">
-                    <div class="main">
-                        <h3 class="name">Crea tu tienda online</h3>
-                        <p class="profession">Aprovechá la oportunidad y diferenciate a tu competencia.</p>
-                    </div>
-                    <div class="footer">
-                        <i class="fa fa-mail-forward"></i> Sabes más
-                    </div>
-                </div>
-            </div> <!-- end front panel -->
-            <div class="back">
-                <div class="header">
-                    <h5 class="motto">"Adaptarse a los cambios."</h5>
-                </div>
-                <div class="content">
-                    <div class="main">
-                        <h4 class="text-center">Rápido y sencillo</h4>
-                        <p class="text-center">Podés crear tu tienda online en segundos, te damos la libertad de subir tus productos cualquier dispositvo que tengas cerca.<p>
-    
-                        
-    
-                    </div>
-                </div>
-              
-            </div> <!-- end back panel -->
-        </div> <!-- end card -->
-    </div> <!-- end card-container -->
-
-  </div>
-  <div class="col-md-4">
-      <div class="card-container">
-          <div class="card">
-              <div class="front">
-                  <div class="cover">
-                      <img src="assets/gestion.png" alt="gestion"/>
-                  </div>
-           
-                  <div class="content">
-                      <div class="main">
-                          <h3 class="name">Administrá tu tienda</h3>
-                          <p class="profession">Revisá los pedidos pendientes, el tráfico de la web y administrá tus anuncions</p>
-                      </div>
-                      <div class="footer">
-                          <i class="fa fa-mail-forward"></i> Saber más
-                      </div>
-                  </div>
-              </div> <!-- end front panel -->
-              <div class="back">
-                  <div class="header">
-                      <h5 class="motto">"La administración es la eficiencia en escalar la ladera del éxito"</h5>
-                  </div>
-                  <div class="content">
-                      <div class="main">
-                          <h4 class="text-center">Análisis y desarrollo</h4>
-                          <p class="text-center">Te ofrecemos la herramienta magnifica de saber cuantas visitas recibe tu web, admnistrar tus productos y anuncios. </p>
-      
-                      
-                      </div>
-                  </div>
-                  
-              </div> <!-- end back panel -->
-          </div> <!-- end card -->
-      </div> <!-- end card-container -->
-  </div>
-  <div class="col-md-4">
-      <div class="card-container">
-          <div class="card">
-              <div class="front">
-                  <div class="cover">
-                      <img src="assets/plata.png" alt="imgpla"/>
-                  </div>
-              
-                  <div class="content">
-                      <div class="main">
-                          <h3 class="name">Alcanzá tu objetivo</h3>
-                          <p class="profession">Simplemente disfrutá los resultados dados por ChongoFree</p>
-                      </div>
-                      <div class="footer">
-                          <i class="fa fa-mail-forward"></i> Saber más
-                      </div>
-                  </div>
-              </div> <!-- end front panel -->
-              <div class="back">
-                  <div class="header">
-                      <h5 class="motto">"Nunca negocies el precio, negocia el valor que recibirá el cliente"</h5>
-                  </div>
-                  <div class="content">
-                      <div class="main">
-                          <h4 class="text-center">Mirá las estadisticas y empezá a disfrutar las ventas cerradas </h4>
-                          <p class="text-center">¡A trabajar!</p>
-      
-      
-                      </div>
-                  </div>
-              </div> <!-- end back panel -->
-          </div> <!-- end card -->
-      </div> <!-- end card-container -->
-  </div>
-</div>
-</div>
-
-  
-
-</section>
-<section class="bg-blue py-5">
-<div class="inrombo"></div>
-<div class="inrombo-two"></div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-12 text-center ">
-      <h2 class="text-white">Última tecnología en desarrollo web</h2>
-      <h5 class="text-white">Desarrollamos todas las plataformas con las tecnologias más demandadas en la actualidad. Garantía de un desempeño profesional, y una velocidad inigualable.</h5>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 text-center">
-      <img src="assets/angular.png" style="max-height:225px;" alt="angular">
-    </div>
-    <div class="col-12 text-center">
-        <h6 class="text-white">Las plataformas estan desarrolladas en Angular6, AngularMaterial, Bootstrap4, Typescript, AngularFire, FireStorage. Su velocidad es incomparable</h6>
-    </div>
-</div>
-</div>
-
-</section>
-<section class="bg-head py-5" style="height:auto!important">
-<div class="circulo"><i class="material-icons pos">message</i></div>
-    <div class="container py-5">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="title" style="margin-bottom: 15px;">Plan inicial de $300/mes</h2>
-            <h5>Vas a poder realizar ventas, administrar tus productos y tener una pagina web profesional.</h5>
-            <h6><small> * Plan económico y recomendado. </small></h6>
-            <button  mat-raised-button color="primary" class="mt-2 btn-crear-tienda" style="font-size:18px" data-toggle="modal" data-target="#registroModal"><b class="text-white">¡Crear mi tienda ahora!</b></button>
+<header class="background-1">
+    <div class="container">
+        <div class="row h-menu">
+            <div class="col-6">
+                <img src="/assets/logo.png" class="full-tam" alt="Crea tu tienda online con ChangoFree">
+            </div>
+            <div class="col-6 display-flex">
+                <a class="ml-auto text-white" data-toggle="modal" data-target="#login"><i style="font-size: 40px;"
+                        class="material-icons">account_circle</i><i class="material-icons" style="    position: relative;
+                        top: -5px;
+                    ">keyboard_arrow_down</i></a>
+            </div>
         </div>
     </div>
-</div>
-</section>
-<section class="bg-white py-5">
-    <div class="container py-2">
+    <div class="container">
         <div class="row">
-            <div class="col-12">
-                <h2 class="barra-abajo"><b>Preguntas frecuentes</b></h2>
+            <div class="col-12 mt-5">
+                <h1 class="text-white bolder font-hebo">¡Creá tu tienda online desde tu celular!</h1>
+                <h4 class="mb-5"><small class="text-white">Registrate ahora y disfrutá de 15 diás gratis.</small></h4>
+            </div>
+            <div class="col-12 display-flex">
+                <button class="btn btn-outline-dark btn-saber mx-auto"> <a style="position: relative;top: -1px;color:white" routerLink="/blog">SABER
+                        MÁS</a></button>
+                <button class="btn btn-outline-info btn-crear mx-auto"> <a data-toggle="modal" data-target="#registro"
+                        style="position: relative;top: -1px;">CREAR
+                        TIENDA</a></button>
             </div>
         </div>
-        <div class="row pt-3">
-                <div class="col-12 max-width">    
-                    <h4>¿Qué es ChangoFree? ¿Por qué es una herramienta fundamental para mi negocio?</h4>
-                    <p><b>ChangoFree</b> es una aplicación web desarrollada con tecnología de alto nivel. Es un creador de <b>carritos de compras</b> para facilitar las <b>ventas</b> y automatizar los procesos de las mismas. Con ChangoFree podes ofrecer <b>seguiridad y garantia</b> a tus clientes y darle la satisfación de realizar una compra desde el sillón de su casa.</p>
-                </div>
-            <div class="col-12 max-width mt-3">    
-                <h4>¿ChangoFree cobra comisión por cada venta que hago?</h4>
-                <p>ChangoFree cobra $0.50 pesos argentinos por cada venta, ese dinero esta enfocado al mantenimiento de la base de datos y hosting mensual.</p>
+    </div>
+    <div class="bg-dark mt-5 py-2" style="width:100%">
+    </div>
+</header>
+<section>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="mt-5 h5">VENDÉ CON TU CELULAR</h2>
+                <hr>
+                <h2 class="mt-3 h5"><small>¡Podes realizar ventas y ofrecer envios desde tu celular!</small></h2>
             </div>
-            <div class="col-12 max-width mt-3">    
-                <h4>¿Que pasarela de pago usa ChangoFree?</h4>
-                <p>Usamos la pasarela de pago de MercadoPago. Para poder usar ChangoFree es necesario tener una cuenta de MercadoPago. Ellos cobran un 4.5% por cada venta realizada. </p>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 text-center">
+                <img src="/assets/1.png" style="width:100%" alt="Crea tu tienda online y ofrece MercadoEnvios">
+                <div>MercadoEnvios</div>
             </div>
-            <div class="col-12 text-foot max-width mt-5 text-center">    
-                    <h2><b class="text-white t-sha">ChangoFree es la solución digital que estas buscando, creá tu tienda ahora y marcá una diferencia</b> </h2>
-                <button mat-raised-button  class="btn-crear-tienda-foot mt-4" color="primary" data-toggle="modal" data-target="#registroModal">¡Crear tienda gratis ya!</button>
-              
-                </div>
+            <div class="col-6 text-center">
+                <img src="/assets/2.png" style="width:100%" alt="Crea tu tienda online y ofrece MercadoPago">
+                <div>MercadoPago</div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h5 class="mt-5">¿QUE MÁS PUEDO HACER?</h5>
+                <hr>
+                <h5 class="mt-3"><small>Podes llevar un control de stock, estadisticas e implementar herramientas
+                        de Facebook.</small></h5>
+            </div>
+            <div class="col-12 text-center">
+                <i class="material-icons mr-1" style="font-size: 100px;">timeline</i>
+            </div>
         </div>
     </div>
 </section>
-<app-footer></app-footer>
-<div class="modal fade" id="registroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
+<section class="background-1">
+    <div class="container">
+        <div class="row pb-5">
+            <div class="col-12 mt-5 text-center">
+                <h2 class="text-white h5">¿CÓMO CREO MI TIENDA?</h2>
+                <hr>
+            </div>
+            <div class="col-12 display-flex">
+                <span class="icono-circula">
+                    <i class="material-icons" style="font-size:45px">spellcheck</i>
+                </span>
+                <h5 class="text-white pl-3"><small>Lo primero que tenes que hacer, es registrarte, podes hacer
+                        <b data-toggle="modal" data-target="#registro">click acá</b></small></h5>
+            </div>
+            <div class="col-12 display-flex mt-4">
+                <h5 class="text-white pr-3"><small>Una vez que te hayas registrado, te recomendamos que agreges
+                        toda tu información de contacto. Ya podes empezar a personalizar tu web y subir tus
+                        productos.</small></h5>
+                <span class="icono-circula">
+                    <i class="material-icons" style="font-size:45px">store</i>
+                </span>
+            </div>
+            <div class="col-12 display-flex mt-4">
+                <span class="icono-circula">
+                    <i class="material-icons" style="font-size:45px">attach_money</i>
+                </span>
+                <h2 class="text-white pl-3 h5"><small>¡Ya tenes tu tienda online en 5 minutos, empezá a vender!</small></h2>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-5" style="background:#f0f0f0!important; position: relative;">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 text-center">
+                <h2 class="h5">Tu tienda online por $229/mes</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="col-12 text-center">
+        <h2 class="h5"><small>
+                Empezá a vender por internet con una tienda online moderna y profesional ¡Sin contratos raros ni
+                letras chicas!
+            </small></h2>
+        </div>
+            <div class="col-12 mt-3" style="display:flex">
+
+                <button class="btn btn-outline-info btn-crear mx-auto"> <a data-toggle="modal" data-target="#registro" style="position: relative;top: -1px;">CREAR
+                        TIENDA</a></button>
+                    </div>
+    </div>
+</section>
+<section>
+    <div class="container pb-5">
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 style="color:#24a4cc;">¿Por qué ChangoFree?</h2>
+            </div>
+            <div class="col-12">
+                <p class="h5"><small>ChangoFree se desarrollo enfocado principalmente a telefonos moviles, usando la ultima
+                        tecnología en desarollo, para que la velocidad y la experiencia sea unica. Así cualquier
+                        persona desde cualquier sitio puede empezar un emprendimiento desde su telefono movil, sin
+                        necesidad de una computadora ni mucho conocimiento.</small></p>
+            </div>
+        </div>
+    </div>
+</section>
+<footer style="background-color:#24a4cc;     border-top: 4px dashed white;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 py-3 text-center">
+                <img src="/assets/logo.png" style="height: 160px" class="full-tam" alt="Crea tu tienda online con ChangoFree">
+            </div>
+            <div class="col-12 text-white text-center">
+                <p class="h6" routerLink="/terminos"><small>Terminos y condiciones</small></p>
+                <p class="h5"><small>ChangoFree 2018 - Todos los derechos reservados</small></p>
+                <hr style="border: 1px solid white!important">
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title text-center" id="exampleModalLabel"><b>Chango Free</b></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <h5 class="modal-title text-center" id="exampleModalLabel">Registro - Creando tu tienda</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-                <h1 class="text-center"> Vender por internet nunca fue tan facil</h1>
-                            <form>
-                            <mat-form-field class="max-width">
-                                <input matInput type="text" placeholder="Email" name="email" [(ngModel)]="clientObject.email">
-                            </mat-form-field>
-                            <mat-form-field class="max-width">
-                                <input matInput type="text" placeholder="Tu nombre" name="name" [(ngModel)]="clientObject.name">
-                            </mat-form-field>
-                            <mat-form-field class="max-width">
-                                <input matInput type="text" placeholder="Nombre de tu marca" name="marca" [(ngModel)]="clientObject.marca">
-                            </mat-form-field>
-                            <mat-form-field class="max-width">
-                                <input matInput type="password" placeholder="Contraseña para tu web" name="password" [(ngModel)]="clientObject.password">
-                            </mat-form-field>
-                            </form>
-                
+                <div class="row">
+                    <div class="col-12">
+                        <span>
+                            <a class="indice"><i class="material-icons" style="position: relative;top: 6px;color: white; ">email</i></a>
+                            <input type="email" name="algo" [(ngModel)]="clientObject.email" placeholder="Email" style="padding: 5.5px;width: 80%; border: 0px;    border-radius: 0px 5px 5px 0px;
+                            box-shadow: 0px 1px 10px grey;">
+                        </span>
+                    </div>
+                    <div class="col-12 mt-3">
+
+                        <span>
+                            <a class="indice"><i class="material-icons" style="position: relative;top: 6px;color: white; ">supervised_user_circle</i></a>
+                            <input type="email" [(ngModel)]="clientObject.name" name="algo" placeholder="Nombre" style="padding: 5.5px;width: 80%; border: 0px;    border-radius: 0px 5px 5px 0px;
+                                box-shadow: 0px 1px 10px grey;">
+                        </span>
+                    </div>
+                    <div class="col-12 mt-3">
+
+                        <span>
+                            <a class="indice"><i class="material-icons" style="position: relative;top: 6px;color: white; ">verified_user</i></a>
+                            <input type="email" [(ngModel)]="clientObject.marca" name="algo" placeholder="Nombre de marca"
+                                style="padding: 5.5px;width: 80%; border: 0px;    border-radius: 0px 5px 5px 0px;
+                                    box-shadow: 0px 1px 10px grey;">
+                        </span>
+                    </div>
+                    <div class="col-12 mt-3">
+
+                        <span>
+                            <a class="indice"><i class="material-icons" style="position: relative;top: 6px;color: white; ">remove_red_eye</i></a>
+                            <input type="password" [(ngModel)]="clientObject.password" name="algo" placeholder="Contraseña"
+                                style="padding: 5.5px;width: 80%; border: 0px;    border-radius: 0px 5px 5px 0px;
+                                        box-shadow: 0px 1px 10px grey;">
+                        </span>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <h6><small>Al registrarte estas aceptando nuestros <b routerLink="/terminos" data-dismiss="modal"
+                                    aria-label="Close">Terminos y Condiciones</b></small></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="justify-content: center!important;">
+                <button mat-raised-button class="max-width btn-crear-tienda" color="primary" data-dismiss="modal"
+                    (click)="ValidateForm()">¡Creá tu tienda online!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="exampleModalLabel">Iniciar sesión - Chango Free</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <span>
+                            <a class="indice"><i class="material-icons" style="position: relative;top: 6px;color: white; ">email</i></a>
+                            <input type="email" name="algo" [(ngModel)]="email" placeholder="Email" style="padding: 5.5px;width: 80%; border: 0px;    border-radius: 0px 5px 5px 0px;
+                                box-shadow: 0px 1px 10px grey;">
+                        </span>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <span>
+                            <a class="indice"><i class="material-icons" style="position: relative;top: 6px;color: white; ">remove_red_eye</i></a>
+                            <input type="password" name="algo" [(ngModel)]="password" placeholder="Contraseña" style="padding: 5.5px;width: 80%; border: 0px;    border-radius: 0px 5px 5px 0px;
+                                    box-shadow: 0px 1px 10px grey;">
+                        </span>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-                    <button mat-raised-button class="max-width btn-crear-tienda" color="primary" data-dismiss="modal" (click)="ValidateForm()">Crear tienda gratis ya!</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" (click)="validateAcount()">Iniciar sesion</button>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>

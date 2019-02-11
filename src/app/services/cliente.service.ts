@@ -6,6 +6,7 @@ import { Cliente } from '../interfaces/cliente';
 import { WebCliente } from '../interfaces/web-cliente';
 import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Blog } from '../interfaces/blog';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +19,15 @@ export class ClienteService {
   ) { }
 
   listClient: AngularFireList<Cliente>;
+  listBlog  : AngularFireList<Blog>;
 
 
   clientsWithSnap(){
     return this.listClient = this.fireBase.list('cliente');
+  }
+  
+  blogList(){
+    return this.listBlog = this.fireBase.list('blog');
   }
   
   sendEmail(titulo, mensaje, email){
@@ -53,7 +59,8 @@ export class ClienteService {
    * 
    */
     insertClient(clientObject: Cliente) {
-    this.fireBase.list('cliente').set(clientObject.marca,{
+    let keyAux = clientObject.marca.replace(/ /g, "-");
+    this.fireBase.list('cliente').set(keyAux,{
       name: clientObject.name,
       email: clientObject.email,
       password: clientObject.password,
@@ -85,6 +92,19 @@ export class ClienteService {
         view: 0,
       }
     });
+  }
+
+  storeBlog(obj : Blog){
+    this.listBlog.push({
+      title1:obj.title1,
+      title2:obj.title2,
+      title3:obj.title3,
+      title4:obj.title4,
+      descripcion1:obj.descripcion1,
+      descripcion2:obj.descripcion2,
+      descripcion3:obj.descripcion3,
+      descripcion4:obj.descripcion4
+    })
   }
 
   SearchRegistForEmail(email: string, json) {

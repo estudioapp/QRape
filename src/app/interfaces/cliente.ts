@@ -10,6 +10,7 @@ export interface Cliente {
     web?:  WebCliente;    
     hasta?:string;
     online?:boolean;
+    cuenta?:number;
 }
 export class ClienteObject{
     $key?:string;

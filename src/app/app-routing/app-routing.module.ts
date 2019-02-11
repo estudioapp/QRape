@@ -16,20 +16,46 @@ import { MensajesComponent } from '../backend/soporte/mensajes/mensajes.componen
 import { UsuarioOnlineComponent } from '../frontend/usuario-online/usuario-online.component';
 import { TerminosComponent } from '../terminos/terminos.component';
 import { PruebaComponent } from '../prueba/prueba.component';
+import { BlogComponent } from '../blog/blog.component';
+import { EntradasComponent } from '../entradas/entradas.component';
+import { ListadoEntradaComponent } from '../backend/listado-entrada/listado-entrada.component';
+import { EmprendedoresComponent } from '../emprendedores/emprendedores.component';
+import { EntradaItemComponent } from '../entrada-item/entrada-item.component';
+import { StoreEntradaComponent } from '../backend/store-entrada/store-entrada.component';
+import { ListadoComponent } from '../emprendedores/listado/listado.component';
+import { ItemlistadoComponent } from '../emprendedores/listado/itemlistado/itemlistado.component';
+import { LoginempComponent } from '../backendemp/loginemp/loginemp.component';
+import { NewitemComponent } from '../backendemp/newitem/newitem.component';
+import { ListadoitembComponent } from '../backendemp/listadoitemb/listadoitemb.component';
+import { EdititemComponent } from '../backendemp/edititem/edititem.component';
+import { ComoHacerTiendaOnlineComponent } from '../post/como-hacer-tienda-online/como-hacer-tienda-online.component';
+import { HomeComponent } from '../home/home.component';
+import { PerfilComponent } from '../perfil/perfil.component';
+import { ItemalbumComponent } from '../itemalbum/itemalbum.component';
+import { CategoriasComponent } from '../categorias/categorias.component';
+import { ModelosComponent } from '../modelos/modelos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: 'home', component: PlataformasComponent  },
-  { path: 'creando-tienda', component: NewPlataformaComponent},
+  { path: 'home', component: HomeComponent  },
+  { path: 'categorias', component: CategoriasComponent },
+  { path: 'modelos', component: ModelosComponent },  
+  { path: ':nombredechica/:nombrealbum', component: ItemalbumComponent},  
+  { path: ':nombredechica', component: PerfilComponent},
+
+
   { path: 'cliente-backend',component: BackendStandardComponent},
   { path: 'login', component: ValidateComponent},
   { path: 'backend/login', component: LoginComponent},
   { path: 'terminos', component: TerminosComponent},
-  { path: 'piria', component: PruebaComponent},
+  { path: 'blog', component: BlogComponent},
+  // 
   { path: 'backend', component: SidenavComponent,
   children: [
       { path: '', redirectTo: 'inicio', pathMatch: 'full'},
       { path: 'inicio', component: InicioComponent },
+      { path: 'entradas', component: ListadoEntradaComponent },
+      { path: 'entradas/store', component: StoreEntradaComponent },
       { path: 'clientes', component: ClientesComponent },
       { path: 'notificaciones', component: NotificacionesComponent },
       { path: 'ventas', component: VentasComponent },     

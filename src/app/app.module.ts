@@ -54,7 +54,6 @@ import { environment } from '../environments/environment';
 //Assets
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './frotend/navbar/navbar.component';
 import { PlataformasComponent } from './frontend/plataformas/plataformas.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FooterComponent } from './footer/footer.component';
@@ -76,6 +75,27 @@ import { UsuarioOnlineComponent } from './frontend/usuario-online/usuario-online
 import { TerminosComponent } from './terminos/terminos.component';
 import { PruebaComponent } from './prueba/prueba.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BlogComponent } from './blog/blog.component';
+import { EntradasComponent } from './entradas/entradas.component';
+import { ListadoEntradaComponent } from './backend/listado-entrada/listado-entrada.component';
+import { EmprendedoresComponent } from './emprendedores/emprendedores.component';
+import { EntradaItemComponent } from './entrada-item/entrada-item.component';
+import { StoreEntradaComponent } from './backend/store-entrada/store-entrada.component';
+import { ChangelinePipe } from './changeline.pipe';
+import { ListadoComponent } from './emprendedores/listado/listado.component';
+import { ItemlistadoComponent } from './emprendedores/listado/itemlistado/itemlistado.component';
+import { LoginempComponent } from './backendemp/loginemp/loginemp.component';
+import { NewitemComponent } from './backendemp/newitem/newitem.component';
+import { ListadoitembComponent } from './backendemp/listadoitemb/listadoitemb.component';
+import { EdititemComponent } from './backendemp/edititem/edititem.component';
+import { ComoHacerTiendaOnlineComponent } from './post/como-hacer-tienda-online/como-hacer-tienda-online.component';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { SideComponent } from './side/side.component';
+import { ItemalbumComponent } from './itemalbum/itemalbum.component';
+import { CategoriasComponent } from './categorias/categorias.component';
+import { ModelosComponent } from './modelos/modelos.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +116,27 @@ import { HttpClientModule } from '@angular/common/http';
     MensajesComponent,
     UsuarioOnlineComponent,
     TerminosComponent,
-    PruebaComponent
+    PruebaComponent,
+    BlogComponent,
+    EntradasComponent,
+    ListadoEntradaComponent,
+    EmprendedoresComponent,
+    EntradaItemComponent,
+    StoreEntradaComponent,
+    ChangelinePipe,
+    ListadoComponent,
+    ItemlistadoComponent,
+    LoginempComponent,
+    NewitemComponent,
+    ListadoitembComponent,
+    EdititemComponent,
+    ComoHacerTiendaOnlineComponent,
+    HomeComponent,
+    PerfilComponent,
+    SideComponent,
+    ItemalbumComponent,
+    CategoriasComponent,
+    ModelosComponent
   ],
   imports: [
     AppRoutingModule,

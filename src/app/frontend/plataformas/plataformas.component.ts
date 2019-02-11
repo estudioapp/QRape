@@ -12,6 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class PlataformasComponent implements OnInit {
   
   clientObject : Cliente;
+  email;
+  password;
   listClients : Cliente[];
   constructor(private clientService: ClienteService,
     public snackBar: MatSnackBar,
@@ -60,6 +62,7 @@ export class PlataformasComponent implements OnInit {
     
     if(aux){
       if(this.clientObject.marca !== undefined && this.clientObject.name !== undefined && this.clientObject.password !== undefined){
+        this.clientObject.cuenta = 1; 
         this.clientService.insertClient(this.clientObject);
         localStorage.setItem("cliente-chango",this.clientObject.email);
         console.log(this.clientService.sendEmail(
@@ -94,4 +97,23 @@ export class PlataformasComponent implements OnInit {
       duration: 7200,
     });
   }
+
+
+   validateAcount(){
+    let aux = false;
+    this.listClients.forEach(element => {
+      if(element.email === this.email && element.password === this.password){
+        aux = true; 
+        localStorage.setItem("cliente-chango",element.email);
+        let cname = localStorage.getItem("cliente-chango");
+        document.cookie = "login="+cname+";path=/;domain=changofree.com;";
+        location.href="http://tienda.changofree.com/"+element.$key;
+      }
+    });
+
+    if(!aux){
+      this.openSnackBar("Hubo un error al intentar de iniciar sesion, verificá que los datos ingresados sean los correctos", "ok!");
+    }
+  }
+
 }
