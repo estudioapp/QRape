@@ -1,38 +1,10 @@
-.categoria{
-    background: #f3f3f3;
-    border: 1px solid #e7e7e7;
-    height: 80px;
-    width: 230px;
-    font-size: 20px;
-}
-
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 
-@media screen and (max-width: 768px) {
-    .menu{
-        display: none!important;
-    }
-    .hide-note{
-        display:block!important;
-    }
-    .tarjeta{
-        display: flex;
-        -webkit-box-orient: vertical!important;
-        -webkit-box-direction: reverse!important;
-        -ms-flex-direction: column-reverse!important;
-        flex-direction: column-reverse!important;    
-    }
-}
-.hide-note{
-    display:none;
-}
 .perfil{
+    background-image:url("/assets/251.jpg");
     background-size: cover;
     background-position: center center;
-    height: 85vh;
-}
-.menu{
-    display: block;
+    height: 100vh;
 }
 .foto{
     width: 250px;
@@ -74,7 +46,7 @@
     width: 100%;
     position: relative;
     display: flex;
-    background: #0000007d;
+    background: #000000ab;
 }
 .tarjeta{
     box-shadow: 6px 0px 20px #00000087;

@@ -96,6 +96,7 @@ import { SideComponent } from './side/side.component';
 import { ItemalbumComponent } from './itemalbum/itemalbum.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { ModelosComponent } from './modelos/modelos.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -136,7 +137,8 @@ import { ModelosComponent } from './modelos/modelos.component';
     SideComponent,
     ItemalbumComponent,
     CategoriasComponent,
-    ModelosComponent
+    ModelosComponent,
+    ContactoComponent
   ],
   imports: [
     AppRoutingModule,

@@ -11,7 +11,7 @@ export class ItemalbumComponent implements OnInit {
 
   url;
   ngOnInit() {
-    this.url = "url('/assets/251.jpg')";
+    this.url = "url('/assets/253.jpg')";
   }
 
 }

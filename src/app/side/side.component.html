@@ -2,7 +2,7 @@
 
   <div class="row h100 text-white">
     <div class="col-md-12 text-center mt-3">
-      <a class="h5"><img src="/assets/logoAlpha.png" style="width:70%"></a>
+      <a class="h5 cp"><img routerLink="/home" src="/assets/logoAlpha.png" style="width:70%"></a>
     </div>
     <div class="col-md-12 px-0">
       <mat-list class="text-white">
@@ -19,13 +19,14 @@
         <mat-list-item><button mat-raised-button class="registro" data-toggle="modal" data-target="#iniciar">REGISTRATE</button></mat-list-item>
         <mat-list-item><button mat-raised-button class="registro" data-toggle="modal" data-target="#iniciar">
             INICIAR SESION </button></mat-list-item>
-            <mat-list-item> Modelos <i class="material-icons  cp;" style="position: relative;
+            <mat-list-item class="cp" routerLink="/modelos"> Modelos <i class="material-icons  cp;" style="position: relative;
         top: 1px;">keyboard_arrow_right</i>
         </mat-list-item>
-        <mat-list-item> Categorias <i class="material-icons  cp;" style="position: relative;
+        <mat-list-item class="cp" routerLink="/categorias"> Categorias <i class="material-icons  cp;" style="position: relative;
         top: 1px;">keyboard_arrow_right</i>
         </mat-list-item>
-
+        <mat-list-item class="cp" routerLink="/contacto"> Contacto
+        </mat-list-item>
         <mat-list-item>
           <p class="text-center">Terminos y Condiciones </p>
         </mat-list-item>
@@ -35,10 +36,52 @@
       <!-- <button mat-raised-button class="registro mb-3">REGISTRATE</button>
   <button mat-raised-button class="registro"> INICIAR SESION  </button> -->
       <p class="text-center mt-4">
-        <i class="fa fa-facebook-square" style="font-size:24px"></i>
-        <i class="fa fa-instagram mx-3" style="font-size:24px"></i>
-        <i class="fa fa-snapchat-square" style="font-size:24px"></i>
+        <a href="info@phalphagolf.com"><i class="fa fa-envelope-o text-white" style="font-size:24px"></i></a>
+        <a href="https://www.instagram.com/ph.alpha.golf/"><i class="fa fa-instagram mx-3 cp text-white" style="font-size:24px" ></i></a>
+        <a href="https://twitter.com/phalphagolf"><i class="fa fa-twitter cp text-white" style="font-size:24px"></i></a>
       </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="iniciar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="width: 325px;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h3 class="os" style="font-family: Oswald;">INICIAR SESION</h3>
+            </div>
+            <div class="col-md-12 my-4">
+                <div class="inner-addon left-addon">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <input type="text" placeholder="Email" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="inner-addon left-addon">
+                    <i class="glyphicon glyphicon-eye-close"></i>
+                    <input type="password" placeholder="Contraseña" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <button class="btn btn-primary btn-inicio">INICIAR SESION</button>
+            </div>
+            <div class="col-md-12 mt-3">
+                <button class="btn btn-primary btn-inicio" style="background: white;
+                color: #2f2f2f;
+                box-shadow: 1px 1px 1px grey;">CREAR CUENTA</button>
+        </div>
+        <div class="col-12 my-1">
+          <h3><small>¿Olvidaste tu cuenta?</small></h3>
+        </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

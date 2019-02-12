@@ -34,16 +34,16 @@ import { PerfilComponent } from '../perfil/perfil.component';
 import { ItemalbumComponent } from '../itemalbum/itemalbum.component';
 import { CategoriasComponent } from '../categorias/categorias.component';
 import { ModelosComponent } from '../modelos/modelos.component';
+import { ContactoComponent } from '../contacto/contacto.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent  },
   { path: 'categorias', component: CategoriasComponent },
   { path: 'modelos', component: ModelosComponent },  
+  { path: 'contacto', component: ContactoComponent },  
   { path: ':nombredechica/:nombrealbum', component: ItemalbumComponent},  
   { path: ':nombredechica', component: PerfilComponent},
-
-
   { path: 'cliente-backend',component: BackendStandardComponent},
   { path: 'login', component: ValidateComponent},
   { path: 'backend/login', component: LoginComponent},

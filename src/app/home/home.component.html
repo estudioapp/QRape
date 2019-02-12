@@ -27,15 +27,16 @@
                 <mat-list-item><button mat-raised-button class="registro" data-toggle="modal" data-target="#iniciar">REGISTRATE</button></mat-list-item>
                 <mat-list-item><button mat-raised-button class="registro" data-toggle="modal" data-target="#iniciar">
                     INICIAR SESION </button></mat-list-item>
-                <mat-list-item> Modelos <i class="material-icons  cp;" style="position: relative;
+                <mat-list-item class="cp" routerLink="/modelos"> Modelos <i class="material-icons  cp;" style="position: relative;
                   top: 1px;">keyboard_arrow_right</i>
                 </mat-list-item>
-                <mat-list-item> Categorias <i class="material-icons  cp;" style="position: relative;
+                <mat-list-item class="cp" routerLink="/categorias"> Categorias <i class="material-icons  cp;" style="position: relative;
                   top: 1px;">keyboard_arrow_right</i>
                 </mat-list-item>
-
-                <mat-list-item>
-                  <p class="text-center">Terminos y Condiciones </p>
+                <mat-list-item class="cp" routerLink="/contacto"> Contacto
+                </mat-list-item>
+                <mat-list-item> 
+                  <p class="text-center" class="cp">Terminos y Condiciones </p>
                 </mat-list-item>
               </mat-list>
             </div>
@@ -43,9 +44,9 @@
               <!-- <button mat-raised-button class="registro mb-3">REGISTRATE</button>
             <button mat-raised-button class="registro"> INICIAR SESION  </button> -->
               <p class="text-center mt-4">
-                <i class="fa fa-facebook-square" style="font-size:24px"></i>
-                <i class="fa fa-instagram mx-3" style="font-size:24px"></i>
-                <i class="fa fa-snapchat-square" style="font-size:24px"></i>
+                <a href="info@phalphagolf.com"><i class="fa fa-envelope-o text-white" style="font-size:24px"></i></a>
+                <a href="https://www.instagram.com/ph.alpha.golf/"><i class="fa fa-instagram mx-3 cp text-white" style="font-size:24px" ></i></a>
+                <a href="https://twitter.com/phalphagolf"><i class="fa fa-twitter cp text-white" style="font-size:24px"></i></a>
               </p>
             </div>
 
@@ -57,7 +58,7 @@
             <div class="mt-4">
               <p class="h1 text-white display-3" style="font-size:75px">SEXY DRESSES</p>
               <p class="h2 text-white display-4" style="font-size:40px;position:relative;top:-10px;">CLARITAS PROCESSUS</p>
-              <p class="mb-3 mt-2"><button mat-raised-button class="album ">
+              <p class="mb-3 mt-2"><button mat-raised-button class="album " routerLink="/cami-jean/album-sextop">
                   <b>VER ALBUM</b> <i class="material-icons  cp;">keyboard_arrow_right</i>
                 </button></p>
               <p style="text-align:end" class="text-white mb-1">
