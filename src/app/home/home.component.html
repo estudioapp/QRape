@@ -1,8 +1,8 @@
-<header>
+<header [style.background-image]="fondo">
   <div class="h100 oscur">
 
     <div class="container-fluid h100">
-      <div class="row h100 py-3">
+      <div class="row h100">
         <div class="col-12 menu">
           <i class="material-icons ml-auto text-white" style="font-size:45px;" *ngIf="!Menu" (click)="Menu = true">menu</i>
         </div>
@@ -27,10 +27,10 @@
                 <mat-list-item><button mat-raised-button class="registro" data-toggle="modal" data-target="#iniciar">REGISTRATE</button></mat-list-item>
                 <mat-list-item><button mat-raised-button class="registro" data-toggle="modal" data-target="#iniciar">
                     INICIAR SESION </button></mat-list-item>
-                <mat-list-item class="cp" routerLink="/modelos"> Modelos <i class="material-icons  cp;" style="position: relative;
+                <mat-list-item class="cp" routerLink="/modelos"> Modelos <i class="material-icons move-r cp;" style="position: relative;
                   top: 1px;">keyboard_arrow_right</i>
                 </mat-list-item>
-                <mat-list-item class="cp" routerLink="/categorias"> Categorias <i class="material-icons  cp;" style="position: relative;
+                <mat-list-item class="cp" routerLink="/categorias"> Categorias <i class="material-icons move-r cp;" style="position: relative;
                   top: 1px;">keyboard_arrow_right</i>
                 </mat-list-item>
                 <mat-list-item class="cp" routerLink="/contacto"> Contacto
@@ -52,44 +52,23 @@
 
           </div>
         </div>
-        <div class="col-md-10 pl-5 d-flex">
+        <div class="col-md-10 py-3 pl-5 d-flex">
 
           <div class="mt-auto" style="width: 100%;">
             <div class="mt-4">
-              <p class="h1 text-white display-3" style="font-size:75px">SEXY DRESSES</p>
-              <p class="h2 text-white display-4" style="font-size:40px;position:relative;top:-10px;">CLARITAS PROCESSUS</p>
-              <p class="mb-3 mt-2"><button mat-raised-button class="album " routerLink="/cami-jean/album-sextop">
+              <p class="h1 text-white display-3 t-title" id="titulo1">{{portada.nombrePack}}</p>
+              <p class="h2 text-white display-4 t-title2" id="subtitulo1" style="font-size:40px;position:relative;top:-10px;text-shadow: 2px 2px 4px #00000099;">{{portada.modelo}}</p>
+              <p class="mb-3 mt-2"><button mat-raised-button class="album " id="album" routerLink="/cami-jean/album-sextop">
                   <b>VER ALBUM</b> <i class="material-icons  cp;">keyboard_arrow_right</i>
                 </button></p>
               <p style="text-align:end" class="text-white mb-1">
-                <i class="material-icons f-32 cp">keyboard_arrow_left</i>
-                <i class="material-icons f-32 cp">keyboard_arrow_right</i>
+                <i class="material-icons f-32 b-r cp" (click)="moverIzquierda()">keyboard_arrow_left</i>
+                <i class="material-icons f-32 b-r cp" (click)="moverDerecha()">keyboard_arrow_right</i>
 
               </p>
               <div class="bg-dark display-x">
-                <div class="cont-img">
-                  <img src="/assets/251.jpg" class="item-img">
-                </div>
-                <div class="cont-img">
-                  <img src="/assets/252.jpg" class="item-img">
-                </div>
-                <div class="cont-img">
-                  <img src="/assets/253.jpg" class="item-img">
-                </div>
-                <div class="cont-img">
-                  <img src="/assets/1.jpg" class="item-img">
-                </div>
-                <div class="cont-img">
-                  <img src="/assets/123.jpg" class="item-img">
-                </div>
-                <div class="cont-img">
-                  <img src="/assets/123.jpg" class="item-img">
-                </div>
-                <div class="cont-img">
-                  <img src="/assets/123.jpg" class="item-img">
-                </div>
-                <div class="cont-img">
-                  <img src="/assets/123.jpg" class="item-img">
+                <div class="cont-img" *ngFor="let x of listadoPack" (click)="Seleccionar(x)">
+                  <img src="{{x.portada}}" class="item-img">
                 </div>
               </div>
             </div>

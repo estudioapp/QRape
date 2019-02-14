@@ -19,20 +19,9 @@ export class MensajesComponent implements OnInit {
 
   ngOnInit() {
   const key = this.activatedRoute.snapshot.paramMap.get("key");
-  this.UsuarioService.soporteListMensajes(key)
-  .snapshotChanges()
-  .subscribe(data => {
-    this.mensajes = [];
-    data.forEach(element => {
-      let x = element.payload.toJSON();
-      x["$key"] = element.key
-      this.mensajes.push(x);
-    });
-  }); 
   }
 
   enviar(){
-    this.UsuarioService.inserNewSoporte(this.mensaje);
     this.mensaje = "";
   }
 }

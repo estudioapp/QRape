@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebase : {
-    apiKey: "AIzaSyDFd9HipeZJsBLSZPJz0E3ilzTz5avC5oQ",
-    authDomain: "changofreex.firebaseapp.com",
-    databaseURL: "https://changofreex.firebaseio.com",
-    projectId: "changofreex",
-    storageBucket: "changofreex.appspot.com",
-    messagingSenderId: "769640795962"
+    apiKey: "AIzaSyA3e2Yjbi1RcHhWntZKtsAe8xFuQC-84uA",
+    authDomain: "phalphagolfs.firebaseapp.com",
+    databaseURL: "https://phalphagolfs.firebaseio.com",
+    projectId: "phalphagolfs",
+    storageBucket: "phalphagolfs.appspot.com",
+    messagingSenderId: "829520334779"
   }
 };

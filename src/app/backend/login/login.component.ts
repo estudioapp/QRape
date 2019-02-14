@@ -20,16 +20,6 @@ export class LoginComponent implements OnInit {
   ){}
 
   ngOnInit() {
-    this.userService.usuarioList()
-    .snapshotChanges()
-    .subscribe(data => {
-      this.listUser = [];
-      data.forEach(element => {
-        let x = element.payload.toJSON();
-        x["$key"] = element.key;
-        this.listUser.push(x);
-      });
-    });
   }
 
   validateLogin(){

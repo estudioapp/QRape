@@ -14,6 +14,7 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: black;
   outline: 1px solid slategrey;
+
 }
 body{
     overflow-x: hidden;

@@ -15,16 +15,7 @@ export class VentasComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.pedidoService.pedidoList()
-    .snapshotChanges()
-    .subscribe(data => {
-      this.listVentas = [];
-      data.forEach(element => {
-        let x = element.payload.toJSON();
-        x["$key"] = element.key;
-        this.listVentas.push(x);
-      });
-    });
+    
   }
 
 }

@@ -17,16 +17,6 @@ export class SoporteComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.UsuarioService.soporteList()
-    .snapshotChanges()
-    .subscribe(data => {
-      this.listClientes = [];
-      data.forEach(element => {
-        let x = element.payload.toJSON();
-        x["$key"] = element.key;
-        this.listClientes.push(x);
-      });
-    });
   }
   contestarMensaje(object){
     this.router.navigateByUrl("/backend/soporte/mensajes/"+object.$key);

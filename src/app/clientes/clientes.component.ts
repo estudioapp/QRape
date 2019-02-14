@@ -15,16 +15,7 @@ export class ClientesComponent implements OnInit {
   ){}
 
   ngOnInit() {
-    this.usuarioService.clientList()
-    .snapshotChanges()
-    .subscribe(data => {
-      this.listClient = [];
-      data.forEach(element => {
-        let x = element.payload.toJSON();
-        x["$key"] = element.key;
-        this.listClient.push(x);
-      });
-    });
+   
   }
   moreDay(object){
     let f = new Date();     
@@ -44,6 +35,5 @@ export class ClientesComponent implements OnInit {
           object.hasta = aux.toString()+"/"+(Number(ArrayFecha[1])+1) + "/" + (Number(ArrayFecha[2]));
         }
     }
-    this.usuarioService.updateFecha(object);
   }
 }

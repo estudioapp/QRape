@@ -15,22 +15,10 @@ export class NotificacionesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.userService.notificationList()
-    .snapshotChanges()
-    .subscribe(data => {
-      this.listNotificaciones = [];
-      data.forEach(element => {
-        let x = element.payload.toJSON();
-        x["$key"] = element.key;
-        this.listNotificaciones.push(x);
-      });
-    });
   } 
 
   newNotification(){
-    this.userService.updateNotificacion(this.Notificacion);
   }
   deleteNotificacion(key){
-    this.userService.removeNotificacion(key);
   }
 }

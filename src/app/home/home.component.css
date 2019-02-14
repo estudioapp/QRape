@@ -3,11 +3,82 @@
 
 
 
-
+@keyframes primerAnimacion {   
+    0% {
+        transform: translate(15%, 0);
+    }
+    50% {
+        text-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      }
+    100% {
+        transform: translate(0%, 0);
+      }
+}
+@keyframes primerBoton{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes BotonAnimado{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes TextoAnimado {   
+    0% {
+        transform: translate(15%, 0);
+    }
+    50% {
+        text-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      }
+    100% {
+        transform: translate(0%, 0);
+      }
+}
+@keyframes move-r{
+    0%{
+        transform: translate(3px, 0);
+    }
+    50%{
+        transform: translate(0, 0);
+    }
+    100%{
+        transform: translate(3px, 0);
+    }
+}
+.t-title{
+    font-size:75px;
+    
+    text-shadow: 2px 2px 4px #00000099;
+    animation: primerAnimacion 3s ;
+}
+.t-title2{
+    animation: primerAnimacion 2s ;
+}
+.item-img:hover + .t-title2 + .t-title{
+    animation: primerAnimacion 4s;
+}
 @font-face {
     font-family: Prototype;
     src: url('/assets/Prototype.ttf')
 }
+
+.b-r:hover{
+    color: #979797;;
+}
+
+.move-r{
+    animation: move-r 2s infinite;
+}
+
+
+
 @media screen and (max-width: 768px) {
     .menu{
         display: flex!important;
@@ -64,7 +135,7 @@
     font-family: 'Oswal',sans-serif;
 }
 .bg-left{
-    background-color: #000000e0!important;
+    background-color: #000000!important;
     border-radius: 4px;
 }
 .registro{
@@ -115,12 +186,26 @@ input{
 .display-x{
     max-height: 100px;
     overflow-y: hidden;
-    overflow-x: hidden;
+    overflow-x: auto;
     width: 100%;
     height: 80px;
     padding: 5px;
     box-shadow:inset 22px 12px 14px 4px #000000;
     white-space: nowrap;
+}
+.display-x::-webkit-scrollbar {
+  width: 3px;
+  height: 4px;
+}
+
+/* Track */
+.display-x::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+/* Handle */
+.display-x::-webkit-scrollbar-thumb {
+  background:white; 
 }
 
 .bg-dark{
@@ -132,6 +217,7 @@ input{
 .album{
     color: rgba(255, 255, 255, 0.87);
     background-color: #0b0b0b;
+    animation: primerBoton 2s;
 }
 .cont-img{
     height: 100px;
@@ -146,7 +232,7 @@ header{
  font-family: 'Oswald', sans-serif;
 
  height: 100vh;
- background-image: url("/assets/123.jpg");
+ /* background-image: url("/assets/123.jpg"); */
  background-size: cover;
  background-position: center center;
 

@@ -29,37 +29,7 @@ export class InicioComponent implements OnInit {
     let mesActual = f.getMonth();
     let anoActual = f.getFullYear();
 
-    this.UsuarioService.clientList()
-    .snapshotChanges()
-    .subscribe(data => {
-
-      let cantidad = []
-      data.forEach(element => {
-        let x = element.payload.toJSON();
-        x["$key"] = element.key;
-        cantidad.push(x);
-        arrayFecha = x["creacion"].split("/");
-
-        if(Number(arrayFecha[1]) === mesActual && Number(arrayFecha[2]) === anoActual){
-          contador++
-        }
-      });
-      this.ClientesMensuales = contador;
-      this.CantidadDeClientes = cantidad.length;
-    });
     let listPedidoAux = [];
-    this.UsuarioService.pedidoList()
-    .snapshotChanges()
-    .subscribe(data => {
-      data.forEach(element => {
-        let x = element.payload.toJSON();
-        x["$key"] = element.key;
-        if(x["estado"] === "Acreditado"){
-          listPedidoAux.push(x);
-        }
-      });
-      this.DineroTotal = (listPedidoAux.length * 350);
-    });
   }
 
 }
