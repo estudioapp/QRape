@@ -159,10 +159,19 @@ header{
 /* add padding  */
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
-@media screen and(max-width:992px){
-    .registro{
+@media screen and (max-width: 768px) {
+    
+    /* .registro{
         height: 30px;
         font-size: 10px;
         display: none!important;
+    }
+     */
+    .bg-left{
+        height:100vh;
+        width: 100%!important;
+        z-index: 99999!important;
+        top: 0!important;
+        position: fixed!important;
     }
 }

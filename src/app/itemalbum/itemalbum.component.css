@@ -9,6 +9,9 @@
     width: 250px;
     height: 250px;
 }
+.bg-dark{
+    background: #151516!important;
+}
 .foto>img{
     border-radius: 100%;
     width: 100%;
@@ -208,4 +211,23 @@
 }
 .tarjeta{
     box-shadow: 6px 0px 20px #00000087;
+}
+.close{
+    color: white;
+    position: absolute;
+    left: 90%;
+    top: 3%;
+    font-size: 35px;
+    cursor: pointer
+}
+.contenedor{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 999;
+    background: #00000080;
+    top: 0;
+    padding: 0;
+    padding-left: -15px;
+    margin: 0;
 }

@@ -1,10 +1,91 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 
 
+@keyframes tamano{
+    0%{
+        font-size: 50px;
+    }
+    50%{
+        font-size: 100px
+    }
+    100%{
+        font-size: 50px;
+    }
+}
 
+.t1{
+    animation:  tamano 1s 5s;
+}
+.t2{
+    animation:  tamano 1.2s 5s;
+}
+.t3{
+    animation:  tamano 1.4s 2s;
+}
+.t4{
+    animation:  tamano 1.6s 2s;
+}
+.t5{
+    animation:  tamano 1.8s 2s;
+}
+.t6{
+    animation:  tamano 2s 2s;
+}
+.t7{
+    animation:  tamano 2.2s 2s;
+}
+.t8{
+    animation:  tamano 2.4s 2s;
+}
+.t9{
+    animation:  tamano 2.6s 2s;
+}
+.t10{
+    animation:  tamano 2.8s 2s;
+}
+.t11{
+    animation:  tamano 3s 2s;
+}
+
+
+
+@keyframes entrada {
+ 0%{
+    /* text-shadow: 0px 0px 0px #a9a9a9; */
+    font-size: 50px;
+    transform: translate(100%,0)
+ }
+ 50%{
+     
+}
+100%{
+    /* text-shadow: 3px 3px 39px #a9a9a9; */
+    /* font-size: 60px; */
+    transform: translate(0%,0)
+ }
+}
+
+.efectoentr{
+    animation: 2s entrada;
+    font-size:50px
+}
+
+.efectoentr a{ 
+    /* font-size: 50px; */
+}
+.bg-negro{
+    background: black;
+}
+.v0{
+    visibility: hidden
+}
+.v1{
+    visibility: visible
+}
 
 @keyframes primerAnimacion {   
     0% {
+
         transform: translate(15%, 0);
     }
     50% {
@@ -56,13 +137,13 @@
     font-size:75px;
     
     text-shadow: 2px 2px 4px #00000099;
-    animation: primerAnimacion 3s ;
-}
-.t-title2{
     animation: primerAnimacion 2s ;
 }
+.t-title2{
+    animation: primerAnimacion 1s ;
+}
 .item-img:hover + .t-title2 + .t-title{
-    animation: primerAnimacion 4s;
+    animation: primerAnimacion 3s;
 }
 @font-face {
     font-family: Prototype;
@@ -217,7 +298,7 @@ input{
 .album{
     color: rgba(255, 255, 255, 0.87);
     background-color: #0b0b0b;
-    animation: primerBoton 2s;
+    animation: primerBoton 1s;
 }
 .cont-img{
     height: 100px;
@@ -237,6 +318,24 @@ header{
  background-position: center center;
 
 }
+.fondo-l{
+    height: 100vh;
+  position: absolute;
+  width: 100%;
+  background:#000000b8;
+  z-index: 9;
+}
+.popup{
+    left: 33%;
+    top:20%;
+  position: absolute;
+  background: white;
+  width: 500px;
+  height: 300px;
+  z-index: 999;
+  border-radius: 8px;
+}
+
 .fondo-t{
     background: #00000091;
     height: 100%;

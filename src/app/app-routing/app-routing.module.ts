@@ -35,33 +35,22 @@ import { ItemalbumComponent } from '../itemalbum/itemalbum.component';
 import { CategoriasComponent } from '../categorias/categorias.component';
 import { ModelosComponent } from '../modelos/modelos.component';
 import { ContactoComponent } from '../contacto/contacto.component';
+import { MistrabajosComponent } from '../mistrabajos/mistrabajos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent  },
+  { path: 'trabajos', component: MistrabajosComponent },  
   { path: 'categorias', component: CategoriasComponent },
-  { path: 'modelos', component: ModelosComponent },  
+  { path: 'modelos', component: ModelosComponent },
   { path: 'contacto', component: ContactoComponent },  
-  { path: ':nombredechica/:nombrealbum', component: ItemalbumComponent},  
-  { path: ':nombredechica', component: PerfilComponent},
+  { path: ':nombredemodelo/:nombrealbum', component: ItemalbumComponent},  
+  { path: ':nombredemodelo', component: PerfilComponent},
   { path: 'cliente-backend',component: BackendStandardComponent},
   { path: 'login', component: ValidateComponent},
   { path: 'backend/login', component: LoginComponent},
   { path: 'terminos', component: TerminosComponent},
   { path: 'blog', component: BlogComponent},
-  // 
-  { path: 'backend', component: SidenavComponent,
-  children: [
-      { path: '', redirectTo: 'inicio', pathMatch: 'full'},
-      { path: 'inicio', component: InicioComponent },
-      { path: 'entradas', component: ListadoEntradaComponent },
-      { path: 'entradas/store', component: StoreEntradaComponent },
-      { path: 'clientes', component: ClientesComponent },
-      { path: 'notificaciones', component: NotificacionesComponent },
-      { path: 'ventas', component: VentasComponent },     
-      { path: 'soporte', component: SoporteComponent },
-      { path: 'soporte/mensajes/:key', component: MensajesComponent },      
-  ]},
 ];
 
 

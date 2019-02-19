@@ -8,6 +8,19 @@
 
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 
+.menus{
+    z-index: 999;
+    position: absolute;
+    left: 32%;
+    width: 200px;
+    box-shadow: 2px 3px 8px #3b3b3b;
+    background: #eeeeeed9;
+    padding: 20px;
+    font-size: 21px;
+}
+.bg-dark{
+    background: #151516!important;
+}
 @media screen and (max-width: 768px) {
     .menu{
         display: none!important;
@@ -15,13 +28,20 @@
     .hide-note{
         display:block!important;
     }
-    .tarjeta{
+    .tarjeta,.tarjeta0{
         display: flex;
         -webkit-box-orient: vertical!important;
         -webkit-box-direction: reverse!important;
         -ms-flex-direction: column-reverse!important;
         flex-direction: column-reverse!important;    
     }
+}
+.cp{
+    cursor: pointer;
+}
+.cover{
+    background-size: cover;
+    height: 350px;
 }
 .hide-note{
     display:none;
@@ -60,7 +80,7 @@
     color: #191919;
     font-family: "Oswald";
 }
-.tarjeta-dos{
+.tarjeta-dos,.tarjeta1{
     background: #000000f2;
     color: white;
 }
@@ -76,6 +96,6 @@
     display: flex;
     background: #0000007d;
 }
-.tarjeta{
+.tarjeta,.tarjeta0{
     box-shadow: 6px 0px 20px #00000087;
 }

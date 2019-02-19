@@ -20,3 +20,6 @@ body{
     overflow-x: hidden;
     font-family: 'Oswald', sans-serif;
 }
+.cp{
+    cursor: pointer!important;
+}

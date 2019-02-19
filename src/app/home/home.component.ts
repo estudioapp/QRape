@@ -15,11 +15,25 @@ export class HomeComponent implements OnInit {
   fondo;
   fondoActivo;
   position: number;
-
+  inicio;
+  popup;
+  email;
+  contra;
+  cliente;
+  ok;
   constructor(
     private dashboardService: UsuarioService
   ) {
-
+    this.ok = true;
+    this.cliente = null;
+    this.validarRegistro = false;
+    this.email = "";
+    this.contra = "";
+    this.inicio = "0";
+    this.portada = "";
+    this.fondo = "";
+    this.fondoActivo = "";
+    this.popup = true;
     this.Menu = false;
     this.position = 0;
   }
@@ -27,27 +41,51 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
+    this.cliente = localStorage.getItem("cliente");
+    if(this.cliente === null){
+      this.ok = true;
+    }else{
+      this.ok = false;
+    }
+    if (localStorage.getItem("modal") === "true") {
+      this.popup = false;
+    }
     this.dashboardService.returnListPacks()
       .snapshotChanges()
       .subscribe(data => {
         this.listadoPack = [];
         data.forEach(element => {
-          console.log("x");
           let x = element.payload.toJSON();
-          console.log(x);
           x["$key"] = element.key;
           this.listadoPack.push(x);
         });
         this.fondo = "url(" + this.listadoPack[0].portada + ")";
         this.fondoActivo = this.listadoPack[0].portada;
-        console.log(this.fondo);
+        this.inicio = "1";
         this.portada = this.listadoPack[0];
       });
     if (window.innerWidth > 769) {
       this.Menu = true;
     }
-  }
 
+
+
+
+
+
+
+    this.dashboardService.returnListClient()
+    .snapshotChanges()
+    .subscribe(data => {
+      let x = true;
+      this.variables = [];
+      data.forEach(element => {
+        let x = element.payload.toJSON();
+        this.variables.push(x);
+      });
+    });
+  }
+  variables;
   Seleccionar(obj) {
     this.portada = obj;
     this.fondo = "url(" + this.portada.portada + ")";
@@ -56,21 +94,25 @@ export class HomeComponent implements OnInit {
     this.Animaciones()
   }
 
-
+  Cerrar() {
+    this.popup = false;
+    localStorage.setItem("modal", "true")
+    this.Animaciones();
+  }
 
   Animaciones() {
-   
+
     document.getElementById("titulo1").style.animation = 'none';
     document.getElementById("titulo1").offsetHeight; /* trigger reflow */
-    document.getElementById("titulo1").style.animation = null; 
+    document.getElementById("titulo1").style.animation = null;
 
     document.getElementById("subtitulo1").style.animation = 'none';
     document.getElementById("subtitulo1").offsetHeight; /* trigger reflow */
-    document.getElementById("subtitulo1").style.animation = null; 
+    document.getElementById("subtitulo1").style.animation = null;
 
     document.getElementById("album").style.animation = 'none';
     document.getElementById("album").offsetHeight; /* trigger reflow */
-    document.getElementById("album").style.animation = null; 
+    document.getElementById("album").style.animation = null;
 
 
   }
@@ -85,7 +127,7 @@ export class HomeComponent implements OnInit {
         aux++;
       }
     });
-    this.fondoActivo = this.listadoPack[position+1].portada;
+    this.fondoActivo = this.listadoPack[position + 1].portada;
     this.fondo = "url(" + this.listadoPack[position + 1].portada + ")";
     this.portada = this.listadoPack[position + 1];
     this.Animaciones()
@@ -101,15 +143,66 @@ export class HomeComponent implements OnInit {
         aux++;
       }
     });
-    console.log(position)
-    if(position>0){
+    if (position > 0) {
 
       this.fondo = "url(" + this.listadoPack[position - 1].portada + ")";
-      this.fondoActivo = this.listadoPack[position-1].portada;
+      this.fondoActivo = this.listadoPack[position - 1].portada;
 
       this.portada = this.listadoPack[position - 1];
       this.Animaciones()
     }
+
+  }
+
+  validarRegistro;
+  iniciarSesion(){
+    let x = false;
+    this.variables.forEach(element => {
+      if(element.email === this.email && element.contra === this.contra){
+        this.validarRegistro = false;
+        x = true;
+      } 
+    });
+    if(x){
+      localStorage.setItem("cliente", this.email);
+      location.reload();
+    }else{
+      this.validarRegistro = true;
+    }
+  }
+  registro() {
+    console.log(this.email);
+    let obj = {
+      email: "",
+      contra: ""
+    };
+    let x = true;
+      this.variables.forEach(element => {
+        if(element.email === this.email){
+          this.validarRegistro = true;
+          x = false;
+        } 
+      });
+      if(x){
+        if(this.email !== "" && this.contra !== ""){
+          x = true;
+          console.log(this.email)
+          obj.email = this.email;
+          obj.contra = this.contra;
+          this.dashboardService.nuevoCliente(obj);
+          localStorage.setItem("cliente",this.email);
+          location.reload();
+        }else{
+          this.validarRegistro = true;
+        }
+      }
+      
+
+    
+  }
+  cerrar(){
+    localStorage.clear();
+    location.reload();
 
   }
 }

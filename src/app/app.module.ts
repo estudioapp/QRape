@@ -97,6 +97,7 @@ import { ItemalbumComponent } from './itemalbum/itemalbum.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { ModelosComponent } from './modelos/modelos.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import { MistrabajosComponent } from './mistrabajos/mistrabajos.component';
 
 @NgModule({
   declarations: [
@@ -138,7 +139,8 @@ import { ContactoComponent } from './contacto/contacto.component';
     ItemalbumComponent,
     CategoriasComponent,
     ModelosComponent,
-    ContactoComponent
+    ContactoComponent,
+    MistrabajosComponent
   ],
   imports: [
     AppRoutingModule,
