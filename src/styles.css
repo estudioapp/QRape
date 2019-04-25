@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 body::-webkit-scrollbar {
     width: 1em;
@@ -18,7 +18,10 @@ body::-webkit-scrollbar-thumb {
 }
 body{
     overflow-x: hidden;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+html{
+    font-size: 14px;
 }
 .cp{
     cursor: pointer!important;
