@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFrontendComponent implements OnInit {
 
-  constructor() { }
+
+  isRegistro: boolean;
+
+  constructor() {
+    if(window.location.href.indexOf("/registro") !== -1){
+      this.isRegistro = true;
+    }else{
+      this.isRegistro = false;
+    }
+  }
 
   ngOnInit() {
   }

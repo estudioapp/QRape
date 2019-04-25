@@ -1,3 +1,41 @@
-<p>
-  login-frontend works!
-</p>
+<!-- ****************** MOBILE LAYOUT ******************* -->
+
+<header *ngIf="isRegistro || !isRegistro">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 top d-flex">
+        <div class="row tarjeta mx-auto my-auto">
+          <div class="col-12 d-flex mb-4">
+            <h4 class="mx-auto my-auto">
+              APE Studio - Login
+            </h4>
+          </div>
+          <div class="col-12 divInput d-flex" *ngIf="isRegistro">
+            <input type="text" class="mx-auto my-auto" placeholder="Tu nombre">
+          </div>
+          <div class="col-12 divInput d-flex">
+            <input type="text" class="mx-auto my-auto" placeholder="Tu correo">
+          </div>
+          <div class="col-12 divInput d-flex">
+            <input type="text" class="mx-auto my-auto" placeholder="Tu contraseña">
+          </div>
+          <div class="col-12 d-flex mt-2">
+            <p class="mx-auto text-center">Recordaremos tus datos de acceso para tu experencía sea la mejor</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 d-flex botones">
+        <div class="my-auto mx-auto w100">
+          <p class="text-center">
+            <button class="btn-one">{{(isRegistro)?'Creá tu cuenta':'Iniciar sesión'}}</button>
+          </p>
+          <p class="text-center"> o </p>
+          <p class="text-center">
+            <a routerLink="/{{(isRegistro)?'login':'registro'}}">{{(isRegistro)?'Iniciar sesión':'Creá tu cuenta'}}</a>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
