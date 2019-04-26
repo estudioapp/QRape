@@ -4,6 +4,7 @@ import { Routes, RouterModule} from '@angular/router';
 import { InicioFrontendComponent } from '../components/frontend/inicio-frontend/inicio-frontend.component';
 import { LoginFrontendComponent } from '../components/frontend/login-frontend/login-frontend.component';
 import { PanelFrontendComponent } from '../components/frontend/panel-frontend/panel-frontend.component';
+import { PerfilComponent } from '../components/frontend/perfil/perfil.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginFrontendComponent  },
   { path: 'registro', component: LoginFrontendComponent  },
   { path: 'panel', component: PanelFrontendComponent  },
+  { path: 'perfil', component: PerfilComponent  },
 
 ];
 

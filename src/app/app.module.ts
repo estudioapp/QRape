@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ChartsModule } from 'ng2-charts';
+
+
 
 //Angular material
 
@@ -66,6 +69,8 @@ import { NuevoQRComponent } from './components/frontend/nuevo-qr/nuevo-qr.compon
 import { EditarQRComponent } from './components/frontend/editar-qr/editar-qr.component';
 import { PerfilComponent } from './components/frontend/perfil/perfil.component';
 import { NavbarComponent } from './components/frontend/navbar/navbar.component';
+import { NgQRCodeReaderModule } from 'ng2-qrcode-reader';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 
 @NgModule({
@@ -80,6 +85,9 @@ import { NavbarComponent } from './components/frontend/navbar/navbar.component';
     NavbarComponent,
   ],
   imports: [
+    ChartsModule,
+    NgQRCodeReaderModule,
+    ZXingScannerModule,
     AppRoutingModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,

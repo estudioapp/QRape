@@ -1,6 +1,81 @@
 <!-- ********************* MOBILE LAYOUT ************************** -->
 
-<header>
+<header class="">
+
+  <!-- **** Donut **** -->
+  <div class="chart d-flex" style="height:100%">
+    <canvas baseChart class="my-auto" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+      [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
+    </canvas>
+  </div>
 
 </header>
+<section>
+  <div class="container">
+    <div class="row" style="background-color:#f2f2f2">
+      <div class="panel">
+
+        <!-- Datos básicos de usuabilidad -->
+        <div class="col-12 my-3">
+          <h2 class="mb-0 ">
+            Panel central
+          </h2>
+        </div>
+        <div class="col-12">
+          <p>
+            <a>
+              QR disponibles: 0
+            </a>
+          </p>
+          <p>
+            <a>
+              QR usados: 0
+            </a>
+          </p>
+          <p>
+            <a>
+              QR totales: 0
+            </a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Call To Action -->
+    <div class="row">
+      <div class="col-12 text-center py-4 action">
+        <p class="mb-2"><b>¿Te gustaría poder modificar los codigos QR?</b> </p>
+        <p class="mb-0"><button>Usar cuenta premium</button></p>
+      </div>
+    </div>
+
+    <!-- Listado de información de los QR ya cargados -->
+    <div class="row" style="background-color:#f2f2f2;    padding-top: 20px;">
+      <div class="panel-i">
+
+        <div class="col-12 my-4 text-center">
+          <h2 class="mb-0">QR Cargados</h2>
+        </div>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-6">
+              <img
+                src="https://misanimales.com/wp-content/uploads/2018/01/como-saber-si-un-perro-esta-feliz-o-triste.jpg"
+                style="width:100%">
+            </div>
+            <div class="col-6">
+              <img src="https://creatiabusiness.com/wp-content/uploads/2015/10/Microsoft_Excel_2013_logo.svg_.png"
+                style="width:100%">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<zxing-scanner></zxing-scanner>
+
 <app-navbar>
