@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
+import { AuthService } from "./services/auth.service";
 
 
 
@@ -48,11 +49,15 @@ import {
 
 
 // FireBase Configuration
-
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
+//import { AngularFireDatabaseModule } from 'angularfire2/database';
+//import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+//import { AngularFirestoreModule } from '@angular/fire/firestore';
+//import { environment } from '../environments/environment';
 
 
 //Assets
@@ -71,6 +76,8 @@ import { PerfilComponent } from './components/frontend/perfil/perfil.component';
 import { NavbarComponent } from './components/frontend/navbar/navbar.component';
 import { NgQRCodeReaderModule } from 'ng2-qrcode-reader';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { VerifyEmailComponent } from './components/frontend/verify-email/verify-email.component';
+import { ForgotPasswordComponent } from './components/frontend/forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -83,6 +90,8 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     EditarQRComponent,
     PerfilComponent,
     NavbarComponent,
+    VerifyEmailComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     ChartsModule,
@@ -90,6 +99,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     ZXingScannerModule,
     AppRoutingModule,
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
@@ -133,7 +143,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

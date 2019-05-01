@@ -5,6 +5,8 @@ import { InicioFrontendComponent } from '../components/frontend/inicio-frontend/
 import { LoginFrontendComponent } from '../components/frontend/login-frontend/login-frontend.component';
 import { PanelFrontendComponent } from '../components/frontend/panel-frontend/panel-frontend.component';
 import { PerfilComponent } from '../components/frontend/perfil/perfil.component';
+import { ForgotPasswordComponent } from '../components/frontend/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from '../components/frontend/verify-email/verify-email.component';
 
 
 const routes: Routes = [
@@ -14,7 +16,8 @@ const routes: Routes = [
   { path: 'registro', component: LoginFrontendComponent  },
   { path: 'panel', component: PanelFrontendComponent  },
   { path: 'perfil', component: PerfilComponent  },
-
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'verify-email-address', component: VerifyEmailComponent }
 ];
 
 
