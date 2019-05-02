@@ -1,0 +1,35 @@
+<!-- ****************** MOBILE LAYOUT ******************* -->
+
+<header *ngIf="isRegistro || !isRegistro">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 top d-flex">
+        <div class="row tarjeta mx-auto my-auto">
+          <div class="col-12 d-flex mb-4">
+            <h4 class="mx-auto my-auto">
+              APE Studio ADM - Login ADM
+            </h4>
+          </div>
+         
+          <div class="col-12 divInput d-flex">
+            <input type="text" class="mx-auto my-auto"  [(ngModel)]="usuario" name="usuario" placeholder="Usuario">
+          </div>
+          <div class="col-12 divInput d-flex">
+            <input type="password" class="mx-auto my-auto" placeholder="Tu contraseña" [(ngModel)]="contrasena" name="usuario">
+          </div>
+          <div class="col-12 d-flex mt-2">
+            <p class="mx-auto text-center">Recordaremos tus datos de acceso para tu experencía sea la mejor</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 d-flex botones">
+        <div class="my-auto mx-auto w100">
+          <p class="text-center">
+            <button class="btn-one" (click)="login()">Iniciar sesión</button>
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

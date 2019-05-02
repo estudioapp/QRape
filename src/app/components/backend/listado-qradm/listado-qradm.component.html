@@ -1,0 +1,50 @@
+<section>
+  <div class="container top">
+    <div class="row">
+      <div class="col-12 d-flex">
+        <h2 class="mx-auto my-auto">Listado de Series QR</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-12 d-flex">
+        <div class="mx-auto my-auto tarjeta">
+          <p class="text-center my-5">
+            <a class="h2 mb-0">Seleccioná el cliente</a>
+            <br>
+            <select id="select" (change)="BuscarQr($event.target.value)">
+              <option>Seleccioná un cliente</option>
+              <option *ngFor="let x of listClientes">{{x.cliente}}</option>
+            </select>
+            <br>
+            <small *ngIf="ObjectQR.Serie !== undefined">El cliente selecciondo tiene hasta la serie
+              {{ObjectQR.Serie}}</small>
+          </p>
+          <hr>
+          <p class="text-center my-5">
+            <input type="number" (keyup)="listado()" placeholder="¿Que número de serie queres ver?" name="QR"
+              [(ngModel)]="numeroSerie">
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="listQRCliente.length !== 0" class="container">
+    <div class="row mt-4" id="QR">
+      <div class="col-12 text-center">
+        <h3>Serie numero {{numeroSerie}}</h3>
+      </div>
+      <div class="col-6 d-flex my-3" *ngFor="let x of listQRCliente">
+        <div class="mx-auto">
+          <qrcode [qrdata]="x.$key" [size]="120" [level]="'M'" style="width:100%"></qrcode>
+        </div>
+      </div>
+      <div class="col-12">
+        <p class="text-center">
+          <button (click)="Imprimir()">Imprimir</button>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
