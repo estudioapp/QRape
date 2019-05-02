@@ -70,7 +70,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginFrontendComponent } from './components/frontend/login-frontend/login-frontend.component';
 import { InicioFrontendComponent } from './components/frontend/inicio-frontend/inicio-frontend.component';
 import { PanelFrontendComponent } from './components/frontend/panel-frontend/panel-frontend.component';
-import { NuevoQRComponent } from './components/frontend/nuevo-qr/nuevo-qr.component';
 import { EditarQRComponent } from './components/frontend/editar-qr/editar-qr.component';
 import { PerfilComponent } from './components/frontend/perfil/perfil.component';
 import { NavbarComponent } from './components/frontend/navbar/navbar.component';
@@ -78,6 +77,15 @@ import { NgQRCodeReaderModule } from 'ng2-qrcode-reader';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { VerifyEmailComponent } from './components/frontend/verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './components/frontend/forgot-password/forgot-password.component';
+import { LoginBackComponent } from './components/backend/login-back/login-back.component';
+import { ClienteService } from './services/cliente.service';
+import { GenerarQrService } from './services/generar-qr.service';
+import { BackendService } from './services/backend.service';
+import { NuevoQRComponent } from './components/backend/nuevo-qr/nuevo-qr.component';
+import { QRCodeModule } from 'angularx-qrcode';
+import { ListadoQRadmComponent } from './components/backend/listado-qradm/listado-qradm.component';
+import { PanelBackendComponent } from './components/backend/panel-backend/panel-backend.component';
+import { VisorQRComponent } from './components/frontend/visor-qr/visor-qr.component';
 
 
 @NgModule({
@@ -92,6 +100,10 @@ import { ForgotPasswordComponent } from './components/frontend/forgot-password/f
     NavbarComponent,
     VerifyEmailComponent,
     ForgotPasswordComponent,
+    LoginBackComponent,
+    ListadoQRadmComponent,
+    PanelBackendComponent,
+    VisorQRComponent,
   ],
   imports: [
     ChartsModule,
@@ -110,6 +122,7 @@ import { ForgotPasswordComponent } from './components/frontend/forgot-password/f
     MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
+    QRCodeModule,
     MatChipsModule,
     MatDatepickerModule,
     MatDialogModule,
@@ -143,7 +156,7 @@ import { ForgotPasswordComponent } from './components/frontend/forgot-password/f
     BrowserModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,ClienteService,GenerarQrService,BackendService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
