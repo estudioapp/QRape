@@ -10,14 +10,17 @@
               APE Studio - Login
             </h4>
           </div>
+          <!-- <div class="col-12 divInput d-flex" *ngIf="isRegistro">
+            <input type="text" class="mx-auto my-auto" placeholder="Tu nombre" #userName required>
+          </div>
           <div class="col-12 divInput d-flex" *ngIf="isRegistro">
-            <input type="text" class="mx-auto my-auto" placeholder="Tu nombre">
+            <input type="text" class="mx-auto my-auto" placeholder="Tu email" >
+          </div> -->
+          <div class="col-12 divInput d-flex">
+            <input type="text" class="mx-auto my-auto" placeholder="Tu email" #userEmail required >
           </div>
           <div class="col-12 divInput d-flex">
-            <input type="text" class="mx-auto my-auto" placeholder="Tu correo">
-          </div>
-          <div class="col-12 divInput d-flex">
-            <input type="text" class="mx-auto my-auto" placeholder="Tu contraseña">
+            <input type="text" class="mx-auto my-auto" placeholder="Tu contraseña" #userPassword required>
           </div>
           <div class="col-12 d-flex mt-2">
             <p class="mx-auto text-center">Recordaremos tus datos de acceso para tu experencía sea la mejor</p>
@@ -27,7 +30,7 @@
       <div class="col-12 d-flex botones">
         <div class="my-auto mx-auto w100">
           <p class="text-center">
-            <button class="btn-one">{{(isRegistro)?'Creá tu cuenta':'Iniciar sesión'}}</button>
+            <button class="btn-one" (click)="(isRegistro)?authService.SignUp(userEmail.value, userPassword.value): authService.SignIn(userEmail.value, userPassword.value)">{{(isRegistro)?'Creá tu cuenta':'Iniciar sesión'}}</button>
           </p>
           <p class="text-center"> o </p>
           <p class="text-center">

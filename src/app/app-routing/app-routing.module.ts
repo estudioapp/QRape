@@ -5,6 +5,8 @@ import { InicioFrontendComponent } from '../components/frontend/inicio-frontend/
 import { LoginFrontendComponent } from '../components/frontend/login-frontend/login-frontend.component';
 import { PanelFrontendComponent } from '../components/frontend/panel-frontend/panel-frontend.component';
 import { PerfilComponent } from '../components/frontend/perfil/perfil.component';
+import { ForgotPasswordComponent } from '../components/frontend/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from '../components/frontend/verify-email/verify-email.component';
 import { LoginBackComponent } from '../components/backend/login-back/login-back.component';
 import { NuevoQRComponent } from '../components/backend/nuevo-qr/nuevo-qr.component';
 import { ListadoQRadmComponent } from '../components/backend/listado-qradm/listado-qradm.component';
@@ -24,7 +26,8 @@ const routes: Routes = [
   { path: 'vista/:key', component: VisorQRComponent }, 
   { path: 'panel', component: PanelFrontendComponent  },
   { path: 'perfil', component: PerfilComponent  },
-
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'verify-email-address', component: VerifyEmailComponent }
 ];
 
 
