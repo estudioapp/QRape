@@ -1,0 +1,42 @@
+<section>
+    <div class="container top">
+      <div class="row">
+        <div class="col-12">
+          <p class="h3 my-0 py-3 text-center">QReady</p>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12 my-3 text-center">
+          <b>Tu codigo QR está vacio</b>
+        </div>
+        <div class="col-12">
+           <p class="text-center">
+            <a class="h4">
+              ¿Te gustaría agregarle una imagen?</a>
+            <br>
+            <button style="position:absolute;top:60px;left:0px;background-image: linear-gradient(to right,#3176fb,#45c3ff);border:0;border-radius:5px;padding:10px 34px;color:white"
+            *ngIf="isFoto" (click)="BorrarImagen()">Cambiar foto</button>
+          </p> 
+          <div id="img">
+
+          </div>
+            <label class="labelFile text-center mx-auto my-3" id="labelFile">
+                Selecioná la foto
+                <input type="file" id="upload-file" (change)="seleccionarFoto($event)" accept='image/*' capture>
+              </label>
+          <p class="text-center" >
+            <textarea placeholder="¡Acá agregale un texto sobre de que se trata tu QR!" name="txtd" [(ngModel)]="QRselect.Texto"></textarea>
+          </p>
+
+          <hr>
+          <p class="mt-5 text-center">
+            <button class="one" (click)="agregar()">Guardar cambios</button></p>
+          <p class="text-center">
+            <button class="two" routerLink="/panel">Volver al administrador</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -10,6 +10,9 @@ export class PanelBackendComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if(sessionStorage.getItem("usuario") === null){
+      location.href="https://qready.com.ar";
+    }
   }
 
 }

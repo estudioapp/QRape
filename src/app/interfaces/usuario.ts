@@ -1,4 +1,4 @@
-export interface Usuario {
+export interface Cliente {
     $key?:string;
     Nombre:string;
     Email:string;

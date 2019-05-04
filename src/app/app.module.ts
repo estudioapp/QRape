@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
 import { AuthService } from "./services/auth.service";
+// import {  } from '@zxing/ngx-scanner';
 
 
 
@@ -86,6 +87,9 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { ListadoQRadmComponent } from './components/backend/listado-qradm/listado-qradm.component';
 import { PanelBackendComponent } from './components/backend/panel-backend/panel-backend.component';
 import { VisorQRComponent } from './components/frontend/visor-qr/visor-qr.component';
+import { LectorQrComponent } from './components/lector-qr/lector-qr.component';
+import { AgregarContenidoQRComponent } from './components/frontend/agregar-contenido-qr/agregar-contenido-qr.component';
+import { Ng2ImgMaxModule } from 'ng2-img-max'; // <-- import the module
 
 
 @NgModule({
@@ -104,8 +108,11 @@ import { VisorQRComponent } from './components/frontend/visor-qr/visor-qr.compon
     ListadoQRadmComponent,
     PanelBackendComponent,
     VisorQRComponent,
+    LectorQrComponent,
+    AgregarContenidoQRComponent,
   ],
   imports: [
+    Ng2ImgMaxModule,
     ChartsModule,
     NgQRCodeReaderModule,
     ZXingScannerModule,

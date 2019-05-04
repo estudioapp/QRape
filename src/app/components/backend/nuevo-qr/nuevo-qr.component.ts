@@ -33,6 +33,9 @@ export class NuevoQRComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(sessionStorage.getItem("usuario") === null){
+      location.href="https://qready.com.ar";
+    }
     this.BackendService.getClientes()
       .snapshotChanges()
       .subscribe(data => {

@@ -12,6 +12,8 @@ import { NuevoQRComponent } from '../components/backend/nuevo-qr/nuevo-qr.compon
 import { ListadoQRadmComponent } from '../components/backend/listado-qradm/listado-qradm.component';
 import { PanelBackendComponent } from '../components/backend/panel-backend/panel-backend.component';
 import { VisorQRComponent } from '../components/frontend/visor-qr/visor-qr.component';
+import { AgregarContenidoQRComponent } from '../components/frontend/agregar-contenido-qr/agregar-contenido-qr.component';
+import { EditarQRComponent } from '../components/frontend/editar-qr/editar-qr.component';
 
 
 const routes: Routes = [
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'vista/:key', component: VisorQRComponent }, 
   { path: 'panel', component: PanelFrontendComponent  },
   { path: 'perfil', component: PerfilComponent  },
+  { path: 'agregarQR/:key', component: AgregarContenidoQRComponent  },
+  { path: 'editarQR/:key', component: EditarQRComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent }
 ];

@@ -12,6 +12,7 @@ export class VisorQRComponent implements OnInit {
 
   listQR : QR[];
   QRselect : QR;
+  key : string; 
 
   constructor(
     private QRService : GenerarQrService,
@@ -26,6 +27,7 @@ export class VisorQRComponent implements OnInit {
 
   ngOnInit() {
     const key = this.activatedRoute.snapshot.paramMap.get("key");
+    this.key = key;
     this.QRService.getQRs()
     .snapshotChanges()
     .subscribe(Data => {

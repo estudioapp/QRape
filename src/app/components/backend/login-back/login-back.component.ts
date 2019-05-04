@@ -12,7 +12,7 @@ export class LoginBackComponent implements OnInit {
   usuario : string;
   contrasena : string;
   listUser: any[]
-
+  isRegistro;
   constructor(
     private BackendService: BackendService,
     private Router: Router
@@ -42,7 +42,7 @@ export class LoginBackComponent implements OnInit {
     this.listUser.map(element => {
       if(element.usuario === this.usuario && element.contrasena === this.contrasena){
         sessionStorage.setItem("usuario",this.usuario);
-        this.Router.navigateByUrl("admin8291/nuevosQR");
+        this.Router.navigateByUrl("admin8291/panel");
       }
     });
   }

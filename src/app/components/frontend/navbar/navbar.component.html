@@ -2,22 +2,30 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-2">
-        <i class="material-icons" routerLink="/panel">home</i>
-      </div>
-      <div class="col-2">
-        <i class="material-icons">menu</i>
+      <div class="col-4 d-flex">
+        <div class="my-auto mx-auto" style="width:50%">
+
+          <img src="/assets/images/home.png" class="d-flex mx-auto my-auto" style="width: 70%;filter: invert(1);" routerLink="/panel">
+
+        </div>
       </div>
       <div class="col-4"></div>
-      <div class="btn-add">
-          <i class="material-icons">add</i>
+      <div class="btn-add" (click)="isScan = true">
+        <img src="/assets/images/scann.png" style="width: 55%;height: 55%;margin: auto;filter: invert(1);">
       </div>
-      <div class="col-2">
-        <i class="material-icons">menu</i>
-      </div>
-      <div class="col-2">
-        <i class="material-icons" routerLink="/perfil">person</i>
+      <div class="col-4 d-flex">
+        <div class="my-auto mx-auto" style="width:50%">
+
+          <img src="/assets/images/acc.png" class="d-flex mx-auto my-auto" style="width: 70%;filter: invert(1);" routerLink="/perfil">
+
+        </div>
       </div>
     </div>
   </div>
 </header>
+
+
+<section *ngIf="isScan">
+  <button (click)="isScan = false;" class="btn-cerrar">Cerrar</button>
+  <app-lector-qr></app-lector-qr>
+</section>

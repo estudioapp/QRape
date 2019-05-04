@@ -18,7 +18,7 @@
         <p *ngIf="QRselect.Archivo">{{QRselect.Archivo}} - <a class="text-info">Descargar</a></p>
         <hr>
         <p class="mt-5 text-center">
-          <button class="one" > {{(!QRselect.Foto && !QRselect.Video && !QRselect.Archivo && !QRselect.Texto)?'Agregar contenido':'Editar contenido'}}</button></p>
+          <button class="one" [routerLink]="(!QRselect.Foto && !QRselect.Video && !QRselect.Archivo && !QRselect.Texto)?'/agregarQR/'+key:'/editarQR/'+key"> {{(!QRselect.Foto && !QRselect.Video && !QRselect.Archivo && !QRselect.Texto)?'Agregar contenido':'Editar contenido'}}</button></p>
         <p class="text-center">
           <button class="two">Volver al administrador</button>
         </p>

@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
+import 'firebase/storage';
+
 import { QR } from '../interfaces/qr';
+import { Imgupload } from '../interfaces/imgupload';
 
 
 @Injectable({
@@ -10,8 +13,13 @@ import { QR } from '../interfaces/qr';
 })
 export class GenerarQrService {
 
+
   listadoQR: AngularFireList<QR>;
   fotogramaQr: any[];
+
+  private basePath = '/uploads';
+
+
   constructor(
     private fireBase: AngularFireDatabase,
     private location: Router
@@ -35,8 +43,74 @@ export class GenerarQrService {
       }).key);
     }
     return this.fotogramaQr;
-  
   }
 
+  /**  **/
+  setValueQR(fileUpload: Imgupload, ObjectQR: QR) {
+    if (fileUpload === null || fileUpload === undefined) {
+      if (ObjectQR.Archivo === undefined) {
+        ObjectQR.Archivo = null;
+      }
+      if (ObjectQR.Foto === undefined) {
+        ObjectQR.Foto = null;
+      }
+      if (ObjectQR.Texto === undefined) {
+        ObjectQR.Texto = null;
+      }
+      if (ObjectQR.Video === undefined) {
+        ObjectQR.Video = null;
+      }
+      this.listadoQR.update(ObjectQR.$key,
+        {
+          NombreUsuario: ObjectQR.NombreUsuario,
+          Serie: ObjectQR.Serie,
+          Foto: ObjectQR.Foto,
+          Archivo: ObjectQR.Archivo,
+          Texto: ObjectQR.Texto,
+          Video: ObjectQR.Video
+        });
+    } else {
 
+      const storageRef = firebase.storage().ref();
+      const uploadTask = storageRef.child(`${this.basePath}/${fileUpload.$key}`).put(fileUpload.file);
+      uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+        (snapshot) => {
+          // in progress
+          const snap = snapshot as firebase.storage.UploadTaskSnapshot;
+        },
+        (error) => {
+          // fail
+          console.log(error);
+        },
+        () => {
+          // success
+          uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+
+            ObjectQR.Foto = downloadURL;
+            if (ObjectQR.Archivo === undefined) {
+              ObjectQR.Archivo = null;
+            }
+            if (ObjectQR.Foto === undefined) {
+              ObjectQR.Foto = null;
+            }
+            if (ObjectQR.Texto === undefined) {
+              ObjectQR.Texto = null;
+            }
+            if (ObjectQR.Video === undefined) {
+              ObjectQR.Video = null;
+            }
+            this.listadoQR.update(ObjectQR.$key,
+              {
+                NombreUsuario: ObjectQR.NombreUsuario,
+                Serie: ObjectQR.Serie,
+                Foto: ObjectQR.Foto,
+                Archivo: ObjectQR.Archivo,
+                Texto: ObjectQR.Texto,
+                Video: ObjectQR.Video
+              });
+          });
+        }
+      );
+    }
+  }
 }
