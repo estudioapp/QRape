@@ -19,17 +19,17 @@ export class BackendService {
    * Devuelve el listado de los usuarios adm.
    */
   getUsuarios(){
-    return this.listadoUsuarios = this.fireBase.list("Usuarios"); 
+    return this.listadoUsuarios = this.fireBase.list("Usuarios");
   }
 
 
 
 
   /**
-   * Devuelve el listado de los clientes. USO DE PRUEBA <-> BORRAR 
+   * Devuelve el listado de los clientes. USO DE PRUEBA <-> BORRAR
    */
   getClientes(){
-    return  this.fireBase.list("Clientes"); 
+    return  this.fireBase.list("Clientes");
   }
 
 
