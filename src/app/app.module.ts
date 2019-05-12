@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts';
 import { AuthService } from "./services/auth.service";
+
+
 // import {  } from '@zxing/ngx-scanner';
 
 
@@ -50,6 +52,7 @@ import {
 
 
 // FireBase Configuration
+// import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
@@ -109,7 +112,7 @@ import { Ng2ImgMaxModule } from 'ng2-img-max'; // <-- import the module
     PanelBackendComponent,
     VisorQRComponent,
     LectorQrComponent,
-    AgregarContenidoQRComponent,
+    AgregarContenidoQRComponent
   ],
   imports: [
     Ng2ImgMaxModule,
@@ -163,7 +166,7 @@ import { Ng2ImgMaxModule } from 'ng2-img-max'; // <-- import the module
     BrowserModule,
     HttpClientModule
   ],
-  providers: [AuthService,ClienteService,GenerarQrService,BackendService],
+  providers: [AuthService,ClienteService,GenerarQrService,BackendService,AngularFireDatabaseModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
