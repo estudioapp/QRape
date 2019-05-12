@@ -1,7 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from "../services/user";
+import { User } from "../services/user.model";
 //import { auth } from 'firebase/app';
 //import firebase from 'firebase/app';
+import { ClienteService } from "../services/cliente.service"
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
@@ -16,6 +17,7 @@ export class AuthService {
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
+    public clienteService: ClienteService,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
 
@@ -34,6 +36,9 @@ export class AuthService {
   }
   // Sign in with email/password
   SignIn(email, password) {
+    if(email == "" || email == undefined || password == "" || password == undefined )
+      return;
+
     this.afAuth.auth.languageCode = 'es';
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
@@ -54,25 +59,36 @@ export class AuthService {
           case "auth/user-not-found":
             alert("No hay un registro de usuario correspondiente a este identificador. Es posible que el usuario haya sido eliminado");
             break;
+            case "auth/invalid-email":
+              alert("Email con formato incorrecto. Por favor volver a ingresar el email.");
+              break;
           default:
             window.alert(error.message);
         }
         //window.alert(error.message)
       })
+
   }
-  // Sign up with email/password
-  SignUp(email, password) {
+  // const asyncExample = async () => {
+  //   return await axios(users)
+  // };
+  // Sign up with email/passwordResetEmaild
+    async SignUp(form) {
+    localStorage.setItem('registroCliente', JSON.stringify(form.value));
     this.afAuth.auth.languageCode = 'es';
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    return await this.afAuth.auth.createUserWithEmailAndPassword(form.value.email,form.value.pass)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
+        return true;
       }).catch((error) => {
-        window.alert(error.message)
-      })
-  } vz
+        window.alert(error.message);
+        return false;
+      });
+
+  }
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {
     return this.afAuth.auth.currentUser.sendEmailVerification()
@@ -120,7 +136,8 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified
+      emailVerified: user.emailVerified,
+      password: ""
     }
     return userRef.set(userData, {
       merge: true
@@ -130,7 +147,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['login']);
     })
   }
 }
