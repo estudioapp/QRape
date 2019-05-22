@@ -15,7 +15,7 @@
             <br>
             <select id="select" (change)="BuscarQr($event.target.value)">
               <option>Seleccioná un cliente</option>
-              <option *ngFor="let x of listClientes">{{x.cliente}}</option>
+              <option *ngFor="let x of listClientes">{{x.Email}}</option>
             </select>
             <br>
             <small *ngIf="ObjectQR.Serie !== undefined">El cliente selecciondo tiene hasta la serie

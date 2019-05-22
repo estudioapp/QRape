@@ -2,7 +2,7 @@ export interface Cliente {
     $key?:string;
     Nombre:string;
     Email:string;
-    Contrasena:string;
+    Estado?:string; // Premiun o Normal
     Empresa?:{
         NombreEmpresa:string;
         Empleados:{

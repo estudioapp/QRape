@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GenerarQrService } from 'src/app/services/generar-qr.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QR } from 'src/app/interfaces/qr';
 
 @Component({
@@ -13,10 +13,12 @@ export class VisorQRComponent implements OnInit {
   listQR : QR[];
   QRselect : QR;
   key : string; 
+  EmailOnline : string;
 
   constructor(
     private QRService : GenerarQrService,
-    private activatedRoute : ActivatedRoute
+    private activatedRoute : ActivatedRoute,
+    private Router : Router
     )
   {
     this.listQR = [];
@@ -24,9 +26,13 @@ export class VisorQRComponent implements OnInit {
       NombreUsuario : null
     };
   }
-
+  
   ngOnInit() {
     const key = this.activatedRoute.snapshot.paramMap.get("key");
+    if(JSON.parse(localStorage.getItem("user")).email !== null){
+      this.EmailOnline = JSON.parse(localStorage.getItem("user")).email;
+    }  
+
     this.key = key;
     this.QRService.getQRs()
     .snapshotChanges()
@@ -42,4 +48,10 @@ export class VisorQRComponent implements OnInit {
     });
   }
 
+  backToPanel(){
+    this.Router.navigateByUrl("/panel");
+  }
 }
+
+
+

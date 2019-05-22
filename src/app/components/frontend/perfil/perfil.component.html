@@ -1,15 +1,15 @@
 <!-- ********************* MOBILE LAYOUT ************************** -->
 
-<header class="d-flex">
+<header class="d-flex" *ngIf="usuarioOnline">
   <div class="my-auto mx-auto text-center">
     <p>
       <img src="https://image.flaticon.com/icons/png/512/44/44948.png" style="width:150px;height:150px;">
     </p>
-    <h3 class="tex-center">John Derop</h3>
-    <h5 class="tex-center">Lorem ipsum redsum caram.</h5>
+    <h3 class="tex-center">{{usuarioOnline.nombre}}</h3>
+    <!-- <h5 class="tex-center"></h5> -->
   </div>
 </header>
-<section>
+<section *ngIf="usuarioOnline">
   <div class="container">
     <div class="row mt-3">
       <div class="col-12">

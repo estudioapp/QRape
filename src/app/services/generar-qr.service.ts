@@ -108,9 +108,15 @@ export class GenerarQrService {
                 Texto: ObjectQR.Texto,
                 Video: ObjectQR.Video
               });
-          });
+          
+            });
+            this.location.navigateByUrl("/panel");
         }
       );
     }
   }
+
+
+
+  
 }

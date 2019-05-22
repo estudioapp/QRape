@@ -4,9 +4,13 @@ header{
 
 @media screen and (max-width:768px){
     header{
-        display:block;
-        height: 40vh;
-        background-color: #dcdcdc94;
+        text-shadow: 1px 1px 1px grey;
+        box-shadow: inset 0px -6px 35px -15px black;
+        color: white;
+        display: block;
+        min-height: 40vh;
+        background-image: linear-gradient(#0da9fa,#cbcbcb);
+        border-radius: 0px 0px 25px 25px;
     }
     img{
         width: 100px;

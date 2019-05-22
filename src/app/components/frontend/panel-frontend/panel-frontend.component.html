@@ -1,81 +1,93 @@
-<!-- ********************* MOBILE LAYOUT ************************** -->
-
-<header class="">
-
-  <!-- **** Donut **** -->
-  <div class="chart d-flex" style="height:100%">
-    <canvas baseChart class="my-auto" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
-      [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
-    </canvas>
-  </div>
-
-</header>
-<section>
+<section *ngIf="usuarioOnline">
   <div class="container">
-    <div class="row" style="background-color:#f2f2f2">
-      <div class="panel">
+    <div class="row top-panel pb-3">
 
-        <!-- Datos básicos de usuabilidad -->
-        <div class="col-12 my-3">
-          <h2 class="mb-0 ">
-            Panel central
-          </h2>
-        </div>
-        <div class="col-12">
-          <p>
-            <a>
-              QR disponibles: 0
-            </a>
-          </p>
-          <p>
-            <a>
-              QR usados: 0
-            </a>
-          </p>
-          <p>
-            <a>
-              QR totales: 0
-            </a>
-          </p>
-        </div>
+      <!-- Datos básicos de usuabilidad -->
+      <div class="col-12 my-3">
+        <p class="text-center">
+          <img src="https://es.freelogodesign.org/Content/img/logo-ex-7.png" style="width:50%;">
+        </p>
+        <h3 class="text-center">
+          ¡Hola {{usuarioOnline.nombre}}!<br>
+          <small>Bienvenido a QReady de nuevo.</small>
+        </h3>
+
       </div>
+      <div class="col-4 text-center pt-3">
+        <p class="info-panel">
+          QR disponibles:
+          <br>
+          <a>
+            0
+          </a>
+        </p>
+      </div>
+      <div class="col-4 text-center pt-3">
+        <p class="info-panel">
+          QR disponibles:
+          <br>
 
+          <a>
+            0
+          </a>
+        </p>
+      </div>
+      <div class="col-4 text-center pt-3">
+        <p class="info-panel">
+          QR disponibles:
+          <br>
+          <a>
+            0
+          </a>
+        </p>
+      </div>
     </div>
+
 
     <!-- Call To Action -->
     <div class="row">
       <div class="col-12 text-center py-4 action">
-        <p class="mb-2"><b>¿Te gustaría poder modificar los codigos QR?</b> </p>
-        <p class="mb-0"><button>Usar cuenta premium</button></p>
+        <div class="tarjeta-publicidad">
+          <p class="mb-2" style="font-size:14px">¿Sabías que con Premium podes editar los QR ya cargados? </p>
+          <p class="mb-0"><button>Saber más sobre Premium</button></p>
+        </div>
       </div>
     </div>
 
     <!-- Listado de información de los QR ya cargados -->
-    <div class="row" style="background-color:#f2f2f2;    padding-top: 20px;">
+    <div class="row" style="background-color:#eee;">
       <div class="panel-i">
 
-        <div class="col-12 my-4 text-center">
-          <h2 class="mb-0">QR Cargados</h2>
+        <div class="col-12 mt-4 text-center">
+          <h3 class="mb-0 text-dark">QR Cargados</h3>
         </div>
         <div class="col-12">
-          <div class="row">
-            <div class="col-6">
-              <img
-                src="https://misanimales.com/wp-content/uploads/2018/01/como-saber-si-un-perro-esta-feliz-o-triste.jpg"
-                style="width:100%">
+          <div class="row d-flex  py-3" style="background: #dcdcdc73;border-radius: 9px;    border: 3px solid white;" *ngFor="let qr of listQrWithFoto" (click)="openQr(qr.$key)">
+            <div class="col-6 mx-auto my-auto">
+              <img src="{{qr.Foto}}" style="width:100%">
             </div>
-            <div class="col-6">
-              <img src="https://creatiabusiness.com/wp-content/uploads/2015/10/Microsoft_Excel_2013_logo.svg_.png"
-                style="width:100%">
+            <div class="col-6 mx-auto my-auto">
+              <qrcode [qrdata]="'https://qready.com.ar/vista/'+qr.$key" [size]="120" [level]="'M'" style="width:100%">
+              </qrcode>
             </div>
           </div>
         </div>
 
+        <div class="col-12 mt-4 text-center">
+          <h3 class="mb-0 text-dark">QR sin cargar</h3>
+        </div>
+        <div class="col-12">
+          <div class="row" style="background: #dcdcdc73;border-radius: 9px;    border: 3px solid white;">
+            <div class="col-6 mt-3 d-flex" *ngFor="let qr of listQrWithoutFoto">
+              <qrcode (click)="openQr(qr.$key)" class="mx-auto" [qrdata]="'https://qready.com.ar/vista/'+qr.$key" [size]="120"
+                [level]="'M'"></qrcode>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- <zxing-scanner></zxing-scanner> -->
 
 <app-navbar>

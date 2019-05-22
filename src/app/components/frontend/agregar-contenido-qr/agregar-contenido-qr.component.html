@@ -22,11 +22,11 @@
           <div id="img">
 
           </div>
-            <label class="labelFile text-center mx-auto my-3" id="labelFile">
+            <label class="labelFile text-center mx-auto my-3" id="labelFile" *ngIf="!isFoto">
                 Selecioná la foto
-                <input type="file" id="upload-file" (change)="seleccionarFoto($event)" accept='image/*' capture>
+                <input type="file" id="upload-file" (change)="seleccionarFoto($event)" >
               </label>
-          <p class="text-center" >
+          <p class="text-center mt-3" >
             <textarea placeholder="¡Acá agregale un texto sobre de que se trata tu QR!" name="txtd" [(ngModel)]="QRselect.Texto"></textarea>
           </p>
 
