@@ -11,14 +11,14 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class LoginFrontendComponent implements OnInit {
 
-list: User[];
+  list: User[];
   isRegistro: boolean;
 
 
-  constructor(public authService: AuthService,private clienteService:ClienteService, private firestore: AngularFirestore) {
-    if(window.location.href.indexOf("/registro") !== -1){
+  constructor(public authService: AuthService, private clienteService: ClienteService, private firestore: AngularFirestore) {
+    if (window.location.href.indexOf("/registro") !== -1) {
       this.isRegistro = true;
-    }else{
+    } else {
       this.isRegistro = false;
     }
   }
@@ -36,20 +36,24 @@ list: User[];
       displayName: '',
       photoURL: '',
       emailVerified: false,
-      password:''
+      password: ''
     }
   }
 
- registrarUsuario(form){
- this.authService.SignUp(form).then(result => {
-   if(result){
-        let cliente= JSON.parse(localStorage.getItem('registroCliente'));
+  registrarUsuario(form) {
+    this.authService.SignUp(form).then(result => {
+      if (result) {
+        let cliente = JSON.parse(localStorage.getItem('registroCliente'));
         this.clienteService.addClientes(cliente.displayName, cliente.email);
-        localStorage.removeItem('registroCliente');}
-})
-.catch(err => alert("error al registrarse >"+err));
-
-}
+        localStorage.removeItem('registroCliente');
+        this.clienteService.getDataToUser();
+      }
+    })
+      .catch(err => alert("error al registrarse >" + err));
+  }
+  loginAuth(user,pass){
+    this.authService.SignIn(user,pass);
+  }
 
 
 }

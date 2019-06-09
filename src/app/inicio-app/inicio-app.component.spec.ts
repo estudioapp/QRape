@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NuevoQRComponent } from './nuevo-qr.component';
+import { InicioAppComponent } from './inicio-app.component';
 
-describe('NuevoQRComponent', () => {
-  let component: NuevoQRComponent;
-  let fixture: ComponentFixture<NuevoQRComponent>;
+describe('InicioAppComponent', () => {
+  let component: InicioAppComponent;
+  let fixture: ComponentFixture<InicioAppComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NuevoQRComponent ]
+      declarations: [ InicioAppComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NuevoQRComponent);
+    fixture = TestBed.createComponent(InicioAppComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

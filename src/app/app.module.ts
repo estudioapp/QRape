@@ -92,7 +92,8 @@ import { PanelBackendComponent } from './components/backend/panel-backend/panel-
 import { VisorQRComponent } from './components/frontend/visor-qr/visor-qr.component';
 import { LectorQrComponent } from './components/lector-qr/lector-qr.component';
 import { AgregarContenidoQRComponent } from './components/frontend/agregar-contenido-qr/agregar-contenido-qr.component';
-import { Ng2ImgMaxModule } from 'ng2-img-max'; // <-- import the module
+import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { InicioAppComponent } from './inicio-app/inicio-app.component'; // <-- import the module
 
 
 @NgModule({
@@ -112,7 +113,8 @@ import { Ng2ImgMaxModule } from 'ng2-img-max'; // <-- import the module
     PanelBackendComponent,
     VisorQRComponent,
     LectorQrComponent,
-    AgregarContenidoQRComponent
+    AgregarContenidoQRComponent,
+    InicioAppComponent
   ],
   imports: [
     Ng2ImgMaxModule,

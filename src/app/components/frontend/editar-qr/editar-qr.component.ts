@@ -64,7 +64,7 @@ export class EditarQRComponent implements OnInit {
   seleccionarFoto(event) {
     this.subiendo = true;
     let image = event.target.files[0];
-    this.ng2ImgMax.resizeImage(image, 800, 600).subscribe(
+    this.ng2ImgMax.resizeImage(image, 400, 300).subscribe(
       result => {
         var files = result;
         if (result.size > 2000000 && (result.type !== "image/jpg" && result.type !== "image/jpeg" && result.type !== "image/png")) {
