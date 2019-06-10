@@ -1,0 +1,58 @@
+<section>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        <h2>Documentación de uso QReady</h2>
+        <p class="sub">Te dejamos un breve manual para que puedas usar todo el potencial de QReady. </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+
+        <div class="item-list text-center mt-3" (click)="((itemOne) ? itemOne=false : itemOne = true)">
+          <a class="d-flex mx-auto">Primeros pasos <i class="material-icons d-flex ml-auto">arrow_drop_down</i></a>
+        </div>
+        <div class="list {{itemOne}}1" *ngIf="itemOne">
+          <p class="mb-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et luctus arcu. Aliquam erat volutpat.
+            Nunc porttitor sem ut nibh sollicitudin feugiat. In sit amet dui in felis consectetur euismod sit amet vitae
+            magna. Cras scelerisque arcu eget aliquet semper. Nunc quis lacus nibh.</p>
+        </div>
+
+        <div class="item-list text-center mt-3" (click)="((itemTwo) ? itemTwo=false : itemTwo = true)">
+          <a class="d-flex mx-auto">Consejos de uso <i class="material-icons d-flex ml-auto">arrow_drop_down</i></a>
+        </div>
+        <div class="list {{itemOne}}1" *ngIf="itemTwo">
+          <p class="mb-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et luctus arcu. Aliquam erat volutpat.
+            Nunc porttitor sem ut nibh sollicitudin feugiat. In sit amet dui in felis consectetur euismod sit amet vitae
+            magna. Cras scelerisque arcu eget aliquet semper. Nunc quis lacus nibh.</p>
+        </div>
+
+        <div class="item-list text-center mt-3" (click)="((itemThree) ? itemThree=false : itemThree = true)">
+          <a class="d-flex mx-auto">Usos permitidos <i class="material-icons d-flex ml-auto">arrow_drop_down</i></a>
+        </div>
+        <div class="list {{itemOne}}1" *ngIf="itemThree">
+          <p class="mb-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et luctus arcu. Aliquam erat volutpat.
+            Nunc porttitor sem ut nibh sollicitudin feugiat. In sit amet dui in felis consectetur euismod sit amet vitae
+            magna. Cras scelerisque arcu eget aliquet semper. Nunc quis lacus nibh.</p>
+        </div>
+
+        <div class="item-list text-center mt-3" (click)="((itemFour) ? itemFour=false : itemFour = true)">
+            <a class="d-flex mx-auto">Preguntas frecuentes<i class="material-icons d-flex ml-auto">arrow_drop_down</i></a>
+          </div>
+          <div class="list {{itemFour}}1" *ngIf="itemFour">
+            <p class="mb-0">
+              <b>¿Lorem ipsum dolor sit amet, consectetur adipiscing elit?</b><br> 
+              Quisque et luctus arcu. Aliquam erat volutpat.
+              Nunc porttitor sem ut nibh sollicitudin feugiat.
+              <br>
+              <b> ¿In sit amet dui in felis consectetur euismod sit amet vitae
+              magna?</b><br> Cras scelerisque arcu eget aliquet semper. Nunc quis lacus nibh.</p>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</section>

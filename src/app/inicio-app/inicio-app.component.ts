@@ -24,8 +24,8 @@ export class InicioAppComponent implements OnInit {
       this.Validate();
     }, 3500);
   }
-  Validate() {
-    
+  
+  Validate() {    
     if (JSON.parse(localStorage.getItem("user")) === null) {
       this.Router.navigateByUrl("/login")
     } else {

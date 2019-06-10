@@ -16,6 +16,7 @@ import { AgregarContenidoQRComponent } from '../components/frontend/agregar-cont
 import { EditarQRComponent } from '../components/frontend/editar-qr/editar-qr.component';
 import { InicioAppComponent } from '../inicio-app/inicio-app.component';
 import { NavbarComponent } from '../components/frontend/navbar/navbar.component';
+import { DocumentacionComponent } from '../components/frontend/documentacion/documentacion.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   children: [
     { path: 'panel', component:  PanelFrontendComponent },
     { path: 'perfil', component: PerfilComponent  },
+    { path: 'documentos', component:DocumentacionComponent},              
   ]},
   { path: 'login', component: LoginFrontendComponent  },
   { path: 'admin8291/login', component: LoginBackComponent  },
