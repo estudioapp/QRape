@@ -5,5 +5,4 @@ export interface User {
    photoURL: string;
    emailVerified: boolean;
    password:string;
-   tipoUsuario?:string;
 }
