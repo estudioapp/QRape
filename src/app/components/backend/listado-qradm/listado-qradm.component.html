@@ -37,7 +37,7 @@
       </div>
       <div class="col-6 d-flex my-3" *ngFor="let x of listQRCliente">
         <div class="mx-auto">
-          <qrcode [qrdata]="'./vista/'+x.$key" [size]="120" [level]="'M'" style="width:100%"></qrcode>
+          <qrcode [qrdata]="'https://qready.com.ar/vista/'+x.$key" [size]="120" [level]="'M'" style="width:100%"></qrcode>
         </div>
       </div>
       <div class="col-12">

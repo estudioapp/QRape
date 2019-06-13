@@ -56,7 +56,6 @@ import {
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
-import { FirestoreSettingsToken} from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 //import { AngularFireDatabaseModule } from 'angularfire2/database';
 //import { AngularFireModule } from "@angular/fire";
@@ -161,7 +160,7 @@ import { NosotrosComponent } from './components/frontend/nosotros/nosotros.compo
     MatSelectModule,
     MatSidenavModule,
     MatSliderModule,
-    MatSlideToggleModule,// NOTE: 
+    MatSlideToggleModule,
     MatSnackBarModule,
     MatSortModule,
     MatStepperModule,
@@ -175,7 +174,7 @@ import { NosotrosComponent } from './components/frontend/nosotros/nosotros.compo
     BrowserModule,
     HttpClientModule
   ],
-  providers: [{ provide: FirestoreSettingsToken, useValue: {} },AuthService,ClienteService,GenerarQrService,BackendService,AngularFireDatabaseModule],
+  providers: [AuthService,ClienteService,GenerarQrService,BackendService,AngularFireDatabaseModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

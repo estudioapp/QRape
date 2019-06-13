@@ -44,7 +44,7 @@ export class AuthService {
     this.afAuth.auth.languageCode = 'es';
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-
+        
         console.log(this.SetUserData(result.user));
         if (!this.userData.emailVerified) {
           alert("Tu cuenta aún no está activa, es decir todavía no verificaste tu correo electrónico haciendo click en el email que te envíamos durante el proceso de registro");
