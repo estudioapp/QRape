@@ -17,6 +17,7 @@ import { EditarQRComponent } from '../components/frontend/editar-qr/editar-qr.co
 import { InicioAppComponent } from '../inicio-app/inicio-app.component';
 import { NavbarComponent } from '../components/frontend/navbar/navbar.component';
 import { DocumentacionComponent } from '../components/frontend/documentacion/documentacion.component';
+import { PremiumComponent } from '../components/frontend/premium/premium.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
     { path: 'panel', component:  PanelFrontendComponent },
     { path: 'perfil', component: PerfilComponent  },
     { path: 'documentos', component:DocumentacionComponent},              
+    { path: 'premium', component: PremiumComponent  },
   ]},
   { path: 'login', component: LoginFrontendComponent  },
   { path: 'admin8291/login', component: LoginBackComponent  },

@@ -44,7 +44,7 @@ export class AuthService {
     this.afAuth.auth.languageCode = 'es';
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-
+        
         console.log(this.SetUserData(result.user));
         if (!this.userData.emailVerified) {
           alert("Tu cuenta aún no está activa, es decir todavía no verificaste tu correo electrónico haciendo click en el email que te envíamos durante el proceso de registro");
@@ -64,8 +64,8 @@ export class AuthService {
             case "auth/invalid-email":
               alert("Email con formato incorrecto. Por favor volver a ingresar el email.");
               break;
-          default:
-            window.alert(error.message);
+          default:  
+            if(error.code  === "Cannot read property 'emailVerified' of undefined"){this.SignIn(email,password)}else{window.alert(error.message);}; // Tenemos un error constante de EmailVerifed, hasta no solucionarlo, seguimos usando la siguiente linea de codigo.
         }
         //window.alert(error.message)
       })

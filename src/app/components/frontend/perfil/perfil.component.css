@@ -9,7 +9,8 @@ header{
         color: white;
         display: block;
         min-height: 40vh;
-        background-image: linear-gradient(#0da9fa,#1a88a5);
+        background-image: linear-gradient(156deg, #00beff, #4d4dff);
+        /* background-image: linear-gradient(#0da9fa,#1a88a5); */
         border-radius: 0px 0px 25px 25px;
         animation: top 1s ;
     }
