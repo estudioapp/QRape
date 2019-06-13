@@ -39,7 +39,8 @@ export class GenerarQrService {
     for (let i = 0; i < cantidad; i++) {
       this.fotogramaQr.push(this.listadoQR.push({
         NombreUsuario: qr.NombreUsuario,
-        Serie: qr.Serie
+        Serie: qr.Serie,
+        FechaCreacion: new Date();
       }).key);
     }
     return this.fotogramaQr;
@@ -108,7 +109,7 @@ export class GenerarQrService {
                 Texto: ObjectQR.Texto,
                 Video: ObjectQR.Video
               });
-          
+
             });
             this.location.navigateByUrl("/panel");
         }
@@ -118,5 +119,5 @@ export class GenerarQrService {
 
 
 
-  
+
 }

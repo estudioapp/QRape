@@ -36,7 +36,8 @@ list: User[];
       displayName: '',
       photoURL: '',
       emailVerified: false,
-      password:''
+      password:'',
+      tipoUsuario:''
     }
   }
 

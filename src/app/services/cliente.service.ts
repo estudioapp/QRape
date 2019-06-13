@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { User } from './user.model';
 import { Cliente } from '../interfaces/usuario.model';
+import { AngularFirestore , AngularFirestoreDocument} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class ClienteService {
 
   constructor(
     public firebase: AngularFireDatabase,
-    private location: Router
+    private location: Router,
+    private afs: AngularFirestore
   ) {
     this.Cliente = null;
   }
@@ -43,7 +45,7 @@ export class ClienteService {
   addClientes(nombre: string, email: string): void {
     this.listadoClientes = this.firebase.list("/Clientes");
     this.listadoClientes.push({ Nombre: nombre, Email: email, Estado:"Normal" });
-    /** 
+    /**
     * Este metodo agrega 10 QR al cliente que se está registrando.
     * var cantidadQR = 10;
     * for (let i = 0; i < cantidadQR; i++) {
@@ -56,5 +58,9 @@ export class ClienteService {
   }
 
 
+  getListUsers() {
 
+    return this.afs.collection('users').snapshotChanges();
+    }
+ // JSON.parse(localStorage.getItem("user")).email)
 }

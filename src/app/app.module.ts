@@ -56,6 +56,7 @@ import {
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
+import { FirestoreSettingsToken} from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 //import { AngularFireDatabaseModule } from 'angularfire2/database';
 //import { AngularFireModule } from "@angular/fire";
@@ -152,7 +153,7 @@ import { Ng2ImgMaxModule } from 'ng2-img-max'; // <-- import the module
     MatSelectModule,
     MatSidenavModule,
     MatSliderModule,
-    MatSlideToggleModule,
+    MatSlideToggleModule,// NOTE: 
     MatSnackBarModule,
     MatSortModule,
     MatStepperModule,
@@ -166,7 +167,7 @@ import { Ng2ImgMaxModule } from 'ng2-img-max'; // <-- import the module
     BrowserModule,
     HttpClientModule
   ],
-  providers: [AuthService,ClienteService,GenerarQrService,BackendService,AngularFireDatabaseModule],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} },AuthService,ClienteService,GenerarQrService,BackendService,AngularFireDatabaseModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
