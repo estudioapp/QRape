@@ -36,7 +36,7 @@ export class LoginFrontendComponent implements OnInit {
       displayName: '',
       photoURL: '',
       emailVerified: false,
-      password: ''
+      password: '',
     }
   }
 

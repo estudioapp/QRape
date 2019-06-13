@@ -6,7 +6,7 @@ import { User } from './user.model';
 import { Cliente } from '../interfaces/usuario.model';
 import { QR } from '../interfaces/qr';
 import { GenerarQrService } from './generar-qr.service';
-
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,7 +20,8 @@ export class ClienteService {
   constructor(
     private QrService: GenerarQrService,
     public firebase: AngularFireDatabase,
-    private location: Router
+    private location: Router,
+    private afs: AngularFirestore
   ) {
     this.Cliente = null;
     this.QRListClientOnlien = null;
@@ -30,6 +31,9 @@ export class ClienteService {
 
   }
 
+  getListUsers() {
+    return this.afs.collection('users').snapshotChanges();
+  }
   getGlobalCliente() {
     return this.Cliente;
   }

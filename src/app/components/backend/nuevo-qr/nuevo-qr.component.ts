@@ -87,7 +87,8 @@ export class NuevoQRComponent implements OnInit {
     x.selectedIndex = 0;
     this.ObjectQR = {
       NombreUsuario: "",
-      Serie: undefined
+      Serie: undefined,
+      FechaCreacion: new Date().toString()	
     }
   }
 

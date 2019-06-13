@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { GenerarQrService } from 'src/app/services/generar-qr.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QR } from 'src/app/interfaces/qr';
+import { User } from 'src/app/services/user.model';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-visor-qr',
@@ -10,45 +12,78 @@ import { QR } from 'src/app/interfaces/qr';
 })
 export class VisorQRComponent implements OnInit {
 
-  listQR : QR[];
-  QRselect : QR;
-  key : string; 
-  EmailOnline : string;
+  listQR: QR[];
+  QRselect: QR;
+  key: string;
+  EmailOnline: string;
+  list: User[];
+  permiso: string;
+  caducado: boolean;
 
   constructor(
-    private QRService : GenerarQrService,
-    private activatedRoute : ActivatedRoute,
-    private Router : Router
-    )
-  {
+    private QRService: GenerarQrService,
+    private activatedRoute: ActivatedRoute,
+    private Router: Router,
+    private ClienteService: ClienteService,
+    private zone: NgZone
+  ) {
     this.listQR = [];
     this.QRselect = {
-      NombreUsuario : null
+      NombreUsuario: null
     };
   }
-  
+
   ngOnInit() {
     const key = this.activatedRoute.snapshot.paramMap.get("key");
-    if(JSON.parse(localStorage.getItem("user")).email !== null){
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (JSON.parse(localStorage.getItem("user")).email !== null) {
       this.EmailOnline = JSON.parse(localStorage.getItem("user")).email;
-    }  
+    }
+    this.ClienteService.getListUsers().subscribe(actionArray => {
+      this.permiso = "";
+      actionArray.map(element => {
+        // console.log(element.payload.doc.data());	
+        let x = element.payload.doc.data();
+        if (x["uid"] === user.uid) {
+          this.permiso = x["tipoUsuario"];
+          // return {	
+          //   uid: element.payload.doc.id,	
+          //   ...element.payload.doc.data()	
+          // } as User;	
+        }
+
+      });
+      // return   this.yList.tipoUsuario;	
+    });
 
     this.key = key;
     this.QRService.getQRs()
-    .snapshotChanges()
-    .subscribe(Data => {
-      this.listQR = Data.map(element => {
-        let x = element.payload.toJSON();
-        x["$key"] = element.key;
-        if(x["$key"] === key){
-          this.QRselect = x as QR;
-        }
-        return x as QR;
+      .snapshotChanges()
+      .subscribe(Data => {
+        this.listQR = Data.map(element => {
+          let x = element.payload.toJSON();
+          let FechaCreacion = new Date(x["FechaCreacion"]);
+          let FechaHoy = new Date();
+          x["$key"] = element.key;
+          if (x["$key"] === key) {
+            this.QRselect = x as QR;
+            if (FechaHoy > sumarDias(FechaCreacion, 90)){
+              this.caducado = true;
+            }
+          }
+          return x as QR;
+        });
       });
-    });
+    /* Función que suma o resta días a una fecha, si el parámetro	
+      días es negativo restará los días*/
+    function sumarDias(fecha, dias) {
+      fecha.setDate(fecha.getDate() + dias);
+      return fecha;
+    }
   }
 
-  backToPanel(){
+
+  backToPanel() {
     this.Router.navigateByUrl("/panel");
   }
 }

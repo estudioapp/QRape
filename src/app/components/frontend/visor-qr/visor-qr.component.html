@@ -10,15 +10,18 @@
     <div class="row">
       <div class="col-12 my-3 text-center">
         <b>Información sobre el QR scaneado</b>
+        <div *ngIf="caducado" class="alert alert-danger" role="alert">	
+          QR Caducado. <a href="#" class="alert-link">Suscribase aqui.</a>.	
+        </div>
       </div>
       <div class="col-12">
-        <p class="text-center h5" *ngIf="(!QRselect.Foto && !QRselect.Video && !QRselect.Archivo && !QRselect.Texto)">¡Ups! Parece que este QR no tienen contenido.<br><br><b>¡Agregale algo interesante!</b><p>
+        <p class="text-center h5" *ngIf="(!QRselect.Foto && !QRselect.Video && !QRselect.Archivo && !QRselect.Texto && !caducado)">¡Ups! Parece que este QR no tienen contenido.<br><br><b>¡Agregale algo interesante!</b><p>
         <img *ngIf="QRselect.Foto" src="{{QRselect.Foto}}" style="width:100%">
-        <p class="my-3" *ngIf="QRselect.Texto">{{QRselect.Texto}}</p>
-        <p *ngIf="QRselect.Archivo">{{QRselect.Archivo}} - <a class="text-info">Descargar</a></p>
+        <p class="my-3" *ngIf="QRselect.Texto && !caducado">{{QRselect.Texto}}</p>
+        <p *ngIf="QRselect.Archivo && !caducado">{{QRselect.Archivo}} - <a class="text-info">Descargar</a></p>
         <hr>
         <p class="mt-5 text-center">
-          <button class="one" [routerLink]="(!QRselect.Foto && !QRselect.Video && !QRselect.Archivo && !QRselect.Texto)?'/agregarQR/'+key:'/editarQR/'+key" *ngIf="EmailOnline === QRselect.NombreUsuario"> {{(!QRselect.Foto && !QRselect.Video && !QRselect.Archivo && !QRselect.Texto)?'Agregar contenido':'Editar contenido'}}</button></p>
+          <button class="one" [routerLink]="(!QRselect.Foto && !QRselect.Video && !QRselect.Archivo && !QRselect.Texto && !caducado)?'/agregarQR/'+key:'/editarQR/'+key" *ngIf="EmailOnline === QRselect.NombreUsuario"> {{(!QRselect.Foto && !QRselect.Video && !QRselect.Archivo && !QRselect.Texto)?'Agregar contenido':'Editar contenido'}}</button></p>
         <p class="text-center">
           <button class="two" *ngIf="EmailOnline === QRselect.NombreUsuario" (click)="backToPanel()">Volver al administrador</button>
         </p>

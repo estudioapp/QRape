@@ -3,6 +3,7 @@ export interface Cliente {
     Nombre:string;
     Email:string;
     Estado?:string; // Premiun o Normal
+    tipoUsuario?:string;
     Empresa?:{
         NombreEmpresa:string;
         Empleados:{
