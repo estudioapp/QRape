@@ -71,7 +71,7 @@ export class NuevoQRComponent implements OnInit {
             if (aux < element.Serie) {
               aux = element.Serie;
             }
-          }
+          } 
         }
       });
       this.ObjectQR.Serie = aux + 1;
@@ -87,7 +87,8 @@ export class NuevoQRComponent implements OnInit {
     x.selectedIndex = 0;
     this.ObjectQR = {
       NombreUsuario: "",
-      Serie: undefined
+      Serie: undefined,
+      FechaCreacion: new Date();
     }
   }
 
@@ -103,4 +104,3 @@ export class NuevoQRComponent implements OnInit {
     document.body.innerHTML = contenidoOriginal;
   }
 }
-

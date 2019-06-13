@@ -6,6 +6,7 @@ import { User } from './user.model';
 import { Cliente } from '../interfaces/usuario.model';
 import { QR } from '../interfaces/qr';
 import { GenerarQrService } from './generar-qr.service';
+import { AngularFirestore , AngularFirestoreDocument} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,8 @@ export class ClienteService {
   constructor(
     private QrService: GenerarQrService,
     public firebase: AngularFireDatabase,
-    private location: Router
+    private location: Router,
+    private afs: AngularFirestore
   ) {
     this.Cliente = null;
     this.QRListClientOnlien = null;
@@ -48,7 +50,7 @@ export class ClienteService {
   addClientes(nombre: string, email: string): void {
     this.listadoClientes = this.firebase.list("/Clientes");
     this.listadoClientes.push({ Nombre: nombre, Email: email, Estado: "Normal" });
-    /** 
+    /**
     * Este metodo agrega 10 QR al cliente que se está registrando. Para la versión PlayStore.
     * var cantidadQR = 10;
     * for (let i = 0; i < cantidadQR; i++) {
@@ -68,7 +70,9 @@ export class ClienteService {
   }
 
 
-
+  getListUsers() {
+    return this.afs.collection('users').snapshotChanges();
+    }
 
   getDataToUser() {
     if (JSON.parse(localStorage.getItem("user")) !== null) {
