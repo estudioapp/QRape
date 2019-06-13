@@ -64,8 +64,8 @@ export class AuthService {
             case "auth/invalid-email":
               alert("Email con formato incorrecto. Por favor volver a ingresar el email.");
               break;
-          default:
-            window.alert(error.message);
+          default:  // Tenemos un error constante de EmailVerifed, hasta no solucionarlo, seguimos usando la siguiente linea de codigo.
+            if(error.code  === "Cannot read property 'emailVerified' of undefined"){this.SignIn(email,password)}else{window.alert(error.message);};
         }
         //window.alert(error.message)
       })
