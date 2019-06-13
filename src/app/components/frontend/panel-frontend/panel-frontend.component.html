@@ -1,43 +1,42 @@
-<section *ngIf="usuarioOnline">
+<section class="barra">
   <div class="container">
     <div class="row top-panel pb-3">
 
       <!-- Datos básicos de usuabilidad -->
       <div class="col-12 my-3">
         <p class="text-center">
-          <img src="https://es.freelogodesign.org/Content/img/logo-ex-7.png" style="width:50%;">
+          <img src="/assets/images/logoqr.png" style="width:50%;filter: grayscale(0.7);">
         </p>
         <h3 class="text-center">
-          ¡Hola {{usuarioOnline.nombre}}!<br>
-          <small>Bienvenido a QReady de nuevo.</small>
+          ¡Hola {{usuarioOnline.Nombre}}!<br>
+          <small>Bienvenido a QReady de nuevo</small>
         </h3>
 
       </div>
       <div class="col-4 text-center pt-3">
         <p class="info-panel">
-          QR disponibles:
+          QR Libres:
           <br>
-          <a>
-            0
+          <a *ngIf="listQrWithoutFoto">
+            {{listQrWithoutFoto.length}}
           </a>
         </p>
       </div>
       <div class="col-4 text-center pt-3">
         <p class="info-panel">
-          QR disponibles:
+          QR Usados:
           <br>
-
-          <a>
-            0
+          <a *ngIf="listQrWithFoto">
+            {{listQrWithFoto.length}}
           </a>
         </p>
       </div>
       <div class="col-4 text-center pt-3">
         <p class="info-panel">
-          QR disponibles:
+          QR Total:
           <br>
-          <a>
-            0
+          <a *ngIf="listQrWithFoto && listQrWithoutFoto">
+            {{listQrWithFoto.length + listQrWithoutFoto.length}}
           </a>
         </p>
       </div>

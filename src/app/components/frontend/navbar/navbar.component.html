@@ -1,3 +1,5 @@
+<router-outlet></router-outlet>
+
 <header>
   <div class="container">
     <div class="row">
@@ -26,6 +28,6 @@
 
 
 <section *ngIf="isScan">
-  <button (click)="isScan = false;" class="btn-cerrar">Cerrar</button>
+  <button (click)="mobile()" class="btn-cerrar">Cerrar</button>
   <app-lector-qr></app-lector-qr>
 </section>

@@ -3,7 +3,7 @@
 <header class="d-flex" *ngIf="usuarioOnline">
   <div class="my-auto mx-auto text-center">
     <p>
-      <img src="https://image.flaticon.com/icons/png/512/44/44948.png" style="width:150px;height:150px;">
+      <img src="https://image.flaticon.com/icons/png/512/44/44948.png" style="width:150px;height:150px;filter: invert(0.2);">
     </p>
     <h3 class="tex-center">{{usuarioOnline.nombre}}</h3>
     <!-- <h5 class="tex-center"></h5> -->
@@ -13,21 +13,20 @@
   <div class="container">
     <div class="row mt-3">
       <div class="col-12">
-        <p class="mb-0 d-flex mx-auto">Administrá las cuentas <i
-            class="material-icons d-flex ml-auto">keyboard_arrow_right</i></p>
-      </div>
-      <div class="col-12">
-        <p class="mb-0 d-flex mx-auto">Documentación <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
+        <p class="mb-0 d-flex mx-auto" routerLink="/documentos">Documentación <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
         </p>
       </div>
+
       <div class="col-12">
         <p class="mb-0 d-flex mx-auto">Unite a premium <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
         </p>
       </div>
+
       <div class="col-12">
         <p class="mb-0 d-flex mx-auto">Sobre Ape <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
         </p>
       </div>
+
       <div class="col-12">
         <p class="mb-0 d-flex mx-auto" (click)="authService.SignOut()">Cerrar sesión <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
         </p>

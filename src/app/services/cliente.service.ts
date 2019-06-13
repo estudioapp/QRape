@@ -4,6 +4,8 @@ import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { User } from './user.model';
 import { Cliente } from '../interfaces/usuario.model';
+import { QR } from '../interfaces/qr';
+import { GenerarQrService } from './generar-qr.service';
 import { AngularFirestore , AngularFirestoreDocument} from '@angular/fire/firestore';
 
 @Injectable({
@@ -14,13 +16,16 @@ export class ClienteService {
   listadoClientes: AngularFireList<Cliente>;
   formData: User;
   Cliente: Cliente;
+  QRListClientOnlien: QR[];
 
   constructor(
+    private QrService: GenerarQrService,
     public firebase: AngularFireDatabase,
     private location: Router,
     private afs: AngularFirestore
   ) {
     this.Cliente = null;
+    this.QRListClientOnlien = null;
   }
 
   ngOnInit() {
@@ -44,9 +49,9 @@ export class ClienteService {
 
   addClientes(nombre: string, email: string): void {
     this.listadoClientes = this.firebase.list("/Clientes");
-    this.listadoClientes.push({ Nombre: nombre, Email: email, Estado:"Normal" });
+    this.listadoClientes.push({ Nombre: nombre, Email: email, Estado: "Normal" });
     /**
-    * Este metodo agrega 10 QR al cliente que se está registrando.
+    * Este metodo agrega 10 QR al cliente que se está registrando. Para la versión PlayStore.
     * var cantidadQR = 10;
     * for (let i = 0; i < cantidadQR; i++) {
     *   this.firebase.list("/QR").push({
@@ -54,13 +59,57 @@ export class ClienteService {
     *     Serie: 1
     *   });
     **/
+  }
 
+  getListOfQrClients() {
+    return this.QRListClientOnlien;
+  }
+
+  setListOfQrClientes(listQr: QR[]) {
+    this.QRListClientOnlien = listQr;
   }
 
 
   getListUsers() {
-
     return this.afs.collection('users').snapshotChanges();
     }
- // JSON.parse(localStorage.getItem("user")).email)
+
+  getDataToUser() {
+    if (JSON.parse(localStorage.getItem("user")) !== null) {
+      if (this.getListOfQrClients() === null) {
+        var listQr: QR[];
+        var cliente: Cliente;
+        this.QrService.getQRs()
+          .snapshotChanges()
+          .subscribe(data => {
+            listQr = []
+            data.map(element => {
+              let x = element.payload.toJSON();
+              x["$key"] = element.key;
+
+              if (x["NombreUsuario"] === JSON.parse(localStorage.getItem("user")).email) {
+                listQr.push(x as QR);
+              }
+            });
+            this.setListOfQrClientes(listQr);
+          });
+      }
+      if (this.getGlobalCliente() === null) {
+        console.log("BUSCANDO CLIENTE")
+        this.getClientes()
+          .snapshotChanges()
+          .subscribe(data => {
+            data.map(element => {
+              let y = element.payload.toJSON();
+              y["$key"] = element.key;
+              if (JSON.parse(localStorage.getItem("user")).email === y["Email"]) {
+                this.setGlobalCliente(y as Cliente)
+              }
+            });
+          });
+      }
+    }
+  }
+
+
 }

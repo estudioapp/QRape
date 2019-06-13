@@ -8,6 +8,16 @@ header{
         background-size: cover;
         background-position: center center;
         height: 100vh;
+        animation: fondo 1s;
+    }
+
+    @keyframes fondo {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
     }
     .tarjeta{
         animation: intro 2s;

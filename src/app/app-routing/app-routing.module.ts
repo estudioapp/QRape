@@ -14,11 +14,19 @@ import { PanelBackendComponent } from '../components/backend/panel-backend/panel
 import { VisorQRComponent } from '../components/frontend/visor-qr/visor-qr.component';
 import { AgregarContenidoQRComponent } from '../components/frontend/agregar-contenido-qr/agregar-contenido-qr.component';
 import { EditarQRComponent } from '../components/frontend/editar-qr/editar-qr.component';
+import { InicioAppComponent } from '../inicio-app/inicio-app.component';
+import { NavbarComponent } from '../components/frontend/navbar/navbar.component';
+import { DocumentacionComponent } from '../components/frontend/documentacion/documentacion.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: '', component: InicioFrontendComponent  },
+  { path: '', redirectTo: 'intro', pathMatch: 'full'},
+  { path: '', component: NavbarComponent,
+  children: [
+    { path: 'panel', component:  PanelFrontendComponent },
+    { path: 'perfil', component: PerfilComponent  },
+    { path: 'documentos', component:DocumentacionComponent},              
+  ]},
   { path: 'login', component: LoginFrontendComponent  },
   { path: 'admin8291/login', component: LoginBackComponent  },
   { path: 'admin8291/panel', component: PanelBackendComponent  },
@@ -27,7 +35,7 @@ const routes: Routes = [
   { path: 'registro', component: LoginFrontendComponent  }, 
   { path: 'vista/:key', component: VisorQRComponent }, 
   { path: 'panel', component: PanelFrontendComponent  },
-  { path: 'perfil', component: PerfilComponent  },
+  { path: 'intro', component: InicioAppComponent  },
   { path: 'agregarQR/:key', component: AgregarContenidoQRComponent  },
   { path: 'editarQR/:key', component: EditarQRComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },

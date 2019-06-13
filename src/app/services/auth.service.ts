@@ -27,6 +27,8 @@ export class AuthService {
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
+        this.clienteService.getDataToUser();
+
         JSON.parse(localStorage.getItem('user'));
       } else {
         localStorage.setItem('user', null);
