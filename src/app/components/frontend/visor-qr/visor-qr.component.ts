@@ -42,18 +42,15 @@ export class VisorQRComponent implements OnInit {
     this.ClienteService.getListUsers().subscribe(actionArray => {
       this.permiso = "";
       actionArray.map(element => {
-        // console.log(element.payload.doc.data());	
+ 	
         let x = element.payload.doc.data();
         if (x["uid"] === user.uid) {
           this.permiso = x["tipoUsuario"];
-          // return {	
-          //   uid: element.payload.doc.id,	
-          //   ...element.payload.doc.data()	
-          // } as User;	
+
         }
 
       });
-      // return   this.yList.tipoUsuario;	
+	
     });
 
     this.key = key;
