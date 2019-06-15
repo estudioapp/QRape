@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { User } from './user.model';
 import { Cliente } from '../interfaces/usuario.model';
+import { AngularFirestore , AngularFirestoreDocument} from '@angular/fire/firestore';
 import { QR } from '../interfaces/qr';
 import { GenerarQrService } from './generar-qr.service';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -18,22 +19,19 @@ export class ClienteService {
   QRListClientOnlien: QR[];
 
   constructor(
-    private QrService: GenerarQrService,
+   private QrService: GenerarQrService,
     public firebase: AngularFireDatabase,
     private location: Router,
     private afs: AngularFirestore
   ) {
     this.Cliente = null;
-    this.QRListClientOnlien = null;
+	this.QRListClientOnlien = null;
   }
 
   ngOnInit() {
 
   }
 
-  getListUsers() {
-    return this.afs.collection('users').snapshotChanges();
-  }
   getGlobalCliente() {
     return this.Cliente;
   }
@@ -51,27 +49,27 @@ export class ClienteService {
 
   addClientes(nombre: string, email: string): void {
     this.listadoClientes = this.firebase.list("/Clientes");
-    this.listadoClientes.push({ Nombre: nombre, Email: email, Estado: "Normal" });
-    /** 
+    this.listadoClientes.push({ Nombre: nombre, Email: email, Estado:"Normal" }); 
+    /**
     * Este metodo agrega 10 QR al cliente que se está registrando. Para la versión PlayStore.
     * var cantidadQR = 10;
     * for (let i = 0; i < cantidadQR; i++) {
     *   this.firebase.list("/QR").push({
     *     NombreUsuario: email,
     *     Serie: 1
+
     *   });
     **/
+
   }
 
-  getListOfQrClients() {
+getListOfQrClients() {
     return this.QRListClientOnlien;
   }
 
   setListOfQrClientes(listQr: QR[]) {
     this.QRListClientOnlien = listQr;
   }
-
-
 
 
   getDataToUser() {
@@ -109,7 +107,11 @@ export class ClienteService {
           });
       }
     }
-  }
+}
 
+  getListUsers() {
 
+    return this.afs.collection('users').snapshotChanges();
+    }
+ 
 }
