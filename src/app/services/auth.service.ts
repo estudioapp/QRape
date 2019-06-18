@@ -138,6 +138,7 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
+      tipoUsuario:"free",
       emailVerified: user.emailVerified,
       password: ""
     }

@@ -4,10 +4,9 @@ import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { User } from './user.model';
 import { Cliente } from '../interfaces/usuario.model';
-import { AngularFirestore , AngularFirestoreDocument} from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { QR } from '../interfaces/qr';
 import { GenerarQrService } from './generar-qr.service';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,13 +18,13 @@ export class ClienteService {
   QRListClientOnlien: QR[];
 
   constructor(
-   private QrService: GenerarQrService,
+    private QrService: GenerarQrService,
     public firebase: AngularFireDatabase,
     private location: Router,
     private afs: AngularFirestore
   ) {
     this.Cliente = null;
-	this.QRListClientOnlien = null;
+    this.QRListClientOnlien = null;
   }
 
   ngOnInit() {
@@ -49,21 +48,23 @@ export class ClienteService {
 
   addClientes(nombre: string, email: string): void {
     this.listadoClientes = this.firebase.list("/Clientes");
-    this.listadoClientes.push({ Nombre: nombre, Email: email, Estado:"Normal" }); 
+    this.listadoClientes.push({ Nombre: nombre, Email: email, Estado: "Normal" });
     /**
     * Este metodo agrega 10 QR al cliente que se está registrando. Para la versión PlayStore.
-    * var cantidadQR = 10;
-    * for (let i = 0; i < cantidadQR; i++) {
-    *   this.firebase.list("/QR").push({
-    *     NombreUsuario: email,
-    *     Serie: 1
+    */
+    var cantidadQR = 10;
+    for (let i = 0; i < cantidadQR; i++) {
+      this.firebase.list("/QR").push({
+        NombreUsuario: email,
+        Serie: 1
 
-    *   });
-    **/
+      });
 
+    }
   }
 
-getListOfQrClients() {
+
+  getListOfQrClients() {
     return this.QRListClientOnlien;
   }
 
@@ -107,11 +108,11 @@ getListOfQrClients() {
           });
       }
     }
-}
+  }
 
   getListUsers() {
 
     return this.afs.collection('users').snapshotChanges();
-    }
- 
+  }
+
 }

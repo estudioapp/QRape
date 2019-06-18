@@ -1,42 +1,55 @@
 <section>
-    <div class="container top">
-      <div class="row">
-        <div class="col-12">
-          <p class="h3 my-0 py-3 text-center">QReady</p>
-        </div>
+  <div class="container top">
+    <div class="row">
+      <div class="col-12">
+        <p class="h3 my-0 py-3 text-center">QReady</p>
       </div>
     </div>
-    <div class="container mt-5">
-      <div class="row">
-        <div class="col-12 my-3 text-center">
-          <b>Tu codigo QR está vacio</b>
+  </div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-12 my-3 text-center" *ngIf="permiso === 'premium'">
+        <b class="h3">
+          ¡Modificá el contenido de tu QR!
+        </b>
+      </div>
+      <div class="col-12 my-3 text-center" *ngIf="permiso === 'free'" >
+        <b class="h4">¡Ups! Tu cuenta no tiene permisos para editar los QR's</b>
+      </div>
+      <div class="col-12">
+        <p class="text-center">
+          <a class="h4" *ngIf="!QRselect.Foto">
+            ¿Te gustaría agregarle una imagen?
+          </a>
+          <br>
+          <button
+            style="position:absolute;top:60px;left:0px;background-image: linear-gradient(to right,#3176fb,#45c3ff);border:0;border-radius:5px;padding:10px 34px;color:white"
+            *ngIf="isFoto && (permiso!== 'free')" (click)="BorrarImagen()">Cambiar foto</button>
+        </p>
+        <div id="img">
+          <img src="{{QRselect.Foto}}" style="width:100%" id="thumb">
         </div>
-        <div class="col-12">
-           <p class="text-center">
-            <a class="h4">
-              ¿Te gustaría agregarle una imagen?</a>
-            <br>
-            <button style="position:absolute;top:60px;left:0px;background-image: linear-gradient(to right,#3176fb,#45c3ff);border:0;border-radius:5px;padding:10px 34px;color:white"
-            *ngIf="isFoto" (click)="BorrarImagen()">Cambiar foto</button>
-          </p> 
-          <div id="img">
-            <img src="{{QRselect.Foto}}" style="width:100%" id="thumb">
-          </div>
-            <label class="labelFile text-center mx-auto my-3" id="labelFile" *ngIf="!isFoto">
-                Selecioná la foto
-                <input type="file" id="upload-file" (change)="seleccionarFoto($event)">
-              </label>
-          <p class="text-center mt-3" >
-            <textarea placeholder="¡Acá agregale un texto sobre de que se trata tu QR!" name="txtd" [(ngModel)]="QRselect.Texto"></textarea>
-          </p>
+        <label class="labelFile text-center mx-auto my-3" id="labelFile" *ngIf="!isFoto">
+          Selecioná la foto
+          <input type="file" id="upload-file" (change)="seleccionarFoto($event)">
+        </label>
+        <p class="text-center mt-3">
+          <textarea *ngIf="(permiso !== 'free')" placeholder="¡Acá agregale un texto sobre de que se trata tu QR!" name="txtd"
+            [(ngModel)]="QRselect.Texto"></textarea>
+          <a *ngIf="(permiso === 'free')">{{QRselect.Texto}}</a>
+        </p>
 
-          <hr>
-          <p class="mt-5 text-center">
-            <button class="one" (click)="editar()">Guardar cambios</button></p>
-          <p class="text-center">
-            <button class="two" routerLink="/panel">Volver al administrador</button>
-          </p>
-        </div>
+        <hr>
+        <p class="mt-5 text-center">
+          <a *ngIf="permiso === 'free'">¿Sabías que si te pasas a premium vas a poder editar todos los QR sin limitación alguna?</a>
+          <button class="one" *ngIf="permiso === 'premium'" (click)="editar()">Guardar cambios</button>
+          <button class="one mt-4" *ngIf="permiso === 'free'" routerLink="/premium">Pasate a premium</button>
+        
+        </p>
+        <p class="text-center">
+          <button class="two" routerLink="/panel">Volver al administrador</button>
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>

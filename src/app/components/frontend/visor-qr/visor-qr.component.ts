@@ -34,21 +34,24 @@ export class VisorQRComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("HOLA");
     const key = this.activatedRoute.snapshot.paramMap.get("key");
     const user = JSON.parse(localStorage.getItem('user'));
     if (JSON.parse(localStorage.getItem("user")).email !== null) {
       this.EmailOnline = JSON.parse(localStorage.getItem("user")).email;
     }
+    console.log(user);
     this.ClienteService.getListUsers().subscribe(actionArray => {
       this.permiso = "";
       actionArray.map(element => {
  	
         let x = element.payload.doc.data();
         if (x["uid"] === user.uid) {
+          if(x["tipoUsuario"] === undefined){
+            x["tipoUsuario"] = "free";
+          }
           this.permiso = x["tipoUsuario"];
-
         }
-
       });
 	
     });
@@ -64,7 +67,7 @@ export class VisorQRComponent implements OnInit {
           x["$key"] = element.key;
           if (x["$key"] === key) {
             this.QRselect = x as QR;
-            if (FechaHoy > sumarDias(FechaCreacion, 90)){
+            if (FechaHoy > sumarDias(FechaCreacion, 30)){
               this.caducado = true;
             }
           }
