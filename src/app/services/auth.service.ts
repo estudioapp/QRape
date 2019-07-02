@@ -38,13 +38,13 @@ export class AuthService {
   }
   // Sign in with email/password
   SignIn(email, password) {
-    if(email == "" || email == undefined || password == "" || password == undefined )
+    if (email == "" || email == undefined || password == "" || password == undefined)
       return;
 
     this.afAuth.auth.languageCode = 'es';
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-        
+
         console.log(this.SetUserData(result.user));
         if (!this.userData.emailVerified) {
           alert("Tu cuenta aún no está activa, es decir todavía no verificaste tu correo electrónico haciendo click en el email que te envíamos durante el proceso de registro");
@@ -61,12 +61,16 @@ export class AuthService {
           case "auth/user-not-found":
             alert("No hay un registro de usuario correspondiente a este identificador. Es posible que el usuario haya sido eliminado");
             break;
-            case "auth/invalid-email":
-              alert("Email con formato incorrecto. Por favor volver a ingresar el email.");
-              break;
-          default:  
-            if(error.code  === "Cannot read property 'emailVerified' of undefined"){this.SignIn(email,password)}else{window.alert(error.message);}; // Tenemos un error constante de EmailVerifed, hasta no solucionarlo, seguimos usando la siguiente linea de codigo.
-        }
+          case "auth/invalid-email":
+            alert("Email con formato incorrecto. Por favor volver a ingresar el email.");
+            break;
+          default:
+            if (error.message === "Cannot read property 'emailVerified' of undefined") {
+              this.SignIn(email, password)
+            }
+            break;
+        }; // Tenemos un error constante de EmailVerifed, hasta no solucionarlo, seguimos usando la siguiente linea de codigo.
+
         //window.alert(error.message)
       })
 
@@ -75,10 +79,10 @@ export class AuthService {
   //   return await axios(users)
   // };
   // Sign up with email/passwordResetEmaild
-    async SignUp(form) {
+  async SignUp(form) {
     localStorage.setItem('registroCliente', JSON.stringify(form.value));
     this.afAuth.auth.languageCode = 'es';
-    return await this.afAuth.auth.createUserWithEmailAndPassword(form.value.email,form.value.pass)
+    return await this.afAuth.auth.createUserWithEmailAndPassword(form.value.email, form.value.pass)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
@@ -138,7 +142,7 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      tipoUsuario:"free",
+      tipoUsuario: "free",
       emailVerified: user.emailVerified,
       password: ""
     }

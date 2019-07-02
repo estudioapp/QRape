@@ -6,8 +6,15 @@ background: #ededed;">
       <!-- Datos básicos de usuabilidad -->
       <div class="col-12 my-3">
         <p class="text-center">
-          <img src="/assets/images/logoqr.png" style="width:50%;filter: grayscale(0.7);">
+          <img src="/assets/images/isologo.png" style="width:50%;filter: grayscale(0.7);">
         </p>
+        <div class="text-center my-4" id="info-top">
+          <i class="material-icons" style="font-size:35px;color: #208bfb;">new_releases</i>
+          <p>
+            Scanneá, busca y modificá tus codigos QR
+          </p>
+          <i class="material-icons" (click)="goQrs()">arrow_downward</i>
+        </div>
         <h3 class="text-center">
           ¡Hola {{usuarioOnline.Nombre}}!<br>
           <small>Bienvenido a QReady de nuevo</small>
@@ -73,7 +80,7 @@ background: #ededed;">
           </div>
         </div>
 
-        <div class="col-12 mt-4 text-center">
+        <div class="col-12 mt-4 text-center" id="qrS"> 
           <h3 class="mb-0 text-dark">QR sin cargar</h3>
         </div>
         <div class="col-12">

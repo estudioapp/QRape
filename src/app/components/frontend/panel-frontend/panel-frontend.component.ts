@@ -8,6 +8,7 @@ import { QR } from 'src/app/interfaces/qr';
 import { Router } from '@angular/router';
 
 // import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+declare var $: any;
 
 @Component({
   selector: 'app-panel-frontend',
@@ -31,11 +32,11 @@ export class PanelFrontendComponent implements OnInit {
     private renderer: Renderer2,
     private clienteService: ClienteService,
     private QRservice: GenerarQrService,
-    private Router : Router) {
-      this.usuarioOnline = {
-        Nombre : "",
-        Email:""
-      };
+    private Router: Router) {
+    this.usuarioOnline = {
+      Nombre: "",
+      Email: ""
+    };
   }
 
   render(e) {
@@ -79,6 +80,17 @@ export class PanelFrontendComponent implements OnInit {
       });
     }
   }
+
+  goQrs() {
+    var scrollTo = $('#qrS');
+  
+    $('html, body').animate({
+      scrollTop: (scrollTo.offset().top - $(window).scrollTop() + $(window).scrollTop())
+   }, 1000);
+
+}
+
+
   openQr(key) {
     location.href = "https://qready.com.ar/vista/" + key;
   }

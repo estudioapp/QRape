@@ -12,17 +12,17 @@
             </h4>
           </div>
           <div class="col-12 divInput d-flex" *ngIf="isRegistro">
-          <input name="displayName" #fullName="ngModel" [(ngModel)]="clienteService.formData.displayName" class="form-control col-12 divInput d-flex" placeholder="Tu nombre"  required>
+          <input name="displayName" type="text" #fullName="ngModel" [(ngModel)]="clienteService.formData.displayName" class="form-control col-12 divInput d-flex" placeholder="Tu nombre"  required>
           </div>
 
           <div class="col-12 divInput d-flex" >
-          <input name="email" #userEmail="ngModel" [(ngModel)]="clienteService.formData.email" class="form-control" placeholder="Tu email"  required>
+          <input name="email" type="email" #userEmail="ngModel" [(ngModel)]="clienteService.formData.email" class="form-control" placeholder="Tu email"  required>
           </div>
           <!-- <div class="col-12 divInput d-flex">
             <input type="text" class="mx-auto my-auto" placeholder="Tu email" #userEmail required >
           </div> -->
           <div class="col-12 divInput d-flex">
-            <input type="text" name="pass"  #userPassword="ngModel" [(ngModel)]="clienteService.formData.password"  class="mx-auto  my-auto" placeholder="Tu contraseña"  required>
+            <input type="text" name="pass"  type="password" #userPassword="ngModel" [(ngModel)]="clienteService.formData.password"  class="mx-auto  my-auto" placeholder="Tu contraseña"  required>
           </div>
           <div class="col-12 d-flex mt-2">
             <p class="mx-auto text-center">Recordaremos tus datos de acceso para tu experencía sea la mejor</p>
