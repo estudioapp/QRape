@@ -96,7 +96,9 @@ import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { InicioAppComponent } from './inicio-app/inicio-app.component';
 import { DocumentacionComponent } from './components/frontend/documentacion/documentacion.component';
 import { PremiumComponent } from './components/frontend/premium/premium.component';
-import { NosotrosComponent } from './components/frontend/nosotros/nosotros.component'; // <-- import the module
+import { NosotrosComponent } from './components/frontend/nosotros/nosotros.component';
+import { TerminosYCondicionesComponent } from './components/frontend/terminos-ycondiciones/terminos-ycondiciones.component';
+import { ChangePasswordComponent } from './components/frontend/change-password/change-password.component'; // <-- import the module
 
 
 @NgModule({
@@ -120,7 +122,9 @@ import { NosotrosComponent } from './components/frontend/nosotros/nosotros.compo
     InicioAppComponent,
     DocumentacionComponent,
     PremiumComponent,
-    NosotrosComponent
+    NosotrosComponent,
+    TerminosYCondicionesComponent,
+    ChangePasswordComponent
   ],
   imports: [
     Ng2ImgMaxModule,

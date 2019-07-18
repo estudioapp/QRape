@@ -111,8 +111,16 @@ export class ClienteService {
   }
 
   getListUsers() {
-
     return this.afs.collection('users').snapshotChanges();
   }
+
+  calculateDaysToExpire( FechaCreacion : any ){
+    var date2 = new Date();
+    var date1 = new Date(FechaCreacion.setDate(FechaCreacion.getDate() + 90));
+    var timeDiff = Math.abs(date1.getTime() - date2.getTime());
+    return Math.ceil(timeDiff / (1000 * 3600 * 24));
+  }
+
+
 
 }

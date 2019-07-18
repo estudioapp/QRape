@@ -61,6 +61,12 @@ export class GenerarQrService {
       if (ObjectQR.Video === undefined) {
         ObjectQR.Video = null;
       }
+      let setDay;
+      if (ObjectQR.FechaCreacion === undefined){
+        setDay = new Date().toString();
+      }else{
+        setDay = ObjectQR.FechaCreacion;
+      }
       this.listadoQR.update(ObjectQR.$key,
         {
           NombreUsuario: ObjectQR.NombreUsuario,
@@ -68,6 +74,7 @@ export class GenerarQrService {
           Foto: ObjectQR.Foto,
           Archivo: ObjectQR.Archivo,
           Texto: ObjectQR.Texto,
+          FechaCreacion: setDay,
           Video: ObjectQR.Video
         });
     } else {
@@ -100,6 +107,12 @@ export class GenerarQrService {
             if (ObjectQR.Video === undefined) {
               ObjectQR.Video = null;
             }
+            var setDay;
+            if (ObjectQR.FechaCreacion === undefined){
+              setDay = new Date().toString();
+            }else{
+              setDay = ObjectQR.FechaCreacion;
+            }
             this.listadoQR.update(ObjectQR.$key,
               {
                 NombreUsuario: ObjectQR.NombreUsuario,
@@ -107,6 +120,7 @@ export class GenerarQrService {
                 Foto: ObjectQR.Foto,
                 Archivo: ObjectQR.Archivo,
                 Texto: ObjectQR.Texto,
+                FechaCreacion:setDay,
                 Video: ObjectQR.Video
               });
           

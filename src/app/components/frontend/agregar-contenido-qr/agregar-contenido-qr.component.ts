@@ -118,6 +118,7 @@ export class AgregarContenidoQRComponent implements OnInit {
         this.currentFileUpload = new Imgupload(file[0]);
         this.currentFileUpload.$key = Math.random();
       } 
+      this.QRselect.FechaCreacion = new Date().toString();	
 
       this.QRService.setValueQR(this.currentFileUpload, this.QRselect);
      

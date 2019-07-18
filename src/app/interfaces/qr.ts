@@ -6,5 +6,7 @@ export interface QR {
     Video?:string;
     Archivo?:string;
     Texto?:string;
-    FechaCreacion?:string;	
+    FechaCreacion?:any;
+    aVencer?:number;
+    CantidadScan?:number;
 }

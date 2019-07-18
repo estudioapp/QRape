@@ -18,6 +18,8 @@ import { InicioAppComponent } from '../inicio-app/inicio-app.component';
 import { NavbarComponent } from '../components/frontend/navbar/navbar.component';
 import { DocumentacionComponent } from '../components/frontend/documentacion/documentacion.component';
 import { PremiumComponent } from '../components/frontend/premium/premium.component';
+import { TerminosYCondicionesComponent } from '../components/frontend/terminos-ycondiciones/terminos-ycondiciones.component';
+import { ChangePasswordComponent } from '../components/frontend/change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -26,8 +28,9 @@ const routes: Routes = [
   children: [
     { path: 'panel', component:  PanelFrontendComponent },
     { path: 'perfil', component: PerfilComponent  },
-    { path: 'documentos', component:DocumentacionComponent},              
+    { path: 'documentos', component:DocumentacionComponent},
     { path: 'premium', component: PremiumComponent  },
+    { path: 'cambiar-contra', component:ChangePasswordComponent}
   ]},
   { path: 'login', component: LoginFrontendComponent  },
   { path: 'admin8291/login', component: LoginBackComponent  },
@@ -41,7 +44,9 @@ const routes: Routes = [
   { path: 'agregarQR/:key', component: AgregarContenidoQRComponent  },
   { path: 'editarQR/:key', component: EditarQRComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'verify-email-address', component: VerifyEmailComponent }
+  { path: 'verify-email-address', component: VerifyEmailComponent },
+  { path: 'terminos-y-condiciones', component: TerminosYCondicionesComponent }
+
 ];
 
 

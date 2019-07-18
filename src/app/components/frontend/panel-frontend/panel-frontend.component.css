@@ -3,6 +3,16 @@ header{
 }
 
 @media screen and (max-width: 768px){
+    .btn-s{
+        border: 1px solid #00beff!important;
+        background: transparent!important;
+        color: #00beff;
+        width: 80%;
+        padding: 7px;
+        border-radius: 10px;
+        box-shadow: 3px 5px 4px -6px #014b64;
+        }
+
     header{
         display: block;
         /* background-image: linear-gradient(-23deg, #1a88a5, #23c5fa); */
@@ -97,5 +107,32 @@ header{
         padding: 10px;
         margin-left: 5px;
         margin-right: 5px;
+    }
+}
+
+.animation-in-cargados{
+    animation: animation-in-cargados 0.5s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes animation-in-cargados{
+    0%{
+        transform:scaleY(0);
+        transform-origin: top;
+    }
+    100%{
+        transform-origin: top;
+        transform:scaleY(1);
+    }
+}
+@keyframes animation-out-cargados{
+    0%{
+        opacity: 1;
+        height: auto;
+    }
+    100%{
+        opacity: 0;
+        height: 0;
     }
 }

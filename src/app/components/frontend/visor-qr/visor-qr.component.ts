@@ -61,13 +61,18 @@ export class VisorQRComponent implements OnInit {
       .snapshotChanges()
       .subscribe(Data => {
         this.listQR = Data.map(element => {
+          
           let x = element.payload.toJSON();
           let FechaCreacion = new Date(x["FechaCreacion"]);
           let FechaHoy = new Date();
+
           x["$key"] = element.key;
           if (x["$key"] === key) {
+            console.log(FechaCreacion)
+            console.log(sumarDias(FechaCreacion,90));
             this.QRselect = x as QR;
-            if (FechaHoy > sumarDias(FechaCreacion, 30)){
+            if (FechaHoy > sumarDias(FechaCreacion, 90)){
+              console.log(sumarDias(FechaCreacion,90));
               this.caducado = true;
             }
           }

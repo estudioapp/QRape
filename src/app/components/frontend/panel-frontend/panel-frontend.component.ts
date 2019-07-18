@@ -28,6 +28,10 @@ export class PanelFrontendComponent implements OnInit {
   @ViewChild('result') resultElement: ElementRef;
   showQRCode: boolean = true;
   beforeUrl: string;
+
+  isCloseCargados : boolean;
+  isCloseNoCargados : boolean;
+
   constructor(
     private renderer: Renderer2,
     private clienteService: ClienteService,
@@ -37,6 +41,9 @@ export class PanelFrontendComponent implements OnInit {
       Nombre: "",
       Email: ""
     };
+    this.isCloseCargados = false;
+    this.isCloseNoCargados = false;
+
   }
 
   render(e) {
@@ -52,7 +59,7 @@ export class PanelFrontendComponent implements OnInit {
     }
     this.renderer.appendChild(this.resultElement.nativeElement, element);
   }
-
+ 
 
   ngOnInit() {
     this.emailOnline = JSON.parse(localStorage.getItem("user")).email;
@@ -67,14 +74,14 @@ export class PanelFrontendComponent implements OnInit {
 
   getListQr() {
     var listAuxQr = this.clienteService.getListOfQrClients();
-    console.log(listAuxQr);
     if (listAuxQr !== null) {
       this.listQrWithFoto = [];
       this.listQrWithoutFoto = [];
       listAuxQr.map(element => {
-        if (element.Foto === undefined) {
+        if (element.Foto === undefined && element.Archivo === undefined && element.Texto === undefined && element.Video === undefined)  {
           this.listQrWithoutFoto.push(element as QR);
         } else {
+          element.aVencer = this.clienteService.calculateDaysToExpire(new Date(element.FechaCreacion));
           this.listQrWithFoto.push(element as QR);
         }
       });
