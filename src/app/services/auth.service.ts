@@ -150,6 +150,12 @@ export class AuthService {
       merge: true
     })
   }
+  
+  changePassword(password){
+    return this.afAuth.auth.currentUser.updatePassword(password);
+  }
+  
+  
   // Sign out
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
