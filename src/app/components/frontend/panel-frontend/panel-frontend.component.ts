@@ -21,7 +21,7 @@ export class PanelFrontendComponent implements OnInit {
   usuarioOnline: Cliente;
   listQrWithFoto: QR[];
   listQrWithoutFoto: QR[];
-
+  openModalInfoPremium : boolean;
 
   elementType = 'url';
   value = 'https://assets.econsultancy.com/images/resized/0002/4236/qr_code-blog-third.png';
@@ -43,7 +43,7 @@ export class PanelFrontendComponent implements OnInit {
     };
     this.isCloseCargados = false;
     this.isCloseNoCargados = false;
-
+    this.openModalInfoPremium = false;
   }
 
   render(e) {
@@ -100,5 +100,9 @@ export class PanelFrontendComponent implements OnInit {
 
   openQr(key) {
     location.href = "https://qready.com.ar/vista/" + key;
+  }
+
+  closeModal(event){
+    this.openModalInfoPremium = false;
   }
 }

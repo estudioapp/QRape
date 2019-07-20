@@ -20,6 +20,7 @@ import { DocumentacionComponent } from '../components/frontend/documentacion/doc
 import { PremiumComponent } from '../components/frontend/premium/premium.component';
 import { TerminosYCondicionesComponent } from '../components/frontend/terminos-ycondiciones/terminos-ycondiciones.component';
 import { ChangePasswordComponent } from '../components/frontend/change-password/change-password.component';
+import { InfoPremiumComponent } from '../components/global/info-premium/info-premium.component';
 
 
 const routes: Routes = [
@@ -45,7 +46,9 @@ const routes: Routes = [
   { path: 'editarQR/:key', component: EditarQRComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
-  { path: 'terminos-y-condiciones', component: TerminosYCondicionesComponent }
+  { path: 'terminos-y-condiciones', component: TerminosYCondicionesComponent },
+  { path: 'modal', component: InfoPremiumComponent }
+
 
 ];
 

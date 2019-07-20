@@ -67,10 +67,14 @@ export class GenerarQrService {
       }else{
         setDay = ObjectQR.FechaCreacion;
       }
+      if(ObjectQR.CantidadScan === undefined){
+        ObjectQR.CantidadScan = 1;
+      }
       this.listadoQR.update(ObjectQR.$key,
         {
           NombreUsuario: ObjectQR.NombreUsuario,
           Serie: ObjectQR.Serie,
+          CantidadScan: ObjectQR.CantidadScan,
           Foto: ObjectQR.Foto,
           Archivo: ObjectQR.Archivo,
           Texto: ObjectQR.Texto,
@@ -103,6 +107,9 @@ export class GenerarQrService {
             }
             if (ObjectQR.Texto === undefined) {
               ObjectQR.Texto = null;
+            }
+            if(ObjectQR.CantidadScan === undefined){
+              ObjectQR.CantidadScan = 1;
             }
             if (ObjectQR.Video === undefined) {
               ObjectQR.Video = null;

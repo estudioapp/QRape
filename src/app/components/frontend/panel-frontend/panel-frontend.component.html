@@ -1,120 +1,121 @@
+<app-info-premium (isModal)="closeModal($event)" *ngIf="openModalInfoPremium"></app-info-premium>
+
 <section class="barra" style="padding-bottom: 6vh;
 background: #ededed;">
-  <div class="container">
-    <div class="row top-panel pb-3">
+    <div class="container">
+        <div class="row top-panel pb-3">
 
-      <!-- Datos básicos de usuabilidad -->
-      <div class="col-12 my-3">
-        <p class="text-center">
-          <img src="/assets/images/isologo.png" style="width:50%;filter: grayscale(0.7);">
-        </p>
-        <div class="text-center my-4" id="info-top">
-          <i class="material-icons" style="font-size:35px;color: #208bfb;">new_releases</i>
-          <p>
-            Scanneá, busca y modificá tus codigos QR
-          </p>
-          <i class="material-icons" (click)="goQrs()">arrow_downward</i>
-        </div>
-        <h3 class="text-center">
-          ¡Hola {{usuarioOnline.Nombre}}!<br>
-          <small>Bienvenido a QReady de nuevo</small>
-        </h3>
+            <!-- Datos básicos de usuabilidad -->
+            <div class="col-12 my-3">
+                <p class="text-center">
+                    <img src="/assets/images/isologo.png" style="width:50%;filter: grayscale(0.7);">
+                </p>
+                <div class="text-center my-4" id="info-top">
+                    <i class="material-icons" style="font-size:35px;color: #208bfb;">new_releases</i>
+                    <p>
+                        Scanneá, busca y modificá tus codigos QR
+                    </p>
+                    <i class="material-icons" (click)="goQrs()">arrow_downward</i>
+                </div>
+                <h3 class="text-center">
+                    ¡Hola {{usuarioOnline.Nombre}}!<br>
+                    <small>Bienvenido a QReady de nuevo</small>
+                </h3>
 
-      </div>
-      <div class="col-4 text-center pt-3">
-        <p class="info-panel">
-          QR Libres: 
-          <br>
-          <a *ngIf="listQrWithoutFoto">
+            </div>
+            <div class="col-4 text-center pt-3">
+                <p class="info-panel">
+                    QR Libres:
+                    <br>
+                    <a *ngIf="listQrWithoutFoto">
             {{listQrWithoutFoto.length}}
           </a>
-        </p>
-      </div>
-      <div class="col-4 text-center pt-3">
-        <p class="info-panel">
-          QR Usados: 
-          <br>
-          <a *ngIf="listQrWithFoto">
+                </p>
+            </div>
+            <div class="col-4 text-center pt-3">
+                <p class="info-panel">
+                    QR Usados:
+                    <br>
+                    <a *ngIf="listQrWithFoto">
             {{listQrWithFoto.length}}
           </a>
-        </p>
-      </div>
-      <div class="col-4 text-center pt-3">
-        <p class="info-panel">
-          QR Total:
-          <br>
-          <a *ngIf="listQrWithFoto && listQrWithoutFoto">
+                </p>
+            </div>
+            <div class="col-4 text-center pt-3">
+                <p class="info-panel">
+                    QR Total:
+                    <br>
+                    <a *ngIf="listQrWithFoto && listQrWithoutFoto">
             {{listQrWithFoto.length + listQrWithoutFoto.length}}
           </a>
-        </p>
-      </div>
-    </div>
-
-
-    <!-- Call To Action -->
-    <div class="row">
-      <div class="col-12 text-center py-4 action">
-        <div class="tarjeta-publicidad">
-          <p class="mb-2" style="font-size:14px">¿Sabías que con Premium podes editar los QR ya cargados? </p>
-          <p class="mb-0"><button routerLink="/premium">Saber más sobre Premium</button></p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Listado de información de los QR ya cargados -->
-    <div class="row" style="background-color:#eee;">
-      <div class="panel-i">
-
-        <div class="col-12 mt-4 text-center">
-          <h3 class="mb-0 text-dark" (click)="isCloseCargados = !isCloseCargados">QR Cargados<i class="material-icons" style="    position: relative;
-            top: 7px;
-            left: 20px;">{{ (!isCloseCargados)?'keyboard_arrow_up':'keyboard_arrow_down' }}</i></h3>
-        </div>
-        <div class="col-12 {{ (!isCloseCargados)?'animation-in-cargados':'' }}" *ngIf="!isCloseCargados"  [style.transform]="'scale('+((isCloseCargados)?0:1)+')'">
-          <div class="row d-flex  py-3" style="background: #dcdcdc73;border-radius: 9px;    border: 3px solid white;" *ngFor="let qr of listQrWithFoto" (click)="openQr(qr.$key)">
-            <div class="col-6 mx-auto my-auto">
-              <a *ngIf="!qr.Foto"> QR sin foto</a>
-              <img src="{{qr.Foto}}" style="width:100%">
+                </p>
             </div>
-            <div class="col-6 ml-auto my-auto d-flex">
-              <qrcode class="mx-auto" [qrdata]="'https://qready.com.ar/vista/'+qr.$key" [size]="120" [level]="'M'" >
-              </qrcode>
-            </div>
-            <div class="col-12 py-3">
-              <p>
-                Veces Scaneado: {{(qr.CantidadScan)?qr.CantidadScan:0}} 
-                <br>
-                Vencimiento: {{qr.aVencer}} Días <i class="material-icons" style="position: relative;top: 4px;font-size: 18px;color: #218fff;">info</i>
-                <br>
-                <button class="btn-s mt-2">Compartir QR</button>
-              </p>
-              </div>
-          </div>
         </div>
 
-        <div class="col-12 mt-4 text-center" id="qrS"> 
-          <h3 class="mb-0 text-dark" (click)="isCloseNoCargados = !isCloseNoCargados">QR sin cargar<i class="material-icons" style="    position: relative;
+
+        <!-- Call To Action -->
+        <div class="row">
+            <div class="col-12 text-center py-4 action">
+                <div class="tarjeta-publicidad">
+                    <p class="mb-2" style="font-size:14px">¿Sabías que con Premium podes editar los QR ya cargados? </p>
+                    <p class="mb-0"><button routerLink="/premium">Saber más sobre Premium</button></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Listado de información de los QR ya cargados -->
+        <div class="row" style="background-color:#eee;">
+            <div class="panel-i">
+
+                <div class="col-12 mt-4 text-center">
+                    <h3 class="mb-0 text-dark" (click)="isCloseCargados = !isCloseCargados">QR Cargados<i class="material-icons" style="position: relative;top: 7px;left: 20px;">{{ (!isCloseCargados)?'keyboard_arrow_up':'keyboard_arrow_down' }}</i></h3>
+                </div>
+                <div class="col-12 {{ (!isCloseCargados)?'animation-in-cargados':'' }}" *ngIf="!isCloseCargados" [style.transform]="'scale('+((isCloseCargados)?0:1)+')'">
+                    <div class="row d-flex  py-3" style="background: #dcdcdc73;border-radius: 9px;    border: 3px solid white;" *ngFor="let qr of listQrWithFoto">
+                        <div class="col-6 mx-auto my-auto">
+                            <a *ngIf="!qr.Foto"> QR sin foto</a>
+                            <img src="{{qr.Foto}}" style="width:100%" (click)="openQr(qr.$key)">
+                        </div>
+                        <div class="col-6 ml-auto my-auto d-flex">
+                            <qrcode class="mx-auto" [qrdata]="'https://qready.com.ar/vista/'+qr.$key" [size]="120" [level]="'M'" (click)="openQr(qr.$key)">
+                            </qrcode>
+                        </div>
+                        <div class="col-12 py-3">
+                            <p>
+                                Veces Scaneado: {{(qr.CantidadScan)?qr.CantidadScan:0}}
+                                <br> Vencimiento: {{qr.aVencer}} Días <i class="material-icons" style="position: relative;
+                                top: 9px;
+                                font-size: 30px;
+                                color: #218fff;" (click)="openModalInfoPremium = true">info</i>
+                                <br>
+                                <button class="btn-s mt-2">Compartir QR</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4 text-center" id="qrS">
+                    <h3 class="mb-0 text-dark" (click)="isCloseNoCargados = !isCloseNoCargados">QR sin cargar<i class="material-icons" style="    position: relative;
             top: 7px;
             left: 20px;">{{ (!isCloseNoCargados)?'keyboard_arrow_up':'keyboard_arrow_down' }}</i></h3>
-        </div>
-        <div class="col-12 {{ (!isCloseNoCargados)?'animation-in-cargados':'' }}" *ngIf="!isCloseNoCargados">
-          <div class="row" style="background: #dcdcdc73;border-radius: 9px;    border: 3px solid white;">
-            <div class="col-12 my-5" *ngIf="listQrWithoutFoto">
-              <b class="h2">
+                </div>
+                <div class="col-12 {{ (!isCloseNoCargados)?'animation-in-cargados':'' }}" *ngIf="!isCloseNoCargados">
+                    <div class="row" style="background: #dcdcdc73;border-radius: 9px;    border: 3px solid white;">
+                        <div class="col-12 my-5" *ngIf="listQrWithoutFoto">
+                            <b class="h2">
                 ¡Ups, problema!
                 <br>
                  Parece que no hay más QR vacios 
               </b>
+                        </div>
+                        <div class="col-6 my-3 d-flex" *ngFor="let qr of listQrWithoutFoto">
+                            <qrcode (click)="openQr(qr.$key)" class="mx-auto" [qrdata]="'https://qready.com.ar/vista/'+qr.$key" [size]="120" [level]="'M'"></qrcode>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-6 my-3 d-flex" *ngFor="let qr of listQrWithoutFoto">
-              <qrcode (click)="openQr(qr.$key)" class="mx-auto" [qrdata]="'https://qready.com.ar/vista/'+qr.$key" [size]="120"
-                [level]="'M'"></qrcode>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 

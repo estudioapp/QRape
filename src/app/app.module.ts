@@ -98,7 +98,8 @@ import { DocumentacionComponent } from './components/frontend/documentacion/docu
 import { PremiumComponent } from './components/frontend/premium/premium.component';
 import { NosotrosComponent } from './components/frontend/nosotros/nosotros.component';
 import { TerminosYCondicionesComponent } from './components/frontend/terminos-ycondiciones/terminos-ycondiciones.component';
-import { ChangePasswordComponent } from './components/frontend/change-password/change-password.component'; // <-- import the module
+import { ChangePasswordComponent } from './components/frontend/change-password/change-password.component';
+import { InfoPremiumComponent } from './components/global/info-premium/info-premium.component'; // <-- import the module
 
 
 @NgModule({
@@ -124,7 +125,8 @@ import { ChangePasswordComponent } from './components/frontend/change-password/c
     PremiumComponent,
     NosotrosComponent,
     TerminosYCondicionesComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    InfoPremiumComponent
   ],
   imports: [
     Ng2ImgMaxModule,
