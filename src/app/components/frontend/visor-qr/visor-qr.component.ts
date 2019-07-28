@@ -36,6 +36,9 @@ export class VisorQRComponent implements OnInit {
   ngOnInit() {
     const key = this.activatedRoute.snapshot.paramMap.get("key");
     const user = JSON.parse(localStorage.getItem('user'));
+    if(user === undefined){
+      this.Router.navigateByUrl("/panel");
+    }
     if (JSON.parse(localStorage.getItem("user")).email !== null) {
       this.EmailOnline = JSON.parse(localStorage.getItem("user")).email;
     }
@@ -55,9 +58,12 @@ export class VisorQRComponent implements OnInit {
     });
 
     this.key = key;
+    var BooleanUpdateScan = true;
     this.QRService.getQRs()
       .snapshotChanges()
       .subscribe(Data => {
+        if(BooleanUpdateScan){
+
         this.listQR = Data.map(element => {
           
           let x = element.payload.toJSON();
@@ -68,7 +74,11 @@ export class VisorQRComponent implements OnInit {
 
           x["$key"] = element.key;
           if (x["$key"] === key) {
-            x["CantidadScan"]++;
+            if(x["CantidadScan"] === undefined){
+              x["CantidadScan"] = 0  
+            }else{
+              x["CantidadScan"]++;
+            }
             console.log(x)
             console.log(this.QRService.setValueQR(null,x as QR));
             this.QRselect = x as QR;
@@ -78,6 +88,9 @@ export class VisorQRComponent implements OnInit {
           }
           return x as QR;
         });
+        BooleanUpdateScan = false;
+      }
+
       });
     /* Función que suma o resta días a una fecha, si el parámetro	
       días es negativo restará los días*/

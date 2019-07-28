@@ -1,9 +1,9 @@
-header{
+header {
     display: none;
 }
 
-@media screen and (max-width: 768px){
-    .btn-s{
+@media screen and (max-width: 768px) {
+    .btn-s {
         border: 1px solid #00beff!important;
         background: transparent!important;
         color: #00beff;
@@ -11,19 +11,18 @@ header{
         padding: 7px;
         border-radius: 10px;
         box-shadow: 3px 5px 4px -6px #014b64;
-        }
-
-    header{
+    }
+    header {
         display: block;
         /* background-image: linear-gradient(-23deg, #1a88a5, #23c5fa); */
         background-image: linear-gradient(156deg, #00beff, #4d4dff);
         height: 40vh;
     }
-    a,p{
+    a,
+    p {
         font-size: 16px;
     }
-    button{
-
+    button {
         background-image: linear-gradient(156deg, #00beff, #4d4dff);
         /* background-image: linear-gradient(90deg,blue,#08a5fa); */
         color: white;
@@ -33,33 +32,34 @@ header{
         border-radius: 10px;
         box-shadow: 1px 1px 5px 0px grey;
     }
-    section{
-        margin-bottom:7vh;
+    section {
+        margin-bottom: 7vh;
     }
-    .barra{
+    .barra {
         animation: entrada 1s;
     }
-    @keyframes entrada{
-        0%{
+    @keyframes entrada {
+        0% {
             opacity: 0;
         }
-        100%{
+        100% {
             opacity: 1
         }
     }
-    .container{
+    .container {
         background-color: #eee;
     }
-    .info-panel{
+    .info-panel {
         font-weight: bold;
         font-size: 3.8vw;
-        color:white;
+        color: white;
     }
-    small, .info-panel > a{
+    small,
+    .info-panel>a {
         color: #e9e9e9;
         font-weight: 100;
     }
-    .tarjeta-publicidad{
+    .tarjeta-publicidad {
         background-color: white;
         width: 88%;
         position: relative;
@@ -69,38 +69,38 @@ header{
         box-shadow: 0px 0px 20px -5px #0000009c;
         top: -35px;
     }
-    h3{
-        color:white;
+    h3 {
+        color: white;
     }
-    .top-panel{
-        box-shadow: 0px 0px 20px -4px #0000009c;
+    .top-panel {
+        box-shadow: 0px 0px 9px -1px #0000009c;
         /* background: white; */
-        border-radius: 0px 0px 12% 12%;  
+        border-radius: 0px 0px 12% 12%;
         /* background-image: linear-gradient(-23deg, #23c5fa, #049ef8); */
         background-image: linear-gradient(156deg, #00beff, #4d4dff);
     }
-    .action{
+    .action {
         padding: 25px 0px;
         background-color: #eee;
-        padding-bottom:0px!important;
+        padding-bottom: 0px!important;
     }
-    .panel{
+    .panel {
         width: 100%;
         background: white;
     }
-    .panel-i{
+    .panel-i {
         width: 100%;
         background: #eee;
         text-align: center;
     }
-    .text-dark{
-        color:black;
+    .text-dark {
+        color: black;
         background-color: white;
         padding: 8px;
         border-radius: 20px 20px 0px 0px;
         box-shadow: 0px -8px 15px -15px;
     }
-    #info-top{
+    #info-top {
         box-shadow: 0px 1px 12px -4px;
         background: white;
         border-radius: 11px;
@@ -110,28 +110,28 @@ header{
     }
 }
 
-.animation-in-cargados{
+.animation-in-cargados {
     animation: animation-in-cargados 0.5s;
     animation-fill-mode: forwards;
 }
 
-
-@keyframes animation-in-cargados{
-    0%{
-        transform:scaleY(0);
+@keyframes animation-in-cargados {
+    0% {
+        transform: scaleY(0);
         transform-origin: top;
     }
-    100%{
+    100% {
         transform-origin: top;
-        transform:scaleY(1);
+        transform: scaleY(1);
     }
 }
-@keyframes animation-out-cargados{
-    0%{
+
+@keyframes animation-out-cargados {
+    0% {
         opacity: 1;
         height: auto;
     }
-    100%{
+    100% {
         opacity: 0;
         height: 0;
     }

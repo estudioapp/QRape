@@ -100,6 +100,8 @@ import { NosotrosComponent } from './components/frontend/nosotros/nosotros.compo
 import { TerminosYCondicionesComponent } from './components/frontend/terminos-ycondiciones/terminos-ycondiciones.component';
 import { ChangePasswordComponent } from './components/frontend/change-password/change-password.component';
 import { InfoPremiumComponent } from './components/global/info-premium/info-premium.component'; // <-- import the module
+import { NewTokenMPService } from './services/new-token-mp.service';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -178,9 +180,10 @@ import { InfoPremiumComponent } from './components/global/info-premium/info-prem
     MatFormFieldModule,
     FormsModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
-  providers: [AuthService,ClienteService,GenerarQrService,BackendService,AngularFireDatabaseModule],
+  providers: [AuthService,ClienteService,GenerarQrService,BackendService,AngularFireDatabaseModule,NewTokenMPService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

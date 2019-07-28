@@ -118,7 +118,7 @@ background: #ededed;">
                 </div>
                 <div class="col-12 {{ (!isCloseNoCargados)?'animation-in-cargados':'' }}" *ngIf="!isCloseNoCargados">
                     <div class="row" style="background: #dcdcdc73;border-radius: 9px;    border: 3px solid white;">
-                        <div class="col-12 my-5" *ngIf="listQrWithoutFoto">
+                        <div class="col-12 my-5" *ngIf="listQrWithoutFoto.length < 1">
                             <b class="h2">
                 ¡Ups, problema!
                 <br>

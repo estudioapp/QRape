@@ -21,7 +21,7 @@ export class PanelFrontendComponent implements OnInit {
   usuarioOnline: Cliente;
   listQrWithFoto: QR[];
   listQrWithoutFoto: QR[];
-  openModalInfoPremium : boolean;
+  openModalInfoPremium: boolean;
 
   elementType = 'url';
   value = 'https://assets.econsultancy.com/images/resized/0002/4236/qr_code-blog-third.png';
@@ -29,8 +29,8 @@ export class PanelFrontendComponent implements OnInit {
   showQRCode: boolean = true;
   beforeUrl: string;
 
-  isCloseCargados : boolean;
-  isCloseNoCargados : boolean;
+  isCloseCargados: boolean;
+  isCloseNoCargados: boolean;
 
   constructor(
     private renderer: Renderer2,
@@ -41,6 +41,9 @@ export class PanelFrontendComponent implements OnInit {
       Nombre: "",
       Email: ""
     };
+    this.listQrWithoutFoto = [];
+    this.listQrWithFoto = [];
+
     this.isCloseCargados = false;
     this.isCloseNoCargados = false;
     this.openModalInfoPremium = false;
@@ -59,16 +62,22 @@ export class PanelFrontendComponent implements OnInit {
     }
     this.renderer.appendChild(this.resultElement.nativeElement, element);
   }
- 
+
 
   ngOnInit() {
-    this.emailOnline = JSON.parse(localStorage.getItem("user")).email;
-    if (this.clienteService.getGlobalCliente() === null) {
-      this.Router.navigateByUrl("/login");
+    if (localStorage.getItem("user") === null) {
+      this.Router.navigateByUrl("/intro");
     } else {
-      this.getListQr();
-      this.usuarioOnline = this.clienteService.getGlobalCliente();
-      this.emailOnline = this.usuarioOnline.Email;
+
+
+      this.emailOnline = JSON.parse(localStorage.getItem("user")).email;
+      if (this.clienteService.getGlobalCliente() === null) {
+        this.Router.navigateByUrl("/login");
+      } else {
+        this.getListQr();
+        this.usuarioOnline = this.clienteService.getGlobalCliente();
+        this.emailOnline = this.usuarioOnline.Email;
+      }
     }
   }
 
@@ -78,7 +87,7 @@ export class PanelFrontendComponent implements OnInit {
       this.listQrWithFoto = [];
       this.listQrWithoutFoto = [];
       listAuxQr.map(element => {
-        if (element.Foto === undefined && element.Archivo === undefined && element.Texto === undefined && element.Video === undefined)  {
+        if (element.Foto === undefined && element.Archivo === undefined && element.Texto === undefined && element.Video === undefined) {
           this.listQrWithoutFoto.push(element as QR);
         } else {
           element.aVencer = this.clienteService.calculateDaysToExpire(new Date(element.FechaCreacion));
@@ -90,19 +99,19 @@ export class PanelFrontendComponent implements OnInit {
 
   goQrs() {
     var scrollTo = $('#qrS');
-  
+
     $('html, body').animate({
       scrollTop: (scrollTo.offset().top - $(window).scrollTop() + $(window).scrollTop())
-   }, 1000);
+    }, 1000);
 
-}
+  }
 
 
   openQr(key) {
     location.href = "https://qready.com.ar/vista/" + key;
   }
 
-  closeModal(event){
+  closeModal(event) {
     this.openModalInfoPremium = false;
   }
 }

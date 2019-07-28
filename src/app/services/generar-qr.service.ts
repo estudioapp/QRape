@@ -40,6 +40,7 @@ export class GenerarQrService {
       this.fotogramaQr.push(this.listadoQR.push({
         NombreUsuario: qr.NombreUsuario,
         Serie: qr.Serie,
+        CantidadScan:1,
         FechaCreacion: new Date().toString()	
       }).key);
     }
@@ -125,6 +126,7 @@ export class GenerarQrService {
                 NombreUsuario: ObjectQR.NombreUsuario,
                 Serie: ObjectQR.Serie,
                 Foto: ObjectQR.Foto,
+                CantidadScan:ObjectQR.CantidadScan,
                 Archivo: ObjectQR.Archivo,
                 Texto: ObjectQR.Texto,
                 FechaCreacion:setDay,

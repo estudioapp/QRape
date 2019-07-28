@@ -21,6 +21,7 @@ import { PremiumComponent } from '../components/frontend/premium/premium.compone
 import { TerminosYCondicionesComponent } from '../components/frontend/terminos-ycondiciones/terminos-ycondiciones.component';
 import { ChangePasswordComponent } from '../components/frontend/change-password/change-password.component';
 import { InfoPremiumComponent } from '../components/global/info-premium/info-premium.component';
+import { NosotrosComponent } from '../components/frontend/nosotros/nosotros.component';
 
 
 const routes: Routes = [
@@ -31,7 +32,8 @@ const routes: Routes = [
     { path: 'perfil', component: PerfilComponent  },
     { path: 'documentos', component:DocumentacionComponent},
     { path: 'premium', component: PremiumComponent  },
-    { path: 'cambiar-contra', component:ChangePasswordComponent}
+    { path: 'cambiar-contra', component:ChangePasswordComponent},
+    { path: 'nosotros', component: NosotrosComponent  },
   ]},
   { path: 'login', component: LoginFrontendComponent  },
   { path: 'admin8291/login', component: LoginBackComponent  },

@@ -1,42 +1,48 @@
 <!-- ********************* MOBILE LAYOUT ************************** -->
 
 <header class="d-flex" *ngIf="usuarioOnline">
-  <div class="my-auto mx-auto text-center">
-    <p>
-      <img src="https://image.flaticon.com/icons/png/512/44/44948.png" style="width:150px;height:150px;filter: invert(0.2);">
-    </p>
-    <h3 class="tex-center">Este es tu perfil {{usuarioOnline.Nombre}}<br><small style="color: #e8e8e8;">Información sobre QReady Premium</small></h3>
-    <!-- <h5 class="tex-center"></h5> -->
-  </div>
+    <div class="my-auto mx-auto text-center">
+        <p>
+            <img src="/assets/images/compra.png">
+        </p>
+        <h3 class="tex-center">Este es tu perfil {{usuarioOnline.Nombre}}<br><small style="color: #e8e8e8;">Información sobre QReady Premium</small></h3>
+        <!-- <h5 class="tex-center"></h5> -->
+    </div>
 </header>
 <section *ngIf="usuarioOnline">
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col-12">
-        <p class="mb-0 d-flex mx-auto" routerLink="/documentos">Documentación <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
-        </p>
-      </div>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-12">
+                <p class="mb-0 d-flex mx-auto" routerLink="/documentos">Documentación <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
+                </p>
+            </div>
 
-      <div class="col-12">
-        <p class="mb-0 d-flex mx-auto" routerLink="/premium">Unite a premium <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
-        </p>
-      </div>
-      <div class="col-12">
-          <p class="mb-0 d-flex mx-auto" routerLink="/cambiar-contra">Cambiar contraseña <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
-          </p>
-        </div>
+            <div class="col-12">
+                <p class="mb-0 d-flex mx-auto" routerLink="/premium">Unite a premium <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
+                </p>
+            </div>
+            <div class="col-12">
+                <p class="mb-0 d-flex mx-auto" routerLink="/cambiar-contra">Cambiar contraseña <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
+                </p>
+            </div>
 
-      <!-- <div class="col-12">
+            <div class="col-12">
+                <p class="mb-0 d-flex mx-auto" routerLink="/nosotros">Acerca de ... <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
+                </p>
+            </div>
+
+
+            <!-- <div class="col-12">
         <p class="mb-0 d-flex mx-auto">Sobre Ape <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
         </p>
       </div>
  -->
-      <div class="col-12">
-        <p class="mb-0 d-flex mx-auto" (click)="authService.SignOut()">Cerrar sesión <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
-        </p>
-      </div>
+            <div class="col-12">
+                <p class="mb-0 d-flex mx-auto" (click)="authService.SignOut()">Cerrar sesión <i class="material-icons d-flex ml-auto">keyboard_arrow_right</i>
+                </p>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
 <app-navbar></app-navbar>
