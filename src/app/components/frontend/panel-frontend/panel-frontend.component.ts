@@ -68,7 +68,9 @@ export class PanelFrontendComponent implements OnInit {
     if (localStorage.getItem("user") === null) {
       this.Router.navigateByUrl("/intro");
     } else {
+      var infoTop = document.getElementById("info-top");
 
+      infoTop.innerText="HOLA"
 
       this.emailOnline = JSON.parse(localStorage.getItem("user")).email;
       if (this.clienteService.getGlobalCliente() === null) {
