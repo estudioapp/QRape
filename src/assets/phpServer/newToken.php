@@ -24,7 +24,7 @@
   
   $preference->external_reference = $key;
 
-  $preference->notification_url = "https://qready.com.ar/assets/php/notificationPayment.php";
+  $preference->notification_url = "https://qready.com.ar/assets/phpServer/notificationPayment.php";
 
    
     $preference->back_urls = array(
