@@ -6,9 +6,7 @@
   MercadoPago\SDK::setAccessToken("APP_USR-5418211864373749-072119-395b2b63f81680f70d4825bba47413c5-4970503");
 
   $key = $_GET["key"];
-  //$Precio = $_GET["precio"];
-  //$Fecha = $_GET["fecha"];
- 
+  
   $preference = new MercadoPago\Preference();
   
   # Setting item      
@@ -17,7 +15,6 @@
   $item->quantity = 1;
   $item->currency_id = "ARS";
   $item->unit_price = 2;
-  // $item->unit_price = 2;/7
     
   # Setting preferences
   $preference->items = array($item);
