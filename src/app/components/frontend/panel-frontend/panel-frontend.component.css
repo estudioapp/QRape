@@ -2,6 +2,15 @@ header {
     display: none;
 }
 
+#info-top {
+    min-height: 110px;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    text-align: center!important;
+    justify-content: center;
+}
+
 @media screen and (max-width: 768px) {
     .btn-s {
         border: 1px solid #00beff!important;
@@ -147,5 +156,18 @@ header {
     }
     100% {
         transform: translate(0%, 0);
+    }
+}
+
+.opacity_in {
+    animation: opacity_in 0.5;
+}
+
+@keyframes opacity_in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

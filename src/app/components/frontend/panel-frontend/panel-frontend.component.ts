@@ -32,6 +32,8 @@ export class PanelFrontendComponent implements OnInit {
   isCloseCargados: boolean;
   isCloseNoCargados: boolean;
 
+  QRtoCompartir : string;
+
   constructor(
     private renderer: Renderer2,
     private clienteService: ClienteService,
@@ -41,12 +43,15 @@ export class PanelFrontendComponent implements OnInit {
       Nombre: "",
       Email: ""
     };
+    this.QRtoCompartir = "";
     this.listQrWithoutFoto = [];
     this.listQrWithFoto = [];
 
     this.isCloseCargados = false;
     this.isCloseNoCargados = false;
     this.openModalInfoPremium = false;
+    this.isCloseCargados = true;
+    this.isCloseNoCargados = true;
   }
 
   render(e) {
@@ -68,11 +73,8 @@ export class PanelFrontendComponent implements OnInit {
     if (localStorage.getItem("user") === null) {
       this.Router.navigateByUrl("/intro");
     } else {
-      var infoTop = document.getElementById("info-top");
-
-      infoTop.innerText="HOLA"
-
       this.emailOnline = JSON.parse(localStorage.getItem("user")).email;
+      this.refreshDisplay();
       if (this.clienteService.getGlobalCliente() === null) {
         this.Router.navigateByUrl("/login");
       } else {
@@ -81,6 +83,63 @@ export class PanelFrontendComponent implements OnInit {
         this.emailOnline = this.usuarioOnline.Email;
       }
     }
+  }
+
+  isBucle = false;
+  i=0;
+  refreshDisplay(){
+
+    var infoTop = document.getElementById("info-top");
+    if(!this.isBucle){
+      this.i=0;
+      this.isBucle = true;
+    }
+    if(this.i === 4){
+      this.i = 0;
+    }
+    setTimeout(() => {
+        this.i++;
+      switch (this.i) {
+        case 0:
+            infoTop.className="opacity_in";
+
+        infoTop.innerText="Puedes crear qr dinámicos desde tu movil"
+          this.refreshDisplay();
+          break;
+          case 1:
+              infoTop.className="opacity_in";
+
+          infoTop.innerText="Utiliza los stickers con QR para cargarles contenido"
+          this.refreshDisplay();
+
+          break;
+          case 2:
+          infoTop.className="opacity_in";
+
+          infoTop.innerText="El contenido que le pongas al QR puede durar 3 meses"
+
+          this.refreshDisplay();
+          break;
+          case 3:
+          infoTop.className="opacity_in";
+
+          infoTop.innerText="Cargarle a tu QR un texto, una url o una imagen"
+          this.refreshDisplay();
+          
+          break;
+          case 4:
+          infoTop.innerText="Saca una foto con tu movil y ponla en el QR"
+          infoTop.className="opacity_in";
+          this.refreshDisplay();
+
+          break;
+      
+        default:
+          break;
+        }
+    },10000);
+
+
   }
 
   getListQr() {
@@ -115,5 +174,8 @@ export class PanelFrontendComponent implements OnInit {
 
   closeModal(event) {
     this.openModalInfoPremium = false;
+  }
+  sendAlert(){
+    alert("Se compartió el QR");
   }
 }

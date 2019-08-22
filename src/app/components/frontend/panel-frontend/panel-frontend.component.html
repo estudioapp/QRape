@@ -12,7 +12,7 @@ background: #ededed;">
                     <img src="/assets/images/isologo.png" style="width:100%;filter: grayscale(0.7);">
                 </div>
             </div>
-            <div class="col-6 d-flex" style="height: 10vh">
+            <!-- <div class="col-6 d-flex" style="height: 10vh">
                 <div class="ml-auto my-auto">
                     <img src="/assets/images/menu.png" style="padding-right: 5px;" style="width: 41px;
                     filter: invert(1);
@@ -21,20 +21,18 @@ background: #ededed;">
                     padding: 7px;
                 ">
                 </div>
-            </div>
+            </div> -->
 
 
             <div class="col-12 mb-3">
                 <p class="text-center">
                 </p>
                 <div class="text-center my-4 entry-left" id="info-top">
-                    <i class="material-icons" style="font-size:35px;color: #208bfb;">new_releases</i>
                     <p>
                         Scanneá, busca y modificá tus codigos QR
                     </p>
-                    <i class="material-icons" (click)="goQrs()">arrow_downward</i>
                 </div>
-                <h3 class="text-center">
+                <h3 class="text-center mt-3">
                     ¡Hola {{usuarioOnline.Nombre}}!<br>
                     <small>Bienvenido a QReady de nuevo</small>
                 </h3>
@@ -105,7 +103,7 @@ background: #ededed;">
                                 font-size: 30px;
                                 color: #218fff;" (click)="openModalInfoPremium = true">info</i>
                                 <br>
-                                <button class="btn-s mt-2">Compartir QR</button>
+                                <button class="btn-s mt-2" (click)="QRtoCompartir = qr.$key">Compartir QR</button>
                             </p>
                         </div>
                     </div>
@@ -135,5 +133,33 @@ background: #ededed;">
     </div>
 </section>
 
+<div *ngIf="QRtoCompartir !== ''" style="    width: 100%;
+height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+background: #0000005e;
+z-index: 1;">
+    <div style="background: white;
+    width: 90%;
+    height: 80%;
+    padding: 30px;
+    margin: auto;
+    top: 8vh;
+    position: relative; border-radius: 5px;text-align: center;">
+        <div style="width:100%; text-align: center;    margin: auto;
+        display: flex;">
+            <qrcode (click)="openQr(qr.$key)" class="mx-auto" [qrdata]="'https://qready.com.ar/vista/'+QRtoCompartir" [size]="240" [level]="'M'"></qrcode>
+        </div>
+        <div class="mt-4">
+            <p>
+                <button (click)="sendAlert()">Compartir QR</button>
+            </p>
+            <p>
+                <button (click)="QRtoCompartir = ''">Cancelar</button>
+            </p>
+        </div>
 
+    </div>
+</div>
 <app-navbar>
